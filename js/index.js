@@ -51,14 +51,9 @@ for (item of listItems){
 // fin barra de busqueda
 
 
+
+
 // menu hamburguesa
-
-// let subMenu = document.getElementById("subMenu");
-
-// function toggleMenu() {
-//     subMenu.classList.toggle("open-menu");
-// }
-
 
 let subMenu = document.getElementById("subMenu");
 
@@ -79,6 +74,7 @@ document.addEventListener("click", function(event) {
 
 
 
+
 // carrusel
 
 const carousel = document.querySelector('.carousel-inner');
@@ -89,11 +85,16 @@ function nextSlide() {
     carousel.style.transform = `translateX(-${currentIndex * 33.33}%)`;
 }
 
-setInterval(nextSlide, 5000); 
+setInterval(nextSlide, 4500); 
 
 // fin carrusel
 
+
+
+
+
 // productos slider
+
 
 
 

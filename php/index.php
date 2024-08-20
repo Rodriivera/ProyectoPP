@@ -2,13 +2,10 @@
         include 'db.php';
 
         // Primera consulta
-        $sql = "SELECT * FROM productos";
+        $sql = "SELECT * FROM productos LIMIT 5";
         $result = $conn->query($sql);
 
 ?>
-
-
-
 
 
 
@@ -23,8 +20,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Aromas</title>
+    
 </head>
 <body>
     
@@ -54,18 +51,12 @@
                 </div> 
 
         </div>
-        <!-- <form class="search-container" action="busqueda.php" method="POST">
-            
-                <input type="text" placeholder="Buscar">
-                <button type="submit"><i class="ri-search-line"></i></button>
-            
-        </form> -->
 
         <form class="search-bar" action="busqueda.php" method="GET"> 
             <div class="dropdown">
                 <div id="drop-text" class="dropdown-text">
                     <span id="span">Categorias</span>
-                    <i id="icon" class="fa-solid fa-chevron-down"></i>
+                    <i id="icon" class="ri-arrow-down-s-line"></i>
                 </div>
                 <ul id="list" class="dropdown-list">
                 <li class="dropdown-list-item">Todo</li>
@@ -147,8 +138,6 @@
     </div>
         
     
-    
-
     
 
    
