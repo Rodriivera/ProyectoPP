@@ -93,9 +93,17 @@ setInterval(nextSlide, 4500);
 
 
 
-// productos slider
+// productos 
+
+$(document).ready(function() {
+    $('#autoWidth').lightSlider({
+        autoWidth:true,
+        loop:true,
+        onSliderLoad: function() {
+            $('#autoWidth').removeClass('cS-hidden');
+        } 
+    });  
+  });
 
 
-
-
-// fin productos slider
+// fin productos 
