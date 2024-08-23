@@ -1,7 +1,7 @@
 <?php
         include 'db.php';
 
-        // Primera consulta
+        
         $sql = "SELECT * FROM productos ORDER BY RAND() LIMIT 10";
         $result = $conn->query($sql);
 
@@ -21,9 +21,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Aromas</title>
-    <link rel="stylesheet" href="../css/lightslider.css">
-    <script src="../js/jquery.js"></script>
-    <script src="../js/lightslider.js"></script>
+    <link rel="stylesheet" href="../css/lightslider.css?v=<?php echo time(); ?>">
+    <!-- <script src="../js/jquery.js?v=<?php echo time(); ?>"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="../js/lightslider.js?v=<?php echo time(); ?>"></script>
     
 </head>
 <body>
@@ -70,6 +71,9 @@
                     <li class="dropdown-list-item">Faciales</li>
                     <li class="dropdown-list-item">Capilares</li>
                     <li class="dropdown-list-item">Personales</li>
+                    <li class="dropdown-list-item">Regalería</li>
+                    <li class="dropdown-list-item">Hogar</li>
+                    <li class="dropdown-list-item">Accesorios</li>
                 </ul>
             </div>
 

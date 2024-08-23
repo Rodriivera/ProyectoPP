@@ -156,11 +156,13 @@
     display: block;
     top: 50%;
     height: 32px;
-    background-image: url('../img/controls.png');
+    /* background-image: url('../img/controls.png'); */
     cursor: pointer;
     position: absolute;
     z-index: 99;
     margin-top: -16px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     opacity: 0.5;
     -webkit-transition: opacity 0.35s linear 0s;
     transition: opacity 0.35s linear 0s;
@@ -170,11 +172,22 @@
     opacity: 1;
 }
 .lSAction > .lSPrev {
-    background-position: 0 0;
+    /* background-position: 0 0; */
+    background-image: url('../media/arrow-left-s-line.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.75) !important;
+    background-position: center center;
     left: 10px;
 }
 .lSAction > .lSNext {
-    background-position: -32px 0;
+    /* background-position: -32px 0; */
+    background-image: url('../media/arrow-left-s-line.png');
+    transform: rotate(180deg); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.75) !important;
+    background-position: center center;
     right: 10px;
 }
 
