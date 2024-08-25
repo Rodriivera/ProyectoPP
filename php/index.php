@@ -34,7 +34,7 @@
     <header>
         <div class="logo-y-menu">
         <a href="#" class="logo"><img src="../media/Aromas_sf.png" alt="" width="175px"></a>
-        <i onclick="toggleMenu()"  id="menu" class="ri-menu-line"></i>
+        <i onclick="toggleMenu()" id="menu" class="ri-menu-line menu-icon"></i>
         <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
 
@@ -66,8 +66,8 @@
                 </div>
                 <ul id="list" class="dropdown-list">
                     <li class="dropdown-list-item">Todo</li>
-                    <li class="dropdown-list-item">Perfumes</li>
-                    <li class="dropdown-list-item">Maquillaje</li>
+                    <li class="dropdown-list-item">Fragancias</li>
+                    <li class="dropdown-list-item">Maquillajes</li>
                     <li class="dropdown-list-item">Faciales</li>
                     <li class="dropdown-list-item">Capilares</li>
                     <li class="dropdown-list-item">Personales</li>
@@ -131,8 +131,8 @@
     </header>
 
 
-
     <main>
+
         
     <section class="ads">
         <div class="carousel">
@@ -146,10 +146,94 @@
         
     
     
+    <section class="categorias">
+
+        <h2>Nuestras categorias</h2>
+
+        <div class="categorias-container">
+            <div class="categoria-separada">
+                <a href="">
+                    <div class="categoria-foto">
+                        <img src="../media/perfume.png"
+                        alt="logo Fragancias">
+                    </div>
+                 </a>
+                <p>Fragancias</p>
+            </div>
+            <div class="categoria-separada">
+                <a href="">
+                    <div class="categoria-foto">
+                        <img src="../media/maquillaje.png"
+                        alt="logo maquillajes">
+                    </div>
+                 </a>
+                <p>Maquillajes</p>
+            </div>
+            <div class="categoria-separada">
+                <a href="">
+                    <div class="categoria-foto">
+                        <img src="../media/tratamiento-facial.png"
+                        alt="logo faciales">
+                    </div>
+                 </a>
+                <p>Faciales</p>
+            </div>
+            <div class="categoria-separada">
+                <a href="">
+                    <div class="categoria-foto">
+                        <img src="../media/tratamiento-capilar.png"
+                        alt="logo capilares">
+                    </div>
+                 </a>
+                <p>Capilares</p>
+            </div>
+            <div class="categoria-separada">
+                <a href="">
+                    <div class="categoria-foto">
+                        <img src="../media/articulos-de-aseo.png"
+                        alt="logo personales">
+                    </div>
+                 </a>
+                <p>Personales</p>
+            </div>
+            <div class="categoria-separada">
+                <a href="">
+                    <div class="categoria-foto">
+                        <img src="../media/regalos.png"
+                        alt="logo regaleria">
+                    </div>
+                 </a>
+                <p>Regalería</p>
+            </div>
+            <div class="categoria-separada">
+                <a href="">
+                    <div class="categoria-foto">
+                        <img src="../media/bateria-de-cocina.png"
+                        alt="logo hogar">
+                    </div>
+                 </a>
+                <p>Hogar</p>
+            </div>
+            <div class="categoria-separada">
+                <a href="">
+                    <div class="categoria-foto">
+                        <img src="../media/accesorios.png"
+                        alt="logo accesorios">
+                    </div>
+                 </a>
+                <p>Accesorios</p>
+            </div>
+
+
+        </div>
+
+
+    </section>
 
 
 
     <section class="productos">
+        <h2>Algunos productos</h2>
         <ul id="autoWidth" class="cs-hidden">
             <?php
                 while($row = $result->fetch_assoc()) {
@@ -161,11 +245,11 @@
             <li class="item">
                 <a href="item.php?id=<?php echo $row['id']; ?>">
                 <div class="box">
-                    <!-- img -->
+
                     <div class="slide-img">
                         <img src="<?php echo $image; ?>" alt="<?php echo $name; ?>">
                     </div>
-                    <!-- detail box -->
+
                     <div class="detail-box">
                         <h3><?php echo $name; ?></h3>
                         <h4><?php echo $brand; ?></h4>
@@ -178,9 +262,60 @@
             <?php } ?>
         </ul>
     </section>
-    <!-- box slider -->
-    
 
+    
+    <section class="prestaciones">
+
+        <div class="prestaciones-container">
+
+            <div class="prestacion-separada" id="envio">
+                <div class="prestacion-foto">
+                    <img src="../media/enviado.png"
+                    alt="logo envio">
+                </div>
+                <div class="prestacion-texto">
+                <h3>Envio gratis</h3>
+                <p>En compras superiores a $10.000</p>
+                </div>
+            </div>
+
+            <div class="prestacion-separada" id="reembolso">
+                <div class="prestacion-foto">
+                    <img src="../media/reembolso2.png"
+                    alt="logo reembolso">
+                </div>
+                <div class="prestacion-texto">
+                <h3>14 dias de garantia</h3>
+                <p>Por fallo de fabricacion</p>
+                </div>
+            </div>
+
+            <div class="prestacion-separada" id="seguro">
+                <div class="prestacion-foto">
+                    <img src="../media/pago-seguro2+.png"
+                    alt="logo seguro">
+                </div>
+                <div class="prestacion-texto">
+                <h3>Pago seguro</h3>
+                <p>Pagos 100% seguros</p>
+                </div>
+            </div>
+
+            <div class="prestacion-separada" id="soporte">
+                <div class="prestacion-foto">
+                    <img src="../media/centro-de-llamadas.png"
+                    alt="logo soporte">
+                </div>
+                <div class="prestacion-texto">
+                <h3>Soporte 24/7</h3>
+                <p>Soporte personalizado</p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
 
 
 
@@ -196,6 +331,10 @@
 
 
     <footer>
+
+        
+
+
 
     </footer>
 

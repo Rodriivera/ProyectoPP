@@ -48,6 +48,11 @@ for (item of listItems){
  
 }
 
+
+
+
+
+
 // fin barra de busqueda
 
 
@@ -59,12 +64,23 @@ let subMenu = document.getElementById("subMenu");
 
 function toggleMenu() {
     subMenu.classList.toggle("open-menu");
+    const menuIcon = document.getElementById('menu');
+    if (subMenu.classList.contains("open-menu")) {
+        menuIcon.classList.remove("ri-menu-line");
+        menuIcon.classList.add("ri-close-line");
+    } else {
+        menuIcon.classList.remove("ri-close-line");
+        menuIcon.classList.add("ri-menu-line");
+    }
 }
 
 // Add event listener to the document
 document.addEventListener("click", function(event) {
-    if (!subMenu.contains(event.target) && !event.target.matches('.ri-menu-line')) {
+    if (!subMenu.contains(event.target) && !event.target.matches('.menu-icon')) {
         subMenu.classList.remove("open-menu");
+        const menuIcon = document.getElementById('menu');
+        menuIcon.classList.remove("ri-close-line");
+        menuIcon.classList.add("ri-menu-line");
     }
 });
 

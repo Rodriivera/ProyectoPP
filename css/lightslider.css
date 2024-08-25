@@ -191,14 +191,14 @@
     right: 10px;
 }
 
-@media  screen and (max-width: 1250px){
+/* @media  screen and (max-width: 1250px){
     .lSAction > .lSPrev {
         display: none;
     }
     .lSAction > .lSNext {
         display: none;
     }
-}
+} */
 
 .lSAction > a.disabled {
     pointer-events: none;
