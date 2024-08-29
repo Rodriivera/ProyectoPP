@@ -1,7 +1,6 @@
 <?php
         include 'db.php';
 
-        
         $sql = "SELECT * FROM productos ORDER BY RAND() LIMIT 10";
         $result = $conn->query($sql);
 
@@ -60,10 +59,11 @@
 
         </div>
 
-        <form class="search-bar" action="busqueda.php" method="GET"> 
+        <form class="search-bar" action="busqueda.php" method="GET" id="searchForm"> 
+
             <div class="dropdown">
                 <div id="drop-text" class="dropdown-text">
-                    <span id="span">Categorias</span>
+                    <span id="span">Categorías</span>
                     <i id="icon" class="ri-arrow-down-s-line"></i>
                 </div>
                 <ul id="list" class="dropdown-list">
@@ -77,10 +77,13 @@
                     <li class="dropdown-list-item">Hogar</li>
                     <li class="dropdown-list-item">Accesorios</li>
                 </ul>
+                
             </div>
 
+            <input type="hidden" id="selected-category" name="category" value="Todo">
+
             <div class="search-box">
-                <input type="text" id="search-input" name="search" placeholder="Buscar">
+                <input type="text" id="search-input" name="search" placeholder="Buscar" autocomplete="off" >
                 <button type="submit"><i class="ri-search-line"></i></button>
             </div>
         </form>
@@ -95,37 +98,6 @@
                 
 
                 <li><i onclick="toggleMenu3()" class="ri-user-3-line"></i></li>
-                <!-- <div class="sub-menu-wrap" id="subMenu3">
-                    <div class="sub-menu">
-                        <div class="user-info">
-                            <h3>Rodrigo Vera</h3>
-                        </div>
-                        <hr>
-
-                        <a href="#" class="sub-menu-link">
-                            <i class="ri-edit-line"></i>
-                            <p>Editar perfil</p>
-                        </a>
-                        <a href="#" class="sub-menu-link">
-                            <i class="ri-settings-5-line"></i>
-                            <p>Ajustes</p>
-                            
-                        </a>
-                        <a href="#" class="sub-menu-link">
-                            <i class="ri-question-line"></i>
-                            <p>Ayuda</p>
-                            
-                        </a>
-                        <a href="#" class="sub-menu-link">
-                            <i class="ri-logout-box-line"></i>
-                            <p>Salir</p>
-                            
-                        </a>
-
-                    </div>
-                </div> -->
-
-                
                 
             </ul>
         </nav>
@@ -154,16 +126,16 @@
 
         <div class="categorias-container">
             <div class="categoria-separada">
-                <a href="">
+                <a href="busqueda.php?category=fragancias">
                     <div class="categoria-foto">
-                        <img src="../media/perfume.png"
+                        <img src="../media/perfume.png" 
                         alt="logo Fragancias">
                     </div>
-                 </a>
+                </a>
                 <p>Fragancias</p>
             </div>
             <div class="categoria-separada">
-                <a href="">
+                <a href="busqueda.php?category=maquillajes">
                     <div class="categoria-foto">
                         <img src="../media/maquillaje.png"
                         alt="logo maquillajes">
@@ -172,7 +144,7 @@
                 <p>Maquillajes</p>
             </div>
             <div class="categoria-separada">
-                <a href="">
+                <a href="busqueda.php?category=faciales">
                     <div class="categoria-foto">
                         <img src="../media/tratamiento-facial.png"
                         alt="logo faciales">
@@ -181,7 +153,7 @@
                 <p>Faciales</p>
             </div>
             <div class="categoria-separada">
-                <a href="">
+                <a href="busqueda.php?category=capilares">
                     <div class="categoria-foto">
                         <img src="../media/tratamiento-capilar.png"
                         alt="logo capilares">
@@ -190,7 +162,7 @@
                 <p>Capilares</p>
             </div>
             <div class="categoria-separada">
-                <a href="">
+                <a href="busqueda.php?category=personales">
                     <div class="categoria-foto">
                         <img src="../media/articulos-de-aseo.png"
                         alt="logo personales">
@@ -199,7 +171,7 @@
                 <p>Personales</p>
             </div>
             <div class="categoria-separada">
-                <a href="">
+                <a href="busqueda.php?category=regaleria">
                     <div class="categoria-foto">
                         <img src="../media/regalos.png"
                         alt="logo regaleria">
@@ -208,7 +180,7 @@
                 <p>Regalería</p>
             </div>
             <div class="categoria-separada">
-                <a href="">
+                <a href="busqueda.php?category=hogar">
                     <div class="categoria-foto">
                         <img src="../media/bateria-de-cocina.png"
                         alt="logo hogar">
@@ -217,7 +189,7 @@
                 <p>Hogar</p>
             </div>
             <div class="categoria-separada">
-                <a href="">
+                <a href="busqueda.php?category=accesorios">
                     <div class="categoria-foto">
                         <img src="../media/accesorios.png"
                         alt="logo accesorios">
