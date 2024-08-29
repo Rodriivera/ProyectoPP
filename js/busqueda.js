@@ -11,16 +11,7 @@ let listItems = document.querySelectorAll('.dropdown-list-item');
 
 
 
-// obligar que seleccione una categoria
-document.getElementById('searchForm').addEventListener('submit', function(event) {
-    const selectedCategory = document.getElementById('span').innerText;
-    
-    // Verifica si el texto del span es "Categorías"
-    if (selectedCategory === 'Categorías') {
-        alert('Por favor, selecciona una categoría antes de buscar.');
-        event.preventDefault(); // Impide el envío del formulario
-    }
-});
+
 
 // Manejo de la selección del dropdown
 document.querySelectorAll('.dropdown-list-item').forEach(item => {

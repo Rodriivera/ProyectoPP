@@ -380,7 +380,6 @@ h1{
     font-size: .9rem;
     font-weight: 500;
     color: black !important;
-    /* padding: 1rem 1.5rem; */
     padding: .6rem 0;
 }
 
@@ -403,7 +402,6 @@ h1{
 
 #list3.show3{
     max-height: 500px;
-    z-index: 999;
 }
 
 .dropdown-list-item3{
@@ -475,7 +473,8 @@ h1{
 }
 
 #list2.show2{
-    max-height: 300px;
+    max-height: 500px;
+    z-index: 999;
 }
 
 .dropdown-list-item2{
@@ -498,6 +497,20 @@ h1{
 
 
 /* fin ordenar precio */
+
+
+
+
+
+
+/* filtrar precio */
+
+
+
+
+/* fin filtrar precio */
+
+
 
 
 
