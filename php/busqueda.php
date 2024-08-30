@@ -49,7 +49,6 @@
                     <i id="icon" class="ri-arrow-down-s-line"></i>
                 </div>
                 <ul id="list" class="dropdown-list">
-                    <li class="dropdown-list-item">Todo</li>
                     <li class="dropdown-list-item">Fragancias</li>
                     <li class="dropdown-list-item">Maquillajes</li>
                     <li class="dropdown-list-item">Faciales</li>
@@ -162,21 +161,53 @@
     <section class="filtros-de-busqueda">
         <div id="seleccionar-categoria" class="seleccionar-categoria">
             <div class="dropdown3">
-                <div id="drop-text3" class="dropdown-text3">
-                    <span id="span3">Categorías</span>
-                    <i id="icon3" class="ri-arrow-down-s-line"></i>
+                    <div id="drop-text3" class="dropdown-text3">
+                            <span id="span3">Categorías</span>
+                            <i id="icon3" class="ri-arrow-down-s-line"></i>
+                    </div>
+                        <ul id="list3" class="dropdown-list3">
+                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Todo">
+                                <li class="dropdown-list-item3">Todo</li>
+                            </a>
+
+                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Fragancias">
+                                <li class="dropdown-list-item3">Fragancias</li>
+                            </a>
+
+                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Maquillajes">
+                                <li class="dropdown-list-item3">Maquillajes</li>
+                            </a>
+
+                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Faciales">
+                                <li class="dropdown-list-item3">Faciales</li>
+                            </a>
+
+                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Capilares">
+                                <li class="dropdown-list-item3">Capilares</li>
+                            </a>
+
+                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Personales">
+                                <li class="dropdown-list-item3">Personales</li>
+                            </a>
+
+                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Regalería">
+                                <li class="dropdown-list-item3">Regalería</li>
+                            </a>
+
+                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Hogar">
+                                <li class="dropdown-list-item3">Hogar</li>
+                            </a>
+                            
+                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Accesorios">
+                                <li class="dropdown-list-item3">Accesorios</li>
+                            </a>
+
+
+                        </ul>
+                        
+                    </div>
+                    
                 </div>
-                <ul id="list3" class="dropdown-list3">
-                    <!-- Aquí se encuentran las categorías -->
-                    <a href="busqueda.php?search=<?php echo $search; ?>&category=Todo">
-                        <li class="dropdown-list-item3">Todo</li>
-                    </a>
-                    <a href="busqueda.php?search=<?php echo $search; ?>&category=Fragancias">
-                        <li class="dropdown-list-item3">Fragancias</li>
-                    </a>
-                    <!-- Añadir más categorías si es necesario -->
-                </ul>
-            </div>
         </div>
 
         <div id="ordenar-precio" class="ordenar-precio">

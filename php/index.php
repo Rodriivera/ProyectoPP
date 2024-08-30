@@ -67,7 +67,6 @@
                     <i id="icon" class="ri-arrow-down-s-line"></i>
                 </div>
                 <ul id="list" class="dropdown-list">
-                    <li class="dropdown-list-item">Todo</li>
                     <li class="dropdown-list-item">Fragancias</li>
                     <li class="dropdown-list-item">Maquillajes</li>
                     <li class="dropdown-list-item">Faciales</li>
