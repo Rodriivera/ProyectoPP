@@ -231,13 +231,13 @@
             <form action="busqueda.php" method="GET">
                 <input type="hidden" name="search" value="<?php echo $search; ?>">
                 <input type="hidden" name="category" value="<?php echo $category; ?>">
-                <label for="precio-minimo">Precio Mínimo:</label>
-                <input type="number" id="precio-minimo" name="precio_min" min="0">
-                <label for="precio-maximo">Precio Máximo:</label>
-                <input type="number" id="precio-maximo" name="precio_max" min="0">
+                <input type="number" id="precio-minimo" name="precio_min" min="0" placeholder="Precio Mínimo" class="rangos-precio">
+                <input type="number" id="precio-maximo" name="precio_max" min="0" placeholder="Precio Máximo" class="rangos-precio">
                 <button type="submit">Filtrar</button>
             </form>
         </div>
+        
+
     </section>
 
             
