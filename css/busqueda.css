@@ -507,11 +507,63 @@ h1{
 
 
 
+.filtro-precio{
+    display: flex;
+    align-items: center;
+
+}
+
+.filtro-precio form{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.rangos-precio{
+    border: none;
+    outline: none;
+    padding: .6rem 1rem;
+    height: 40px;
+    width: 175px;
+    border-radius: 12px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    font-size: .9rem;
+}
+
+.filtro-precio form button{
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    padding: .6rem;
+    height: 40px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    background-color: #add8e6; 
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+
 
 /* fin filtrar precio */
 
 
+/* .filtros-de-busqueda{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(175px, 1fr));
+    gap: 1rem;
+} */
 
+@media screen and (max-width: 900px){
+    .filtros-de-busqueda{
+        /* display: flex;
+        flex-direction: column; */
+    }
+    
+}
 
 
 
