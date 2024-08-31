@@ -91,7 +91,7 @@
 
 
     <main>
-        <div class = "gestion-productos">
+        <!-- <div class = "gestion-productos">
 
                 <div class = "filtros-head">
 
@@ -163,7 +163,12 @@
                     </tbody>
 
                 </table>
-        </div>
+        </div> -->
+
+        
+
+
+
     </main>
 
 </body>

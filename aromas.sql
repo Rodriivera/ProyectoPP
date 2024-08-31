@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-08-2024 a las 16:50:37
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 31-08-2024 a las 02:25:08
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -70,7 +70,17 @@ INSERT INTO `productos` (`id`, `nombre`, `autor`, `precio`, `imagen`, `categoria
 (27, 'Kit 24 pinceles ', 'Gadnic', 40000, 'https://http2.mlstatic.com/D_NQ_NP_851184-MLU75341324351_032024-O.webp', 'regaleria'),
 (28, 'Globo Terraqueo', 'Gloter', 30000, 'https://http2.mlstatic.com/D_NQ_NP_627734-MLU71658817251_092023-O.webp', 'regaleria'),
 (29, 'Mochila infantil', 'Ajaxgold', 17000, 'https://http2.mlstatic.com/D_NQ_NP_838735-MLU78062218222_082024-O.webp', 'regaleria'),
-(30, 'Mouse Inalámbrico M240 Rosa', 'Logitech', 22000, 'https://http2.mlstatic.com/D_NQ_NP_2X_673076-MLU71662866901_092023-F.webp', 'regaleria');
+(30, 'Mouse Inalámbrico M240 Rosa', 'Logitech', 22000, 'https://http2.mlstatic.com/D_NQ_NP_2X_673076-MLU71662866901_092023-F.webp', 'regaleria'),
+(31, 'Vaso Quencher 1.18 Lts', 'Stanley', 120000, 'https://http2.mlstatic.com/D_NQ_NP_2X_611822-MLU77244660071_062024-F.webp', 'hogar'),
+(32, 'Vaso Vidrio Copón Vino Gourmet 450ml X6', 'Rigolleau ', 7200, 'https://http2.mlstatic.com/D_NQ_NP_2X_710124-MLU74033824512_012024-F.webp', 'hogar'),
+(33, 'Batería De Cocina Cacerola 3 Piezas Aluminio Tefló', 'Mta', 50000, 'https://http2.mlstatic.com/D_NQ_NP_2X_778604-MLA49897920296_052022-F.webp', 'hogar'),
+(34, 'Molinillo De Café Eléctrico Premium Acero Inox', 'Atma', 40000, 'https://http2.mlstatic.com/D_NQ_NP_2X_929183-MLU73212552377_122023-F.webp', 'hogar'),
+(35, 'Cafetera Italiana Clásica 9 Pocillos Manual Alumin', 'Atma', 25000, 'https://http2.mlstatic.com/D_NQ_NP_2X_843479-MLU73495333950_122023-F.webp', 'hogar'),
+(36, 'Bandolera Cartera', 'Bourbon', 19000, 'https://http2.mlstatic.com/D_NQ_NP_2X_943773-MLU73123206490_122023-F.webp', 'accesorios'),
+(37, 'Set Disfraz Animal Print', 'Furro', 5000, 'https://http2.mlstatic.com/D_NQ_NP_2X_755639-MLA52556584907_112022-F.webp', 'accesorios'),
+(38, 'Broche De Pelo Mariposa X 12', 'Iko Shop', 5700, 'https://http2.mlstatic.com/D_NQ_NP_2X_986098-MLA73234910923_122023-F.webp', 'accesorios'),
+(39, 'Aros Cristal Plata 925', 'Cubic', 10000, 'https://http2.mlstatic.com/D_NQ_NP_2X_604216-MLA76414238717_052024-F.webp', 'accesorios'),
+(40, 'Deadpool Wolverine Collar Doble', 'Marvel', 9000, 'https://http2.mlstatic.com/D_NQ_NP_2X_699206-MLA77436594299_072024-F.webp', 'accesorios');
 
 --
 -- Índices para tablas volcadas
@@ -90,7 +100,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
