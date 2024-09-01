@@ -300,157 +300,85 @@ nav i:hover{
 }
 
 
-/* fin header */
+/* /////////////////////////// FIN HEADER ///////////////////////*/
 
 
 
-
-
-
-/* main */
-
-main{
-    padding-top: 77px;
-}
-
-h1{
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-/* fin main */
-
-
-
-
-
-
-/* seleccionar categorias */
-
-
-
-/* filtos */
-
-.filtros-de-busqueda{
+/* ESTRUCTURA GENERAL */
+section{
     display: flex;
-    margin: 1.5rem 8rem;
-    gap: 1rem;
-}
-
-
-@media screen and (max-width: 1250px){
-    .filtros-de-busqueda{
-        margin: 1.5rem 1rem;
-    }
-}
-
-/* fin filtros */
-
-
-
-
-
-/* fin seleccionar categorias */
-
-
-
-
-
-.dropdown3{
-    position: relative;
-    width: 175px;
-    border-radius: 12px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-
-    /* max-height: 40px; */
-}
-
-.dropdown-list3 a{
-    color: black;
-}
-
-.dropdown-text3{
-    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    font-size: .9rem;
-    font-weight: 500;
-    color: black !important;
-    padding: .6rem 0;
+    margin: 0 auto;
+    width: 90%;
+    height: 100vh;
+    background-color: rgb(140, 149, 158);
 }
 
-.dropdown-text3 i{
-    font-size: 1.2rem;
-}
-
-.dropdown-list3{
-    position: absolute;
-    top: 4rem;
-    left: 0;
-    width: 100%;
+.container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+    height: 80%;
     border-radius: 15px;
     background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .5s ease;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
-#list3.show3{
-    max-height: 500px;
+.menu{
+    width: 20%;
+    height: 100%;
 }
 
-.dropdown-list-item3{
-    font-size:.9rem;
-    font-weight: 500;
-    padding: 1rem 0 1rem 1.5rem;
-    cursor: pointer;
-    transition: margin-left .2s ease;
+.actividad{
+    background-color: lightblue;
+    width: 80%;
+    height: 100%;
 }
 
-.dropdown-list-item3:hover{
-    margin-left: .5rem;
+/* FIN ESTRUCTURA GENERAL */
+
+
+
+
+
+/* STOCK */
+
+.lista-menu li{
+    
+    display: flex;
+    list-style: none;
+    height: auto;
+    padding: 20px 20px;
+    background-color: white;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.lista-menu{
 
 }
 
-/* main */
-main{
-    padding-top: 77px;
-}
-
-h1{
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-
-/* gestion de productos */
-
-.gestion-productos{
+.container-tabla{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 20px;
     justify-content: center;
-    position: relative;
+    overflow-y: scroll;
+}
+
+.table-stock{
     width: 100%;
-    height: 100vh;
-}
-.filtros{
-    display:flex;
-    flex-direction: row;
+    background-color: rgb(119, 185, 252);
 
-    
 }
-table{
-    border: 1px solid black;
-    width: 80%;
+
+.botones-tabla-container{
+    display: flex;
+    justify-content: space-between;
 }
 
 
+/* STOCK */

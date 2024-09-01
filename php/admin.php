@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/managment.css?v=<?php echo time(); ?>" />
+    <link rel="shortcut icon" href="../media/Aromas.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/admin.css?v=<?php echo time(); ?>" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Aromas</title>
-    <link rel="stylesheet" href="../css/lightslider.css?v=<?php echo time(); ?>">
-    <!-- <script src="../js/jquery.js?v=<?php echo time(); ?>"></script> -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="../js/lightslider.js?v=<?php echo time(); ?>"></script>
-    <title>Document</title>
 </head>
 <body>
-    <header>
+
+
+<header>
         <div class="logo-y-menu">
         <a href="../php/index.php" class="logo"><img src="../media/Aromas_sf.png" alt="" width="175px"></a>
         <i onclick="toggleMenu()" id="menu" class="ri-menu-line menu-icon"></i>
@@ -90,86 +88,104 @@
     </header>
 
 
-    <main>
-        <!-- <div class = "gestion-productos">
 
-                <div class = "filtros-head">
+    <section>
+        <div class="container">
 
-                <button type="submit">Eliminar</button>
-                <button type="submit">Agregar</button>
+            <div class="menu">
+                <ul class="lista-menu">
+                    <li> 
+                        <div id="drop-text" class="dropdown-text">
+                            <span id="span">Stock</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="drop-text" class="dropdown-text">
+                            <span id="span">Estadisticas</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="drop-text" class="dropdown-text">
+                            <span id="span">Publicar</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="drop-text" class="dropdown-text">
+                            <span id="span">Reponer</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
-                <div class = "filtros">
-                    <select >
-                        <option value = "Todo">Todo</option>
-                        <option value = "Fragancia">Fragancia</option>
-                        <option value = "Maquillaje">Maquillaje</option>
-                        <option value = "Faciales">Faciales</option>
-                        <option value = "Capilares">Capilares</option>
-                        <option value = "Personales">Personales</option>
-                        <option value = "Regalería">Regalería</option>
-                        <option value = "Hogar">Hogar</option>
-                        <option value = "Accesorios">Accesorios</option>
-                    </select>
-                    <div class = "search-box">
-                        <input type="text" id="search-input" name="search" placeholder="Buscar">
-                        <button type="submit"><i class="ri-search-line"></i></button>
+            <div class="actividad">
+                <div class="stock" id="stock">
+                    <div class="container-tabla">
+                        <table border="1" class="table-stock">
+                            <thead>
+                                <div class="botones-tabla-container">
+                                    <button value="Eliminar" >Eliminar</button>
+                                    <div class="dropdown">
+                                        <div id="drop-text" class="dropdown-text">
+                                            <span id="span">Categorías</span>
+                                            <i id="icon" class="ri-arrow-down-s-line"></i>
+                                        </div>
+                                        <ul id="list" class="dropdown-list">
+                                            <li class="dropdown-list-item">Fragancias</li>
+                                            <li class="dropdown-list-item">Maquillajes</li>
+                                            <li class="dropdown-list-item">Faciales</li>
+                                            <li class="dropdown-list-item">Capilares</li>
+                                            <li class="dropdown-list-item">Personales</li>
+                                            <li class="dropdown-list-item">Regalería</li>
+                                            <li class="dropdown-list-item">Hogar</li>
+                                            <li class="dropdown-list-item">Accesorios</li>
+                                        </ul>
+                                        
+                                    </div>
+                                    
+                                    <input type="hidden" id="selected-category" name="category" value="Todo">
+                        
+                                    <div class="search-box">
+                                        <input type="text" id="search-input" name="search" placeholder="Buscar">
+                                        <button type="submit"><i class="ri-search-line"></i></button>
+                                    </div>
+                                    <button value="Guardar">Guardar</button>
+                                
+                                </div>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Operaciones</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
-
+                <div class="stock" id=""estadisticas"">
 
                 </div>
+                <div class="faltantes">
 
-                <table class = "tabla-stock">
-                    <thead class = "tabla-head">
-                        <tr>
-                            <td>Id</td>
-                            <td>Nombre</td>
-                            <td>Precio</td>
-                            <td>Stock</td>
-                            <td>Acciones</td>
-                        </tr>
-                    </thead>
+                </div>
+                <div class="agregar">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <tbody class = "tabla-body">
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                        </tr>
-                    </tbody>
-
-                </table>
-        </div> -->
-
-        
-
-
-
-    </main>
+    
 
 </body>
 </html>
