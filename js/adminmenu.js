@@ -75,12 +75,10 @@ for (item of listItems){
  
 }
 
-
-
-
-
-
 // fin barra de busqueda
+
+
+
 
 
 
