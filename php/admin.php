@@ -94,10 +94,10 @@
         <div class="container-admin">
             <div class="container-lista-admin">
                 <ul class="menu">
-                    <li class="active"><a href="#">Estadisticas</a></li>
-                    <li class="active"><a href="#">Inventario</a></li>
-                    <li class="active"><a href="#">Publicar</a></li>
-                    <li class="active"><a href="#">Mensajes</a></li>
+                    <li id="active"><span>Estadisticas</span></li>
+                    <li><span>Inventario</span></li>
+                    <li><span>Publicar</span></li>
+                    <li><span>Mensajes</span></li>
                 </ul>
             </div>
 
