@@ -94,3 +94,22 @@ allSideMenu.forEach(item=> {
 
 
 
+// mostrar y ocultar secciones
+
+function showSection(sectionId) {
+    // Oculta todas las secciones
+    const sections = document.querySelectorAll('.secciones');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Muestra la sección correspondiente
+    const sectionToShow = document.getElementById(sectionId);
+    if (sectionToShow) {
+        sectionToShow.style.display = 'block';
+    }
+}
+
+// Mostrar la primera sección por defecto
+showSection('estadisticas-section');
+

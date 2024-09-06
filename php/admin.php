@@ -90,23 +90,39 @@
 
 
 
-    <section>
+    <section id="aside">
         <div class="container-admin">
             <div class="container-lista-admin">
                 <ul class="menu">
-                    <li id="active"><span>Estadisticas</span></li>
-                    <li><span>Inventario</span></li>
-                    <li><span>Publicar</span></li>
-                    <li><span>Mensajes</span></li>
+                    <li><span onclick="showSection('estadisticas-section')">Estadisticas</span></li>
+                    <li><span onclick="showSection('inventario-section')">Inventario</span></li>
+                    <li><span onclick="showSection('publicar-section')">Publicar</span></li>
+                    <li><span onclick="showSection('mensaje-section')">Mensajes</span></li>
                 </ul>
             </div>
+    </section>
+
+    <section class="secciones" id="estadisticas-section">
 
 
+    </section>
 
-            <div class="actividad">
-       
-            </div>
-        </div>
+
+    <section class="secciones" id="inventario-section">
+
+
+    </section>
+
+
+    <section class="secciones" id="publicar-section">
+
+
+    </section>
+
+
+    <section class="secciones" id="mensaje-section">
+
+
     </section>
 
     

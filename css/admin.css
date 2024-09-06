@@ -335,21 +335,16 @@ nav i:hover{
 
 
 
-/* ESTRUCTURA GENERAL */
-section{
+/* ASIDE DEL MENU ADMIN */
+#aside{
     background: var(--grey);
-    height: 100vh;
-    width: 100%;
-}
-
-.container-admin{
-
     position: fixed;
     background-color: white;
     height: 100%;
     width: 200px;
     top: 0;
     left: 0;
+    z-index: 900;
 }
 
 .menu{
@@ -358,15 +353,11 @@ section{
     margin-top: 200px;
     width: 100%;
 }
-
 .menu li{
-    height: 48px;
-    background: transparent;
-    margin-left: 6px;
-    border-radius: 48px 0 0 48px;
-    padding: 30px;
-    
-}   
+    margin-left: 10px;
+    border-radius: 50px;
+}
+  
 
 .menu li.active{
     background: var(--grey);
@@ -396,18 +387,52 @@ section{
     right: 0;
     box-shadow: 20px -20px 0 var(--grey);
     z-index: -1;
-    
 }
 
 .menu li span{
-    color: black;
     font-weight: 500;
-    width: 100%;
-    height: 100%;
+    height: 50px;
     display: flex;
     align-items: center;
     border-radius: 48px;
     font-size: 16px;
     color: var(--dark);
+    margin: 10px 0 10px 30px;
 }
 
+
+
+/* FIN ASIDE DEL MENU ADMIN */
+
+/* SECCIONES DE ADMINISTRACION */
+
+.secciones{
+    position: absolute;
+    background-color: var(--grey);
+    width: 100%;
+    height: 100vh;
+    padding-left: 200px;
+    display: none;
+}
+
+
+/* FIN SECCIONES DE ADMINISTRACION */
+
+
+/* SECTION DE ESTADISTICAS */
+
+#estadisticas-section{
+    background-color: var(--red);
+}
+
+#inventario-section{
+    background-color: var(--orange);
+}
+
+#publicar-section{
+    background-color: var(--light-blue);
+}
+
+#mensaje-section{
+    background-color: var(--color-dark);
+}
