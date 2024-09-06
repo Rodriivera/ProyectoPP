@@ -159,85 +159,87 @@
     <!-- HTML para la sección de filtros y productos -->
 
     <section class="filtros-de-busqueda">
-        <div id="seleccionar-categoria" class="seleccionar-categoria">
-            <div class="dropdown3">
-                    <div id="drop-text3" class="dropdown-text3">
-                            <span id="span3">Categorías</span>
-                            <i id="icon3" class="ri-arrow-down-s-line"></i>
-                    </div>
-                        <ul id="list3" class="dropdown-list3">
-                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Todo">
-                                <li class="dropdown-list-item3">Todo</li>
-                            </a>
+        <form action="busqueda.php" method="GET">
 
-                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Fragancias">
-                                <li class="dropdown-list-item3">Fragancias</li>
-                            </a>
+                <div class="dropdown3">
+                        <div id="drop-text3" class="dropdown-text3">
+                                <span id="span3">Categorías</span>
+                                <i id="icon3" class="ri-arrow-down-s-line"></i>
+                        </div>
+                            <ul id="list3" class="dropdown-list3">
+                                <a href="busqueda.php?search=<?php echo $search; ?>&category=Todo">
+                                    <li class="dropdown-list-item3">Todo</li>
+                                </a>
 
-                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Maquillajes">
-                                <li class="dropdown-list-item3">Maquillajes</li>
-                            </a>
+                                <a href="busqueda.php?search=<?php echo $search; ?>&category=Fragancias">
+                                    <li class="dropdown-list-item3">Fragancias</li>
+                                </a>
 
-                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Faciales">
-                                <li class="dropdown-list-item3">Faciales</li>
-                            </a>
+                                <a href="busqueda.php?search=<?php echo $search; ?>&category=Maquillajes">
+                                    <li class="dropdown-list-item3">Maquillajes</li>
+                                </a>
 
-                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Capilares">
-                                <li class="dropdown-list-item3">Capilares</li>
-                            </a>
+                                <a href="busqueda.php?search=<?php echo $search; ?>&category=Faciales">
+                                    <li class="dropdown-list-item3">Faciales</li>
+                                </a>
 
-                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Personales">
-                                <li class="dropdown-list-item3">Personales</li>
-                            </a>
+                                <a href="busqueda.php?search=<?php echo $search; ?>&category=Capilares">
+                                    <li class="dropdown-list-item3">Capilares</li>
+                                </a>
 
-                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Regalería">
-                                <li class="dropdown-list-item3">Regalería</li>
-                            </a>
+                                <a href="busqueda.php?search=<?php echo $search; ?>&category=Personales">
+                                    <li class="dropdown-list-item3">Personales</li>
+                                </a>
 
-                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Hogar">
-                                <li class="dropdown-list-item3">Hogar</li>
-                            </a>
+                                <a href="busqueda.php?search=<?php echo $search; ?>&category=Regalería">
+                                    <li class="dropdown-list-item3">Regalería</li>
+                                </a>
+
+                                <a href="busqueda.php?search=<?php echo $search; ?>&category=Hogar">
+                                    <li class="dropdown-list-item3">Hogar</li>
+                                </a>
+                                
+                                <a href="busqueda.php?search=<?php echo $search; ?>&category=Accesorios">
+                                    <li class="dropdown-list-item3">Accesorios</li>
+                                </a>
+
+
+                            </ul>
                             
-                            <a href="busqueda.php?search=<?php echo $search; ?>&category=Accesorios">
-                                <li class="dropdown-list-item3">Accesorios</li>
-                            </a>
-
-
-                        </ul>
+                        </div>
                         
                     </div>
-                    
-                </div>
-        </div>
 
-        <div id="ordenar-precio" class="ordenar-precio">
-            <div class="dropdown2" id="dropdown2">
-                <div id="drop-text2" class="dropdown-text2">
-                    <span id="span2">Ordenar por</span>
-                    <i id="icon2" class="ri-arrow-down-s-line"></i>
-                </div>
-                <ul id="list2" class="dropdown-list2">
-                    <a href="busqueda.php?search=<?php echo $search; ?>&category=<?php echo $category; ?>&order=ASC&precio_min=<?php echo $precio_min; ?>&precio_max=<?php echo $precio_max; ?>">
-                        <li class="dropdown-list-item2">Menor a mayor</li>
-                    </a>
-                    <a href="busqueda.php?search=<?php echo $search; ?>&category=<?php echo $category; ?>&order=DESC&precio_min=<?php echo $precio_min; ?>&precio_max=<?php echo $precio_max; ?>">
-                        <li class="dropdown-list-item2">Mayor a menor</li>
-                    </a>
-                </ul>
-            </div>
-        </div>
 
-        <div id="filtro-precio" class="filtro-precio">
-            <form action="busqueda.php" method="GET">
-                <input type="hidden" name="search" value="<?php echo $search; ?>">
-                <input type="hidden" name="category" value="<?php echo $category; ?>">
-                <input type="number" id="precio-minimo" name="precio_min" min="0" placeholder="Precio Mínimo" class="rangos-precio">
+
+                <div class="dropdown2" id="dropdown2">
+                    <div id="drop-text2" class="dropdown-text2">
+                        <span id="span2">Ordenar por</span>
+                        <i id="icon2" class="ri-arrow-down-s-line"></i>
+                    </div>
+                    <ul id="list2" class="dropdown-list2">
+                        <a href="busqueda.php?search=<?php echo $search; ?>&category=<?php echo $category; ?>&order=ASC&precio_min=<?php echo $precio_min; ?>&precio_max=<?php echo $precio_max; ?>">
+                            <li class="dropdown-list-item2">Menor a mayor</li>
+                        </a>
+                        <a href="busqueda.php?search=<?php echo $search; ?>&category=<?php echo $category; ?>&order=DESC&precio_min=<?php echo $precio_min; ?>&precio_max=<?php echo $precio_max; ?>">
+                            <li class="dropdown-list-item2">Mayor a menor</li>
+                        </a>
+                    </ul>
+                </div>
+
+
+            <input type="hidden" name="search" value="<?php echo $search; ?>">
+            <input type="hidden" name="category" value="<?php echo $category; ?>">
+
+
+                <input type="number" id="precio-minimo" name="precio_min" min="0" placeholder="Precio Mínimo" class="rangos-precio"> 
+
+
                 <input type="number" id="precio-maximo" name="precio_max" min="0" placeholder="Precio Máximo" class="rangos-precio">
-                <button type="submit">Filtrar</button>
-            </form>
-        </div>
-        
 
+
+            <button type="submit">Filtrar</button>
+        </form>
     </section>
 
             
@@ -297,7 +299,72 @@
 
     </main>
 
+    <footer>
 
+<div class="logoyinfo">
+
+    <div class="logoyredes">
+        <img src="../media/Aromas_sf.png" alt="logo aromas" width="175px">
+        <div class="redes">
+            <a href="#"><i class="ri-facebook-line"></i></a>
+            <a href="#"><i class="ri-instagram-line"></i></a>
+            <a href="#"><i class="ri-twitter-x-line"></i></a>
+            <a href="#"><i class="ri-mail-line"></i></a>
+        </div>
+    </div>
+
+    <div class="categorias-footer">
+        <h3>Categorias</h3>
+        <hr>
+        <ul>
+            <li><a href="busqueda.php?category=Fragancias">Fragancias</a></li>
+            <li><a href="busqueda.php?category=Maquillajes">Maquillajes</a></li>
+            <li><a href="busqueda.php?category=Faciales">Faciales</a></li>
+            <li><a href="busqueda.php?category=Capilares">Capilares</a></li>
+            <li><a href="busqueda.php?category=Personales">Personales</a></li>
+            <li><a href="busqueda.php?category=Regalería">Regalería</a></li>
+            <li><a href="busqueda.php?category=Hogar">Hogar</a></li>
+            <li><a href="busqueda.php?category=Accesorios">Accesorios</a></li>
+
+
+        </ul>
+    </div>
+
+    <div class="politicas">
+        <h3>Politicas</h3>
+        <hr>
+        <ul>
+            <li><a href="#">Envios</a></li>
+            <li><a href="#">Devoluciones</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Terminos y condiciones</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+
+        </ul>
+    </div>
+
+
+    <div class="contacto">
+        <h3>Contacto</h3>
+        <hr>
+        <ul>
+            <li><p>Telefono: 1234567890</p></li>
+            <li><p>Correo: aromas@gmail.com</p></li>
+            <li><p>Direccion: Av. siempre viva 123</p></li>
+            <li><p>Horario: Lunes a Viernes de 9:00 a 18:00</p></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="copy">
+    <p>&copy; 2024 Aromas. Todos los derechos reservados.</p>
+</div>
+
+
+
+
+</footer>
 
 
 

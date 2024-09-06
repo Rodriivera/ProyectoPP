@@ -72,12 +72,12 @@
 .dropdown-text{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: .9rem;
     font-weight: 500;
     color: black !important;
     /* padding: 1rem 1.5rem; */
-    padding: 1rem 0;
+    padding: 1rem 1rem;
 }
 
 .dropdown-text i{

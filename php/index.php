@@ -26,7 +26,7 @@
     <!-- <script src="../js/jquery.js?v=<?php echo time(); ?>"></script> -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="../js/lightslider.js?v=<?php echo time(); ?>"></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     
@@ -305,7 +305,66 @@
 
     <footer>
 
-        
+            <div class="logoyinfo">
+
+                <div class="logoyredes">
+                    <img src="../media/Aromas_sf.png" alt="logo aromas" width="175px">
+                    <div class="redes">
+                        <a href="#"><i class="ri-facebook-line"></i></a>
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-twitter-x-line"></i></a>
+                        <a href="#"><i class="ri-mail-line"></i></a>
+                    </div>
+                </div>
+
+                <div class="categorias-footer">
+                    <h3>Categorias</h3>
+                    <hr>
+                    <ul>
+                        <li><a href="busqueda.php?category=Fragancias">Fragancias</a></li>
+                        <li><a href="busqueda.php?category=Maquillajes">Maquillajes</a></li>
+                        <li><a href="busqueda.php?category=Faciales">Faciales</a></li>
+                        <li><a href="busqueda.php?category=Capilares">Capilares</a></li>
+                        <li><a href="busqueda.php?category=Personales">Personales</a></li>
+                        <li><a href="busqueda.php?category=Regalería">Regalería</a></li>
+                        <li><a href="busqueda.php?category=Hogar">Hogar</a></li>
+                        <li><a href="busqueda.php?category=Accesorios">Accesorios</a></li>
+
+
+                    </ul>
+                </div>
+
+                <div class="politicas">
+                    <h3>Politicas</h3>
+                    <hr>
+                    <ul>
+                        <li><a href="#">Envios</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                        <li><a href="#">Terminos y condiciones</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+
+                    </ul>
+                </div>
+
+
+                <div class="contacto">
+                    <h3>Contacto</h3>
+                    <hr>
+                    <ul>
+                        <li><p>Telefono: 1234567890</p></li>
+                        <li><p>Correo: aromas@gmail.com</p></li>
+                        <li><p>Direccion: Av. siempre viva 123</p></li>
+                        <li><p>Horario: Lunes a Viernes de 9:00 a 18:00</p></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="copy">
+                <p>&copy; 2024 Aromas. Todos los derechos reservados.</p>
+            </div>
+
 
 
 

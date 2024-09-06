@@ -41,12 +41,12 @@
 .dropdown-text{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: .9rem;
     font-weight: 500;
     color: black !important;
     /* padding: 1rem 1.5rem; */
-    padding: 1rem 0;
+    padding: 1rem 1rem;
 }
 
 .dropdown-text i{
@@ -618,11 +618,6 @@ main{
 
 
 
-
-
-
-
-
 /* mq */
 
 @media  screen and (max-width: 1250px){
@@ -672,9 +667,119 @@ main{
 
 /* footer */
 
+footer{
+    margin-top: 3rem;
+    padding: 1.5rem 8rem 1rem;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.logoyinfo{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.logoyredes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.redes{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.redes a{
+    background-color: none;
+    border-radius: 50%;
+    padding: 10px;
+    transition: .3s;
+}
+
+.redes a:hover{
+    background-color: rgba(128, 128, 128, 0.070);
+    transition: .3s;
+}
+
+.redes i{
+    font-size: 1.5rem;
+    color: black;
+}
+
+footer h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+footer hr{
+    margin: .5rem 0;
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgb(81, 81, 81);
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+footer ul li a, footer p{
+    font-size: .9rem;
+    font-weight: 500;
+    color: rgb(100, 100, 100);
+    transition: .3s;
+}
+
+footer ul li a:hover, footer p:hover{
+    color: black;
+    transition: .3s;
+}
 
 
 
 
+
+
+.copy{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: .8rem;
+    color: rgb(100, 100, 100);
+    font-weight: 500;
+    text-align: center;
+    font-style: italic;
+}
+
+
+@media screen and (max-width: 1250px){
+    footer{
+        padding: 1.5rem 1rem 1rem;
+    }
+}
+
+@media screen and (max-width: 900px){
+.logoyinfo{
+    flex-direction: column;
+}
+
+footer h3{
+    margin-top: 1.5rem;
+}
+
+.redes{
+    justify-content: center;
+}
+
+}
 
 /* fin footer */

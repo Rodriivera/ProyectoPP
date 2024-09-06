@@ -40,12 +40,12 @@
 .dropdown-text{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: .9rem;
     font-weight: 500;
     color: black !important;
     /* padding: 1rem 1.5rem; */
-    padding: 1rem 0;
+    padding: 1rem 1rem;
 }
 
 .dropdown-text i{
@@ -331,18 +331,20 @@ h1{
 
 
 
-/* filtos */
+/* filtros */
 
-.filtros-de-busqueda{
-    display: flex;
+.filtros-de-busqueda form{
     margin: 1.5rem 8rem;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(175px, 1fr));
     gap: 1rem;
 }
 
 
 @media screen and (max-width: 1250px){
-    .filtros-de-busqueda{
+    .filtros-de-busqueda form{
         margin: 1.5rem 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
 
@@ -360,7 +362,7 @@ h1{
 
 .dropdown3{
     position: relative;
-    width: 175px;
+    /* width: 175px; */
     border-radius: 12px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -375,11 +377,12 @@ h1{
 .dropdown-text3{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: .9rem;
     font-weight: 500;
     color: black !important;
-    padding: .6rem 0;
+    padding: .6rem 1rem;
+
 }
 
 .dropdown-text3 i{
@@ -431,7 +434,7 @@ h1{
 
 .dropdown2{
     position: relative;
-    width: 175px;
+    /* width: 175px; */
     border-radius: 12px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -446,12 +449,12 @@ h1{
 .dropdown-text2{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: .9rem;
     font-weight: 500;
     color: black !important;
     /* padding: 1rem 1.5rem; */
-    padding: .6rem 0;
+    padding: .6rem 1rem;
 }
 
 .dropdown-text2 i{
@@ -506,24 +509,13 @@ h1{
 
 
 
-.filtro-precio{
-    display: flex;
-    align-items: center;
-
-}
-
-.filtro-precio form{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
 
 .rangos-precio{
     border: none;
     outline: none;
     padding: .6rem 1rem;
-    height: 40px;
-    width: 175px;
+    /* height: 40px; */
+    /* width: 175px; */
     border-radius: 12px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     font-size: .9rem;
@@ -546,6 +538,27 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+.filtros-de-busqueda button{
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+    color: white !important;
+    background-color: #6cafc9;
+    height: 40px;
+    transition: .3s;
+}
+
+.filtros-de-busqueda button:hover{
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    transition: .3s;
+}
+
+@media screen and (max-width: 530px) and (min-width: 365px) {
+    .filtros-de-busqueda button{
+        width: 208%;
+        
+    }
+}
 
 /* fin filtrar precio */
 
@@ -704,6 +717,124 @@ h5{
 
 
 
+/* footer */
+
+footer{
+    margin-top: 3rem;
+    padding: 1.5rem 8rem 1rem;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.logoyinfo{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.logoyredes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.redes{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.redes a{
+    background-color: none;
+    border-radius: 50%;
+    padding: 10px;
+    transition: .3s;
+}
+
+.redes a:hover{
+    background-color: rgba(128, 128, 128, 0.070);
+    transition: .3s;
+}
+
+.redes i{
+    font-size: 1.5rem;
+    color: black;
+}
+
+footer h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+footer hr{
+    margin: .5rem 0;
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgb(81, 81, 81);
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+footer ul li a, footer p{
+    font-size: .9rem;
+    font-weight: 500;
+    color: rgb(100, 100, 100);
+    transition: .3s;
+}
+
+footer ul li a:hover, footer p:hover{
+    color: black;
+    transition: .3s;
+}
+
+
+
+
+
+
+.copy{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: .8rem;
+    color: rgb(100, 100, 100);
+    font-weight: 500;
+    text-align: center;
+    font-style: italic;
+}
+
+
+@media screen and (max-width: 1250px){
+    footer{
+        padding: 1.5rem 1rem 1rem;
+    }
+}
+
+@media screen and (max-width: 900px){
+.logoyinfo{
+    flex-direction: column;
+}
+
+footer h3{
+    margin-top: 1.5rem;
+}
+
+.redes{
+    justify-content: center;
+}
+
+}
+
+/* fin footer */
 
 
 
