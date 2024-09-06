@@ -79,8 +79,17 @@ for (item of listItems){
 
 
 
+const allSideMenu = document.querySelectorAll('.menu li span');
 
-
+allSideMenu.forEach(item=> {
+	const li = item.parentElement;
+	item.addEventListener('click', function () {
+		allSideMenu.forEach(i=> {
+			i.parentElement.classList.remove('active');
+		})
+		li.classList.add('active');
+	})
+});
 
 
 
