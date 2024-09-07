@@ -74,12 +74,12 @@ for (item of listItems){
     }
  
 }
-
 // fin barra de busqueda
 
 
 
 const allSideMenu = document.querySelectorAll('.menu li span');
+let active = document.getElementById('active')
 
 allSideMenu.forEach(item=> {
 	const li = item.parentElement;
@@ -91,7 +91,10 @@ allSideMenu.forEach(item=> {
 	})
 });
 
-
+document.addEventListener('DOMContentLoaded', (event) => {
+    var boton = document.getElementById('active');
+    boton.disabled = false; // Asegúrate de que el botón esté habilitado
+});
 
 
 // mostrar y ocultar secciones

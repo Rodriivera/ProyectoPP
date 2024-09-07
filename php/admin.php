@@ -94,7 +94,7 @@
         <div class="container-admin">
             <div class="container-lista-admin">
                 <ul class="menu">
-                    <li><span onclick="showSection('estadisticas-section')">Estadisticas</span></li>
+                    <li class="active"><span id="active" onclick="showSection('estadisticas-section')">Estadisticas</span></li>
                     <li><span onclick="showSection('inventario-section')">Inventario</span></li>
                     <li><span onclick="showSection('publicar-section')">Publicar</span></li>
                     <li><span onclick="showSection('mensaje-section')">Mensajes</span></li>
@@ -109,7 +109,57 @@
 
 
     <section class="secciones" id="inventario-section">
-
+        <div class="container-tabla">
+            <table>
+                <thead>
+                    <th>
+                        <tr>Id</tr>
+                        <tr>Nombre</tr>
+                        <tr>Stock</tr>
+                        <tr>Precio</tr>
+                        <tr>Operaciones</tr>
+                    </th>
+                </thead>
+                <tbody>
+                    <td>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </td>
+                    <td>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </td>
+                    <td>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </td>
+                    <td>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </td>
+                    <td>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </td>
+                    
+                </tbody>
+            </table>
+        </div>
 
     </section>
 

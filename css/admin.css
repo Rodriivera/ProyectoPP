@@ -362,7 +362,9 @@ nav i:hover{
 .menu li.active{
     background: var(--grey);
     position: relative;
+    
 }
+
 
 .menu li.active::before{
     content: "";
@@ -397,7 +399,9 @@ nav i:hover{
     border-radius: 48px;
     font-size: 16px;
     color: var(--dark);
-    margin: 10px 0 10px 30px;
+    padding: 10px 0 10px 30px;
+    margin-bottom: 1rem;
+    
 }
 
 
@@ -422,17 +426,17 @@ nav i:hover{
 /* SECTION DE ESTADISTICAS */
 
 #estadisticas-section{
-    background-color: var(--red);
+    background-color: var(--grey);
 }
 
 #inventario-section{
-    background-color: var(--orange);
+    background-color: var(--grey);
 }
 
 #publicar-section{
-    background-color: var(--light-blue);
+    background-color: var(--grey);
 }
 
 #mensaje-section{
-    background-color: var(--color-dark);
+    background-color: var(--grey);
 }
