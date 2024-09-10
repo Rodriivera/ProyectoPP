@@ -18,7 +18,7 @@
     list-style-type: none;
     font-family: "Montserrat", sans-serif;
     text-decoration: none;
-    
+    user-select: none;
 }
 
 
@@ -86,7 +86,7 @@
 
 .dropdown-list{
     position: absolute;
-    top: 4rem;
+    top: 3rem;
     left: 0;
     width: 100%;
     border-radius: 15px;
@@ -166,7 +166,7 @@ header{
     position: fixed;
     width: 100%;
     background-color: white !important;
-    z-index: 999;
+    z-index: -999;
 }
 
 nav ul{
@@ -401,6 +401,7 @@ nav i:hover{
     color: var(--dark);
     padding: 10px 0 10px 30px;
     margin-bottom: 1rem;
+    cursor: pointer; 
     
 }
 
@@ -429,9 +430,67 @@ nav i:hover{
     background-color: var(--grey);
 }
 
+
+
+
+
+
+
+/* SECTION DE INVENTARIO */
 #inventario-section{
     background-color: var(--grey);
+ 
 }
+
+.container-tabla{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+
+table{
+    background-color: lightblue;
+    border-radius: 12px;
+    width: 90%;
+    margin: 10px;
+    border-collapse: collapse;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+    
+}
+thead{
+    
+
+}
+tbody tr:last-child{
+    border-radius:  30px;
+}
+
+th{
+    height: 40px; 
+    font-weight: 500;  
+}
+
+
+tbody tr:nth-child(even){
+    background-color: var(--grey);
+   
+}
+tbody tr:nth-child(odd){
+    background-color: var(--color-white);
+}
+/* FINSECTION DE INVENTARIO */
+
+
+
+
+
+
+
+
 
 #publicar-section{
     background-color: var(--grey);

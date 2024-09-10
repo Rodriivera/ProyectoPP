@@ -42,33 +42,7 @@
 
         </div>
 
-        <form class="search-bar" action="busqueda.php" method="GET" id="searchForm"> 
-
-            <div class="dropdown">
-                <div id="drop-text" class="dropdown-text">
-                    <span id="span">Categorías</span>
-                    <i id="icon" class="ri-arrow-down-s-line"></i>
-                </div>
-                <ul id="list" class="dropdown-list">
-                    <li class="dropdown-list-item">Fragancias</li>
-                    <li class="dropdown-list-item">Maquillajes</li>
-                    <li class="dropdown-list-item">Faciales</li>
-                    <li class="dropdown-list-item">Capilares</li>
-                    <li class="dropdown-list-item">Personales</li>
-                    <li class="dropdown-list-item">Regalería</li>
-                    <li class="dropdown-list-item">Hogar</li>
-                    <li class="dropdown-list-item">Accesorios</li>
-                </ul>
-                
-            </div>
-            
-            <input type="hidden" id="selected-category" name="category" value="Todo">
-
-            <div class="search-box">
-                <input type="text" id="search-input" name="search" placeholder="Buscar">
-                <button type="submit"><i class="ri-search-line"></i></button>
-            </div>
-        </form>
+       
 
 
         <nav>
@@ -110,54 +84,75 @@
 
     <section class="secciones" id="inventario-section">
         <div class="container-tabla">
+            <form class="search-bar" action="busqueda.php" method="GET" id="searchForm"> 
+                <div class="dropdown">
+                    <div id="drop-text" class="dropdown-text">
+                        <span id="span">Categorías</span>
+                        <i id="icon" class="ri-arrow-down-s-line"></i>
+                    </div>
+                    <ul id="list" class="dropdown-list">
+                        <li class="dropdown-list-item">Fragancias</li>
+                        <li class="dropdown-list-item">Maquillajes</li>
+                        <li class="dropdown-list-item">Faciales</li>
+                        <li class="dropdown-list-item">Capilares</li>
+                        <li class="dropdown-list-item">Personales</li>
+                        <li class="dropdown-list-item">Regalería</li>
+                        <li class="dropdown-list-item">Hogar</li>
+                        <li class="dropdown-list-item">Accesorios</li>
+                    </ul>
+                    
+                </div>
+
+                <input type="hidden" id="selected-category" name="category" value="Todo">
+
+                <div class="search-box">
+                    <input type="text" id="search-input" name="search" placeholder="Buscar">
+                    <button type="submit"><i class="ri-search-line"></i></button>
+                </div>
+            </form>
             <table>
                 <thead>
-                    <th>
-                        <tr>Id</tr>
-                        <tr>Nombre</tr>
-                        <tr>Stock</tr>
-                        <tr>Precio</tr>
-                        <tr>Operaciones</tr>
-                    </th>
+                    <tr>
+                        <th>Id</th>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Stock</th>
+                        <th>Precio</th>
+                        <th>Operaciones</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <td>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                    </td>
-                    <td>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                    </td>
-                    <td>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                    </td>
-                    <td>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                    </td>
-                    <td>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                    </td>
-                    
-                </tbody>
+<?php
+include 'db.php'; // Asegúrate de que 'db.php' esté configurado correctamente y $conn esté definido
+
+$sql = "SELECT * FROM productos ORDER BY RAND()";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $id = $row['id'];
+        $name = $row['nombre'];
+        $price = $row['precio'];
+        $image = $row['imagen'];
+        // $stock = $row['stock'];
+
+        ?>
+        <tr>
+            <td><?php echo $id; ?></td>
+            <td><img src="<?php echo $image; ?>" alt="<?php echo $name; ?>" width="50px" height="50px"></td>
+            <td><?php echo $name; ?></td>
+            <!-- <td><?php echo $stock; ?></td> -->
+            <td><?php echo $price; ?></td>
+            <td><button><i class="ri-pencil-line"></i></button><button>X</button></td>
+        </tr>
+        <?php
+    }
+} else {
+    echo "<tr><td colspan='6'>No se encontraron productos</td></tr>";
+}
+?>
+</tbody>
+
             </table>
         </div>
 

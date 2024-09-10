@@ -5,7 +5,7 @@
     list-style-type: none;
     font-family: "Montserrat", sans-serif;
     text-decoration: none;
-    
+    user-select: none;
 }
 
 
@@ -562,7 +562,7 @@ main{
     font-weight: 400;
 }
 
-#envio{
+/* #envio{
     background-color: rgb(230, 245, 252);
 }
 
@@ -576,7 +576,7 @@ main{
 
 #soporte{
     background-color: rgb(245, 239, 223);
-}
+} */
 
 @media screen and (max-width: 1250px){
     .prestaciones{
