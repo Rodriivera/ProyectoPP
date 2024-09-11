@@ -529,6 +529,8 @@ main{
     background-color: rgba(128, 128, 128, 0.070);
     padding: 20px;
     border-radius: 12px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: .3s;
 }
 
 .prestacion-separada img{
@@ -562,21 +564,33 @@ main{
     font-weight: 400;
 }
 
+<<<<<<< Updated upstream
 /* #envio{
+=======
+#envio:hover{
+>>>>>>> Stashed changes
     background-color: rgb(230, 245, 252);
+    transition: .3s;
 }
 
-#reembolso{
+#reembolso:hover{
     background-color: rgb(230, 222, 245);
+    transition: .3s;
 }
 
-#seguro{
+#seguro:hover{
     background-color: rgb(236, 248, 226);
+    transition: .3s;
 }
 
-#soporte{
+#soporte:hover{
     background-color: rgb(245, 239, 223);
+<<<<<<< Updated upstream
 } */
+=======
+    transition: .3s;
+}
+>>>>>>> Stashed changes
 
 @media screen and (max-width: 1250px){
     .prestaciones{
@@ -622,7 +636,7 @@ main{
 
 @media  screen and (max-width: 1250px){
     main{
-        padding: 140px 0;
+        padding: 140px 0 0;
     }
     .ads{
         padding: 0 1rem;
@@ -717,14 +731,12 @@ footer{
 footer h3{
     font-size: 1.2rem;
     font-weight: 600;
+    border-bottom: 2px solid black; 
+    padding-bottom:.5rem;
+    margin-bottom: .6rem;
+    display: inline-block;
 }
 
-footer hr{
-    margin: .5rem 0;
-    width: 100%;
-    border: none;
-    border-top: 1px solid rgb(81, 81, 81);
-}
 
 footer ul{
     display: flex;
@@ -737,11 +749,17 @@ footer ul li a, footer p{
     font-weight: 500;
     color: rgb(100, 100, 100);
     transition: .3s;
+    border-bottom: 1.6px solid transparent;
+    display: inline-block;
+    padding-bottom: 2px;
+    
 }
 
-footer ul li a:hover, footer p:hover{
+.categorias-footer ul li a:hover ,.politicas ul li a:hover,.contacto p:hover{
     color: black;
     transition: .3s;
+    border-bottom: 1.6px solid black;
+    
 }
 
 

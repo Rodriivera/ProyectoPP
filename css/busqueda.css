@@ -334,7 +334,7 @@ h1{
 /* filtros */
 
 .filtros-de-busqueda form{
-    margin: 1.5rem 8rem;
+    margin: 2rem 8rem;
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(175px, 1fr));
     gap: 1rem;
@@ -775,7 +775,7 @@ footer hr{
     margin: .5rem 0;
     width: 100%;
     border: none;
-    border-top: 1px solid rgb(81, 81, 81);
+    border-top: 2px solid rgb(81, 81, 81);
 }
 
 footer ul{
@@ -789,11 +789,14 @@ footer ul li a, footer p{
     font-weight: 500;
     color: rgb(100, 100, 100);
     transition: .3s;
+    border-bottom: 1px solid transparent;
+    display: inline-block;
 }
 
-footer ul li a:hover, footer p:hover{
+.categorias-footer ul li a:hover ,.politicas ul li a:hover,.contacto p:hover{
     color: black;
     transition: .3s;
+    border-bottom: 1px solid black;
 }
 
 

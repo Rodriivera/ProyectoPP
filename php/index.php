@@ -4,8 +4,12 @@
         $sql = "SELECT * FROM productos ORDER BY RAND() LIMIT 10";
         $result = $conn->query($sql);
 
-?>
+        session_start();
 
+        $user_id = $_SESSION['user_id'];
+        $user_email = $_SESSION['user_email'];
+        
+?>
 
 
 
@@ -44,7 +48,7 @@
                             <p>Cuenta</p>
                         </a>
                         <a href="#" class="sub-menu-link">
-                            <i class="ri-shopping-bag-4-line"></i>
+                            <i class="ri-shopping-cart-line"></i>
                             <p>Carrito</p>
                             
                         </a>
@@ -93,10 +97,10 @@
                 <li><i onclick="toggleMenu1()" class="ri-heart-3-line"></i></li>
                     
 
-                <li><i onclick="toggleMenu2()" class="ri-shopping-bag-4-line"></i></li>
+                <li><i onclick="toggleMenu2()" class="ri-shopping-cart-line"></i></li>
                 
 
-                <li><i onclick="toggleMenu3()" class="ri-user-3-line"></i></li>
+                <li><a href="./login-register.php"><i onclick="toggleMenu3()" class="ri-user-3-line"></i></a></li>
                 
             </ul>
         </nav>
@@ -319,7 +323,6 @@
 
                 <div class="categorias-footer">
                     <h3>Categorias</h3>
-                    <hr>
                     <ul>
                         <li><a href="busqueda.php?category=Fragancias">Fragancias</a></li>
                         <li><a href="busqueda.php?category=Maquillajes">Maquillajes</a></li>
@@ -336,7 +339,6 @@
 
                 <div class="politicas">
                     <h3>Politicas</h3>
-                    <hr>
                     <ul>
                         <li><a href="#">Envios</a></li>
                         <li><a href="#">Devoluciones</a></li>
@@ -350,11 +352,10 @@
 
                 <div class="contacto">
                     <h3>Contacto</h3>
-                    <hr>
                     <ul>
-                        <li><p>Telefono: 1234567890</p></li>
-                        <li><p>Correo: aromas@gmail.com</p></li>
-                        <li><p>Direccion: Av. siempre viva 123</p></li>
+                        <li><p>Telefono: 44228085</p></li>
+                        <li><p>Correo: aromas@aromas.com</p></li>
+                        <li><p>Direccion: Bartolomé Mitre 384</p></li>
                         <li><p>Horario: Lunes a Viernes de 9:00 a 18:00</p></li>
                     </ul>
                 </div>
@@ -364,8 +365,9 @@
             <div class="copy">
                 <p>&copy; 2024 Aromas. Todos los derechos reservados.</p>
             </div>
-
-
+            
+            <p>ID de usuario: <?php echo htmlspecialchars($user_id); ?></p>
+            <p>Email: <?php echo htmlspecialchars($user_email); ?></p>
 
 
     </footer>
