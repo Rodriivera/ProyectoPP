@@ -1,13 +1,16 @@
 <?php
         include 'db.php';
 
-        $sql = "SELECT * FROM productos ORDER BY RAND() LIMIT 10";
+        $sql = "SELECT * FROM productos ORDER BY RAND() LIMIT 15";
         $result = $conn->query($sql);
 
         session_start();
 
-        $user_id = $_SESSION['user_id'];
-        $user_email = $_SESSION['user_email'];
+        // // Obtener información del usuario logeado, si lo hay
+        // $user_id = $_SESSION['user_id'];
+        // $user_email = $_SESSION['user_email'];
+        // $user_is_admin = false;
+
         
 ?>
 
@@ -40,13 +43,27 @@
         <div class="logo-y-menu">
         <a href="#" class="logo"><img src="../media/Aromas_sf.png" alt="" width="175px"></a>
         <i onclick="toggleMenu()" id="menu" class="ri-menu-line menu-icon"></i>
-        <div class="sub-menu-wrap" id="subMenu">
+
+            <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
 
-                        <a href="#" class="sub-menu-link">
-                            <i class="ri-user-3-line"></i>
-                            <p>Cuenta</p>
-                        </a>
+                        <?php if (isset($_SESSION['user_usuario'])): ?>
+                            <a class="sub-menu-link cuenta-mobile" onclick="toggleAccountMenu()">
+                                <i class="ri-user-3-line"></i>
+                                <p>Cuenta</p>
+                            </a>
+                            <div id="accountMenu" class="account-menu">
+                                <a href="profile.php" class="account-menu-link">Perfil</a>
+                                <a href="orders.php" class="account-menu-link">Mis pedidos</a>
+                                <a href="logout.php" class="account-menu-link"><span>Cerrar sesión</span></a>
+                            </div>
+                        <?php else: ?>
+                            <a href="login-register.php" class="sub-menu-link cuenta-mobile">
+                                <i class="ri-user-3-line"></i>
+                                <p>Iniciar Sesión</p>
+                            </a>
+                        <?php endif; ?>
+
                         <a href="#" class="sub-menu-link">
                             <i class="ri-shopping-cart-line"></i>
                             <p>Carrito</p>
@@ -59,7 +76,8 @@
                         </a>
 
                     </div>
-                </div> 
+            </div> 
+
 
         </div>
 
@@ -94,13 +112,61 @@
 
         <nav>
             <ul>
-                <li><i onclick="toggleMenu1()" class="ri-heart-3-line"></i></li>
+                <li><i class="ri-heart-3-line nav"></i></li>
                     
 
-                <li><i onclick="toggleMenu2()" class="ri-shopping-cart-line"></i></li>
+                <li><i class="ri-shopping-cart-line nav"></i></li>
                 
 
-                <li><a href="./login-register.php"><i onclick="toggleMenu3()" class="ri-user-3-line"></i></a></li>
+
+                <?php
+
+
+                // Verifica si la sesión está iniciada
+                if (isset($_SESSION['user_usuario'])) {
+                    // Si la sesión está iniciada, muestra el email del usuario
+                    echo '
+                    <li>
+                        <i onclick="toggleMenu2()" id="menu2"  class="ri-user-3-line nav menu-icon2"></i>
+                        
+                        <div class="sub-menu-wrap2" id="subMenu2">
+                            <div class="sub-menu2">
+                                <a href="#" class="sub-menu-link2 sesion">
+                                    <i class="ri-pencil-line"></i>
+                                    <p title="' . $_SESSION['user_usuario'] . '">' . $_SESSION['user_usuario'] . '</p>
+                                </a>
+                                <a href="#" class="sub-menu-link2">
+                                    <i class="ri-shopping-bag-4-line"></i>
+                                    <p>Mis pedidos</p>
+                                </a>
+                                <a href="logout.php" class="sub-menu-link2 cerrar">
+                                    <i class="ri-close-line"></i>
+                                    <p>Cerrar sesión</p>
+                                </a>
+                            </div>
+                        </div>
+                    </li>';
+                } else {
+                    // Si la sesión no está iniciada, muestra el enlace para iniciar sesión
+                    echo '
+                    <li>
+                        <i onclick="toggleMenu2()" id="menu2"  class="ri-user-3-line nav menu-icon2"></i>
+                        <div class="sub-menu-wrap2" id="subMenu2">
+                            <div class="sub-menu2">
+                                <a href="login-register.php" class="sub-menu-link2 sesion">
+                                    <i class="ri-pencil-line"></i>
+                                    <p>Iniciar Sesion</p>
+                                </a>
+                            </div>
+                        </div>
+                    </li>';
+                }
+                ?>
+            
+
+                    
+
+        
                 
             </ul>
         </nav>
@@ -228,7 +294,7 @@
                     </div>
 
                     <div class="detail-box">
-                        <h3><?php echo $name; ?></h3>
+                        <h3 title="<?php echo $name; ?>"><?php echo $name; ?></h3>
                         <h4><?php echo $brand; ?></h4>
                         <p>$<?php echo number_format($price, 0); ?></p>
                         
@@ -366,8 +432,6 @@
                 <p>&copy; 2024 Aromas. Todos los derechos reservados.</p>
             </div>
             
-            <p>ID de usuario: <?php echo htmlspecialchars($user_id); ?></p>
-            <p>Email: <?php echo htmlspecialchars($user_email); ?></p>
 
 
     </footer>

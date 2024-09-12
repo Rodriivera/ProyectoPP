@@ -118,6 +118,71 @@ document.addEventListener("click", function(event) {
 
 
 
+
+// nav cuenta
+
+let subMenu2 = document.getElementById("subMenu2");
+
+function toggleMenu2() {
+    subMenu2.classList.toggle("open-menu2");
+    const menuIcon2 = document.getElementById('menu2');
+    if (subMenu2.classList.contains("open-menu2")) {
+        menuIcon2.classList.remove("ri-menu-line");
+        menuIcon2.classList.add("ri-close-line");
+    } else {
+        menuIcon2.classList.remove("ri-close-line");
+        menuIcon2.classList.add("ri-menu-line");
+    }
+}
+
+// Add event listener to the document
+document.addEventListener("click", function(event) {
+    if (!subMenu2.contains(event.target) && !event.target.matches('.menu-icon2')) {
+        subMenu2.classList.remove("open-menu2");
+        const menuIcon2 = document.getElementById('menu2');
+        menuIcon2.classList.remove("ri-close-line");
+        menuIcon2.classList.add("ri-menu-line");
+    }
+});
+
+
+// fin nav cuenta
+
+
+// cuenta mobile
+let subMenu3 = document.getElementById("subMenu3");
+
+function toggleMenu3() {
+    subMenu3.classList.toggle("open-menu3");
+    
+    
+}
+
+// Add event listener to the document
+document.addEventListener("click", function(event) {
+    if (!subMenu3.contains(event.target) && !event.target.matches('.menu-icon3')) {
+        subMenu3.classList.remove("open-menu3");
+        
+    }
+});
+
+
+
+
+
+
+function toggleAccountMenu() {
+    var menu = document.getElementById('accountMenu');
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+}
+
+// fin cuenta mobile
+
+
 // carrusel
 
 const carousel = document.querySelector('.carousel-inner');

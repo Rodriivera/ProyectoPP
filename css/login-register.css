@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
+  user-select: none;
 }
 
 body,
@@ -162,7 +163,7 @@ form a {
   outline: none;
   border-bottom: 1px solid #bbb;
   padding: 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #151111;
   transition: 0.4s;
 }
@@ -186,6 +187,31 @@ label {
   font-size: 0.75rem;
   top: -2px;
 }
+
+
+.error-message-container {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.error-message.show {
+  opacity: 1;
+}
+
 
 .sign-btn {
   display: inline-block;

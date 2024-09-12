@@ -2,41 +2,50 @@
 session_start();
 include './db.php';
 
+$error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : '';
+unset($_SESSION['error_message']);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['email']) && isset($_POST['contraseña'])) {
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
+    if (isset($_POST['usuario']) && isset($_POST['contraseña'])) {
+        $usuario = mysqli_real_escape_string($conn, $_POST['usuario']);
         $contraseña = mysqli_real_escape_string($conn, $_POST['contraseña']);
 
         if (isset($_POST['sign-up'])) {
-            // Registration
-            $hashed_password = password_hash($contraseña, PASSWORD_DEFAULT);
-            $query = "INSERT INTO usuarios (email, contraseña) VALUES ('$email', '$hashed_password')";
-            if (mysqli_query($conn, $query)) {
-                echo "<script>alert('Registro exitoso. Por favor, inicia sesión.');</script>";
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            // Check if username or email already exists
+            $check_query = "SELECT * FROM usuarios WHERE usuario = '$usuario' OR email = '$email'";
+            $check_result = mysqli_query($conn, $check_query);
+            if (mysqli_num_rows($check_result) > 0) {
+                $_SESSION['error_message'] = 'Este usuario o correo electrónico ya está registrado. Por favor, utiliza otro.';
             } else {
-                echo "<script>alert('Error en el registro: " . mysqli_error($conn) . "');</script>";
+                // Registration
+                $hashed_password = password_hash($contraseña, PASSWORD_DEFAULT);
+                $query = "INSERT INTO usuarios (usuario, email, contraseña) VALUES ('$usuario', '$email', '$hashed_password')";
+                if (mysqli_query($conn, $query)) {
+                    $_SESSION['error_message'] = 'Registro exitoso. Por favor, inicia sesión.';
+                } else {
+                    $_SESSION['error_message'] = 'Error en el registro: ' . mysqli_error($conn);
+                }
             }
         } elseif (isset($_POST['sign-in'])) {
-            // Login
-            $query = "SELECT * FROM usuarios WHERE email = '$email'";
+            // Login logic
+            $query = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
             $result = mysqli_query($conn, $query);
             if ($row = mysqli_fetch_assoc($result)) {
                 if (password_verify($contraseña, $row['contraseña'])) {
-                    // Start session and store user information
-                    
                     $_SESSION['user_id'] = $row['id'];
-                    $_SESSION['user_email'] = $row['email'];
-                    
-                    // Redirect to index.php
+                    $_SESSION['user_usuario'] = $row['usuario'];
                     header("Location: index.php");
                     exit();
                 } else {
-                    echo "<script>alert('Contraseña incorrecta.');</script>";
+                    $_SESSION['error_message'] = 'Contraseña incorrecta.';
                 }
             } else {
-                echo "<script>alert('Usuario no encontrado.');</script>";
+                $_SESSION['error_message'] = 'Usuario no encontrado.';
             }
         }
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
     }
 }
 
@@ -61,16 +70,20 @@ mysqli_close($conn);
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div class="error-message-container">
+        <?php if (!empty($error_message)): ?>
+            <div id="error-message" class="error-message"><?php echo $error_message; ?></div>
+        <?php endif; ?>
+    </div>
     <main>
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
+
             <form action="login-register.php" method="post" autocomplete="off" class="sign-in-form">
               <div class="logo">
-                <!-- <a href="#"><i class="ri-arrow-left-line"></i></a> -->
                 <img src="../media/Aromas_sf.png" alt="aromas logo" />
               </div>
-
 
               <div class="heading">
                 <h2>Iniciar sesion</h2>
@@ -81,15 +94,15 @@ mysqli_close($conn);
               <div class="actual-form">
                 <div class="input-wrap">
                   <input
-                    type="email"
+                    type="text"
                     class="input-field"
                     autocomplete="off"
                     required
-                    name="email"
+                    name="usuario"
                   />
-                  <label>Email</label>
+                  <label>Usuario</label>
                 </div>
-
+                
                 <div class="input-wrap">
                   <input
                     type="password"
@@ -104,17 +117,12 @@ mysqli_close($conn);
 
                 <input type="hidden" name="sign-in" value="1">
                 <input type="submit" value="Iniciar sesión" class="sign-btn" />
-
-                
               </div>
-              <a href="#" class="volver"  >Volver a la pagina principal</a>
+              <a href="./index.php" class="volver">Volver a la pagina principal</a>
             </form>
-
-
 
             <form action="login-register.php" method="post" autocomplete="off" class="sign-up-form">
               <div class="logo">
-                <!-- <a href="#"><i class="ri-arrow-left-line"></i></a> -->
                 <img src="../media/Aromas_sf.png" alt="aromas logo" />
               </div>
 
@@ -125,6 +133,16 @@ mysqli_close($conn);
               </div>
 
               <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                    name="usuario"
+                  />
+                  <label>Usuario</label>
+                </div>
 
                 <div class="input-wrap">
                   <input
@@ -151,18 +169,14 @@ mysqli_close($conn);
 
                 <input type="hidden" name="sign-up" value="1">
                 <input type="submit" value="Crear cuenta" class="sign-btn" />
-
               </div>
-              <a href="#" class="volver" >Volver a la pagina principal</a>
+              <a href="./index.php" class="volver">Volver a la pagina principal</a>
             </form>
           </div>
 
           <div class="imagen">
-
-              
-
           </div>
-
+        </div>
       </div>
     </main>
 

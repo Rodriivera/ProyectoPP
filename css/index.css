@@ -55,7 +55,7 @@
 
 .dropdown-list{
     position: absolute;
-    top: 4rem;
+    top: 3.2rem;
     left: 0;
     width: 100%;
     border-radius: 15px;
@@ -138,6 +138,12 @@ header{
     z-index: 999;
 }
 
+nav{
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 0;
+}
+
 nav ul{
     display: flex;
     gap: 4rem;
@@ -152,7 +158,7 @@ nav i{
     transition: .3s;
 }
 
-nav i:hover{
+.nav:hover{
     /* background-color: rgba(128, 128, 128, 0.045); */
     background-color: rgba(128, 128, 128, 0.070);
     transition: .3s;
@@ -164,7 +170,7 @@ nav i:hover{
     position: absolute;
     top: 0;
     right: 0;
-    margin: 4rem 1rem 0 0;
+    margin: 3rem 1rem 0 0;
     width: 200px;
     max-height: 0px;
     overflow: hidden;
@@ -182,21 +188,7 @@ nav i:hover{
     background: white;
     padding: 10px 20px;
 }
-.user-info{
-    display: flex;
-    align-items: center;
-    
-}
 
-.user-info h3{
-    font-weight: 500;
-}
-
-.user-info img{
-    width: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
 
 .sub-menu hr{
     border: 0;
@@ -232,13 +224,114 @@ nav i:hover{
     transition: transform .2s;
 }
 
-.sub-menu-link:hover span{
-    transform: translateX(.5rem);
+
+
+
+
+.sub-menu-wrap2{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4rem 3.7rem 0 0;
+    width: 175px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .5s;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    border-radius: 12px;
 }
 
-.sub-menu-link:hover p{
+.sub-menu-wrap2.open-menu2{
+    max-height: 400px;
+}
+
+.sub-menu2{
+    background: white;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.sub-menu2 hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link2{
+    display: flex;
+    align-items: center;
+    color: black;
     transition: .2s;
-    margin-left: .5rem;
+    border-radius: 12px;
+
+}
+
+.sub-menu-link2 p{
+    width: 100%;
+    transition: .2s;
+    font-size: .9rem;
+    overflow: hidden;
+    white-space: nowrap;
+    background: linear-gradient(to right, black 50%, rgba(255, 255, 255, 0) 100%);
+            -webkit-background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+}
+
+.sub-menu-link2 i{
+    /* margin-right: 10px; */
+    font-size: 1.4rem;
+    
+}
+
+.sub-menu-link2 span{
+    font-size: 1.4rem;
+    transition: transform .2s;
+}
+
+.sub-menu-link2:hover{
+    transition: .2s;
+    background-color: rgba(128, 128, 128, 0.070);
+}
+
+
+.cerrar p, .cerrar i{
+    color: red;
+}
+
+
+.celu{
+    margin: 3rem 0 0 0;
+}
+
+
+
+
+.account-menu {
+    display: none;
+    position: absolute;
+    left: 0; /* Adjust this value as needed */
+    background-color: white;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    z-index: 99999;
+    width: 200px;
+}
+.account-menu-link {
+    display: block;
+    padding: 0 20px 20px;
+    font-size: .9rem;
+    text-decoration: none;
+    color: black;
+    text-align: start;
+}
+
+.account-menu span{
+    color: red;
 }
 
 
@@ -564,11 +657,8 @@ main{
     font-weight: 400;
 }
 
-<<<<<<< Updated upstream
-/* #envio{
-=======
 #envio:hover{
->>>>>>> Stashed changes
+
     background-color: rgb(230, 245, 252);
     transition: .3s;
 }
@@ -585,12 +675,8 @@ main{
 
 #soporte:hover{
     background-color: rgb(245, 239, 223);
-<<<<<<< Updated upstream
-} */
-=======
     transition: .3s;
 }
->>>>>>> Stashed changes
 
 @media screen and (max-width: 1250px){
     .prestaciones{

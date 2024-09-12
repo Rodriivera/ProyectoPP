@@ -17,3 +17,16 @@ cambiar.forEach((btn) => {
     main.classList.toggle("sign-up-mode");
   });
 });
+
+
+
+function showErrorMessage() {
+  var errorMessage = document.getElementById('error-message');
+  if (errorMessage) {
+      errorMessage.classList.add('show');
+      setTimeout(function() {
+          errorMessage.classList.remove('show');
+      }, 5000);
+  }
+}
+window.onload = showErrorMessage;
