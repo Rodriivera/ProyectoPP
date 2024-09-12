@@ -1,5 +1,14 @@
+<?php
+
+session_start();
+
+
+?>
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,13 +27,27 @@
         <div class="logo-y-menu">
         <a href="../php/index.php" class="logo"><img src="../media/Aromas_sf.png" alt="" width="175px"></a>
         <i onclick="toggleMenu()" id="menu" class="ri-menu-line menu-icon"></i>
+
         <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
 
-                        <a href="#" class="sub-menu-link">
-                            <i class="ri-user-3-line"></i>
-                            <p>Cuenta</p>
-                        </a>
+                        <?php if (isset($_SESSION['user_usuario'])): ?>
+                            <a class="sub-menu-link cuenta-mobile" onclick="toggleAccountMenu()">
+                                <i class="ri-user-3-line"></i>
+                                <p>Cuenta</p>
+                            </a>
+                            <div id="accountMenu" class="account-menu">
+                                <a href="cuenta.php" class="account-menu-link">Perfil</a>
+                                <a href="" class="account-menu-link">Mis pedidos</a>
+                                <a href="" class="account-menu-link"><span>Cerrar sesión</span></a>
+                            </div>
+                        <?php else: ?>
+                            <a href="login-register.php" class="sub-menu-link cuenta-mobile">
+                                <i class="ri-login-box-line"></i>
+                                <p>Iniciar Sesión</p>
+                            </a>
+                        <?php endif; ?>
+
                         <a href="#" class="sub-menu-link">
                             <i class="ri-shopping-cart-line"></i>
                             <p>Carrito</p>
@@ -37,9 +60,9 @@
                         </a>
 
                     </div>
-                </div> 
-
+            </div> 
         </div>
+        
 
         <form class="search-bar" action="busqueda.php" method="GET" id="searchForm"> 
 
@@ -73,13 +96,55 @@
         <nav>
             <ul>
 
-                <li><i onclick="toggleMenu1()" class="ri-heart-3-line"></i></li>
+                <li><i onclick="toggleMenu1()" class="ri-heart-3-line nav"></i></li>
                     
 
-                <li><i onclick="toggleMenu2()" class="ri-shopping-cart-line"></i></li>
+                <li><i onclick="toggleMenu2()" class="ri-shopping-cart-line nav"></i></li>
                 
 
-                <li><i onclick="toggleMenu3()" class="ri-user-3-line"></i></li>
+                <?php
+
+
+                // Verifica si la sesión está iniciada
+                if (isset($_SESSION['user_usuario'])) {
+                    // Si la sesión está iniciada, muestra el email del usuario
+                    echo '
+                    <li>
+                        <i onclick="toggleMenu2()" id="menu2"  class="ri-user-3-line nav menu-icon2"></i>
+                        
+                        <div class="sub-menu-wrap2" id="subMenu2">
+                            <div class="sub-menu2">
+                                <a href="cuenta.php" class="sub-menu-link2 sesion">
+                                    <i class="ri-pencil-line"></i>
+                                    <p title="' . $_SESSION['user_usuario'] . '">' . $_SESSION['user_usuario'] . '</p>
+                                </a>
+                                <a href="#" class="sub-menu-link2">
+                                    <i class="ri-shopping-bag-4-line"></i>
+                                    <p>Mis pedidos</p>
+                                </a>
+                                <a href="logout.php" class="sub-menu-link2 cerrar">
+                                    <i class="ri-logout-box-line"></i>
+                                    <p>Cerrar sesión</p>
+                                </a>
+                            </div>
+                        </div>
+                    </li>';
+                } else {
+                    // Si la sesión no está iniciada, muestra el enlace para iniciar sesión
+                    echo '
+                    <li>
+                        <i onclick="toggleMenu2()" id="menu2"  class="ri-user-3-line nav menu-icon2"></i>
+                        <div class="sub-menu-wrap2" id="subMenu2">
+                            <div class="sub-menu2">
+                                <a href="login-register.php" class="sub-menu-link2 sesion">
+                                    <i class="ri-login-box-line"></i>
+                                    <p>Iniciar Sesion</p>
+                                </a>
+                            </div>
+                        </div>
+                    </li>';
+                }
+                ?>
 
                 
             </ul>
@@ -90,11 +155,10 @@
 
 
     <main>   
-
     <?php
     // bd detalles
     $host = 'localhost';
-    $dbname = 'aromas';
+    $dbname = 'aromas2';
     $username = 'root';
     $password = '';
 
@@ -114,7 +178,7 @@
     $precio_max = isset($_GET['precio_max']) ? (int)$_GET['precio_max'] : 0;
 
     // Base de la consulta SQL
-    $sql = "SELECT * FROM productos WHERE (nombre LIKE :search OR autor LIKE :search)";
+    $sql = "SELECT * FROM productos WHERE (nombre LIKE :search OR marca LIKE :search)";
 
     // Filtra por categoría si se seleccionó alguna
     if ($category !== 'Todo') {
@@ -259,9 +323,9 @@
             if (count($results) > 0) {
                 foreach ($results as $row) {
                     $name = $row['nombre'];
-                    $brand = $row['autor'];
+                    $brand = $row['marca'];
                     $price = $row['precio'];
-                    $image = $row['imagen'];
+                    $image = $row['imagen_url'];
 
                     ?>
                     
@@ -360,6 +424,7 @@
 <div class="copy">
     <p>&copy; 2024 Aromas. Todos los derechos reservados.</p>
 </div>
+
 
 
 
