@@ -119,7 +119,7 @@
 
 button{
     background: none;
-    border: none !important;
+    border: none ;
 }
 
 
@@ -400,7 +400,132 @@ nav i{
 
 
 main{
-    padding: 100px 8rem 0 ;
+    padding: 78px 8rem 0;
+}
+
+
+.info-cuenta h1{
+    margin: 2rem 0 1rem;
+    font-weight: 600;
+}
+
+form h2{
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(128, 128, 128, 0.81);
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+
+.informacion-personal{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.informacion-ubicacion{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.direccion{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.botones{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: end;
+}
+
+
+.info-cuenta label{
+    font-size: .85rem;
+    font-weight: 400;
+    
+}
+
+.info-cuenta input{
+    padding: 10px;
+    font-weight: 400;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    transition: .2s;
+    
+}
+
+.info-cuenta input:focus{
+    transition: .2s;
+    outline: none;
+    box-shadow: 0 0 3.5px rgba(0, 0, 0, 0.25);
+}
+
+/* Para navegadores WebKit (Chrome, Safari, Edge) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+.linea{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(128, 128, 128, 0.15);
+    margin: 2rem 0;
+}
+
+
+.botones button[type="submit"]{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    color: white;
+
+    background-color: #5dccff;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.botones button[type="submit"]:hover{
+    transition: .2s;
+
+    background-color: #00aeff;
+    transform: translateY(-1px);
+}
+
+.botones button[type="reset"]{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    color: white;
+
+    background-color: #ff6969;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.botones button[type="reset"]:hover{
+    transition: .2s;
+
+    background-color: #ff0000ac;
+    transform: translateY(-1px);
 }
 
 
@@ -417,6 +542,28 @@ main{
 
 
 
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1250px){
+    main{
+        padding: 118px 1rem 0;
+    }
+    .informacion-personal, .informacion-ubicacion{
+        display: flex;
+        flex-direction: column;
+    }
+    .botones{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
 
 
