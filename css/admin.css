@@ -353,6 +353,13 @@ nav i:hover{
     margin-top: 200px;
     width: 100%;
 }
+
+.logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 20px 0 0 12px;
+}
 .menu li{
     margin-left: 10px;
     border-radius: 50px;
@@ -415,7 +422,6 @@ nav i:hover{
     position: absolute;
     background-color: var(--grey);
     width: 100%;
-    height: 100vh;
     padding-left: 200px;
     display: none;
 }
@@ -443,12 +449,12 @@ nav i:hover{
 }
 
 .container-tabla{
-    height: 100vh;
+
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5%;
+    margin-top: 20px;
 }
 
 table{
@@ -471,9 +477,31 @@ tbody tr:last-child{
 
 th{
     height: 40px; 
-    font-weight: 500;  
+    font-weight: 500;
+    width: 30px;  
 }
 
+tr{
+    text-align: center;
+}
+.td_imagen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+.td_operaciones button{
+    font-size: 22px;
+    margin: 0 15px;
+    cursor: pointer;
+
+
+}
+
+.td_operaciones_eliminar{
+    color: red;
+    font-size: 25px;
+}
 
 tbody tr:nth-child(even){
     background-color: var(--grey);
@@ -494,7 +522,49 @@ tbody tr:nth-child(odd){
 
 #publicar-section{
     background-color: var(--grey);
+
 }
+
+.input_label{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input_label input{
+    padding: 5px;
+}
+
+.container_input{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    
+    
+}
+
+.publicar_todo{
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 99999;
+}
+
+
+
+.publicar_texto{
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+
+
+
 
 #mensaje-section{
     background-color: var(--grey);

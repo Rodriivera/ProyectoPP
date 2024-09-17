@@ -15,59 +15,13 @@
 <body>
 
 
-<header>
-        <div class="logo-y-menu">
-        <a href="../php/index.php" class="logo"><img src="../media/Aromas_sf.png" alt="" width="175px"></a>
-        <i onclick="toggleMenu()" id="menu" class="ri-menu-line menu-icon"></i>
-        <div class="sub-menu-wrap" id="subMenu">
-                    <div class="sub-menu">
-
-                        <a href="#" class="sub-menu-link">
-                            <i class="ri-user-3-line"></i>
-                            <p>Cuenta</p>
-                        </a>
-                        <a href="#" class="sub-menu-link">
-                            <i class="ri-shopping-bag-4-line"></i>
-                            <p>Carrito</p>
-                            
-                        </a>
-                        <a href="#" class="sub-menu-link">
-                            <i class="ri-heart-3-line"></i>
-                            <p>Favoritos</p>
-                            
-                        </a>
-
-                    </div>
-                </div> 
-
-        </div>
-
-       
-
-
-        <nav>
-            <ul>
-
-                <li><i onclick="toggleMenu1()" class="ri-heart-3-line"></i></li>
-                    
-
-                <li><i onclick="toggleMenu2()" class="ri-shopping-bag-4-line"></i></li>
-                
-
-                <li><i onclick="toggleMenu3()" class="ri-user-3-line"></i></li>
-
-                
-            </ul>
-        </nav>
-        
-    </header>
-
-
-
     <section id="aside">
+        
         <div class="container-admin">
+        <a href="../php/index.php" class="logo"><img src="../media/Aromas_sf.png" alt="" width="175px"></a>
             <div class="container-lista-admin">
                 <ul class="menu">
+               
                     <li class="active"><span id="active" onclick="showSection('estadisticas-section')">Estadisticas</span></li>
                     <li><span onclick="showSection('inventario-section')">Inventario</span></li>
                     <li><span onclick="showSection('publicar-section')">Publicar</span></li>
@@ -122,46 +76,99 @@
                     </tr>
                 </thead>
                 <tbody>
-<?php
-include 'db.php'; // Asegúrate de que 'db.php' esté configurado correctamente y $conn esté definido
+                    <?php
+                        include 'db.php'; // Asegúrate de que 'db.php' esté configurado correctamente y $conn esté definido
 
-$sql = "SELECT * FROM productos ORDER BY RAND()";
-$result = $conn->query($sql);
+                        $sql = "SELECT * FROM productos ORDER BY RAND()";
+                        $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $id = $row['id'];
-        $name = $row['nombre'];
-        $price = $row['precio'];
-        $image = $row['imagen'];
-        // $stock = $row['stock'];
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $id = $row['id'];
+                                $name = $row['nombre'];
+                                $price = $row['precio'];
+                                $image = $row['imagen_url'];
+                                $stock = $row['stock'];
 
-        ?>
-        <tr>
-            <td><?php echo $id; ?></td>
-            <td><img src="<?php echo $image; ?>" alt="<?php echo $name; ?>" width="50px" height="50px"></td>
-            <td><?php echo $name; ?></td>
-            <!-- <td><?php echo $stock; ?></td> -->
-            <td><?php echo $price; ?></td>
-            <td><button><i class="ri-pencil-line"></i></button><button>X</button></td>
-        </tr>
-        <?php
-    }
-} else {
-    echo "<tr><td colspan='6'>No se encontraron productos</td></tr>";
-}
-?>
-</tbody>
+                    ?>
+                            <tr>
+                                <td><?php echo $id; ?></td>
+                                <td class="td_imagen"><img src="<?php echo $image; ?>" alt="<?php echo $name; ?>" width="40px" height="50px"></td>
+                                <td><?php echo $name; ?></td>
+                                <td><?php echo $stock; ?></td> 
+                                <td><?php echo number_format($price, 0); ?></td>
+                                <td class="td_operaciones"><button><i class="ri-pencil-line"></i></button><button class="td_operaciones_eliminar"><i class="ri-close-fill"></i></button></td>
+                            </tr>
+                            <?php
+                            }
+                            } else {
+                                echo "<tr><td colspan='6'>No se encontraron productos</td></tr>";
+                            }
+                            ?>
+
+                </tbody>
 
             </table>
         </div>
-
     </section>
 
 
     <section class="secciones" id="publicar-section">
 
+        <div class="publicar_todo">
+        <div class="publicar_texto">
+        <h2>Publicar Producto</h2>
+        </div>
+        <div class="container_input"> 
 
+            <div class="nombre-m-c">
+
+                <div  class="input_label">   
+                    <label>Nombre</label>
+                    <input type="text">
+                </div>
+
+                <div class="input_label">   
+                    <label>Marca</label>
+                    <input type="text">
+                </div>
+
+                <div class="input_label">   
+                    <label>Categoria</label>
+                    <input type="text">
+                </div>
+
+            </div>
+
+            <div class="input_label">   
+                <label>Imagen</label>
+                <input type="file">
+            </div>
+
+            <div class="input_label">   
+                <label>Descripcion</label>
+                <textarea></textarea>
+            </div>
+
+            <div class="input_label">   
+                <label>Precio</label>
+                <input type="number" min="0">
+            </div>
+
+            
+
+            <div class="input_label">   
+                <label>Stock</label>
+                <input type="number" min="0">
+            </div>
+
+            <div class="input_label">   
+                <label>Stock Minimo</label>
+                <input type="number" min="0">
+        
+            </div>
+        </div>
+        </div>
     </section>
 
 
