@@ -116,3 +116,19 @@ function showSection(sectionId) {
 // Mostrar la primera sección por defecto
 showSection('estadisticas-section');
 
+
+
+
+///////  Preview Images 
+
+document.getElementById('file').onchange = function(e) {
+    let reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]); // Changed 'File' to 'files'
+    reader.onload = function() {
+        let preview = document.getElementById('preview');
+        let img = document.createElement('img');
+        img.src = reader.result;
+        preview.innerHTML = ''; // Clear previous images
+        preview.appendChild(img); // Use appendChild for better compatibility
+    };
+};

@@ -79,7 +79,7 @@
                     <?php
                         include 'db.php'; // Asegúrate de que 'db.php' esté configurado correctamente y $conn esté definido
 
-                        $sql = "SELECT * FROM productos ORDER BY RAND()";
+                        $sql = "SELECT * FROM productos ORDER BY id ASC";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -93,7 +93,7 @@
                     ?>
                             <tr>
                                 <td><?php echo $id; ?></td>
-                                <td class="td_imagen"><img src="<?php echo $image; ?>" alt="<?php echo $name; ?>" width="40px" height="50px"></td>
+                                <td class="td_img"><div  class="td_imagen" style='background-image: url(<?php echo $image?>);'></div></td>
                                 <td><?php echo $name; ?></td>
                                 <td><?php echo $stock; ?></td> 
                                 <td><?php echo number_format($price, 0); ?></td>
@@ -141,8 +141,12 @@
             </div>
 
             <div class="input_label">   
+                
                 <label>Imagen</label>
-                <input type="file">
+                <div id="preview" class="styleimage"><i class="ri-file-image-line"></i></div>
+                <input type="file" name="file" id="file">
+                
+                
             </div>
 
             <div class="input_label">   
