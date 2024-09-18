@@ -1,0 +1,139 @@
+/* footer */
+
+footer{
+    margin-top: auto;
+    padding: 1.5rem 8rem 1rem;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    
+    
+    
+}
+
+
+.logoyinfo{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.logoyredes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.redes{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.redes a{
+    background-color: none;
+    border-radius: 50%;
+    padding: 10px;
+    transition: .3s;
+}
+
+.redes a:hover{
+    background-color: rgba(128, 128, 128, 0.070);
+    transition: .3s;
+}
+
+.redes i{
+    font-size: 1.5rem;
+    color: black;
+}
+
+footer h3{
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.15); 
+    padding-bottom:.5rem;
+    margin-bottom: .6rem;
+    display: inline-block;
+}
+
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+footer ul li a, footer p{
+    font-size: .9rem;
+    font-weight: 500;
+    color: rgb(100, 100, 100);
+    transition: .3s;
+    border-bottom: 1.6px solid transparent;
+    display: inline-block;
+    padding-bottom: 2px;
+    
+}
+
+.categorias-footer ul li a:hover ,.politicas ul li a:hover,.contacto p:hover{
+    color: black;
+    transition: .3s;
+    margin-left: .5rem;
+    
+}
+
+
+.categorias-footer{
+    width: 116px !important;
+}
+
+.politicas{
+    width: 181px !important;
+}
+
+
+.contacto{
+    width: 296px !important;
+}
+
+
+
+.copy{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: .8rem;
+    color: rgba(128, 128, 128, 0.15);
+    font-weight: 500;
+    text-align: center;
+    font-style: italic;
+}
+
+
+
+
+@media screen and (max-width: 1250px){
+    footer{
+        padding: 1.5rem 1rem 1rem;
+        position: relative;
+        
+    }
+}
+
+@media screen and (max-width: 900px){
+.logoyinfo{
+    flex-direction: column;
+}
+
+footer h3{
+    margin-top: 1.5rem;
+}
+
+.redes{
+    justify-content: center;
+}
+
+}
+
+/* fin footer */
