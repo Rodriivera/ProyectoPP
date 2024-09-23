@@ -148,6 +148,7 @@ nav ul{
     display: flex;
     gap: 4rem;
     margin-bottom: 0;
+    
 }
 
 nav i{
@@ -156,6 +157,7 @@ nav i{
     padding: 10px;
     border-radius: 50%;
     transition: .3s;
+    color: black;
 }
 
 .nav:hover{

@@ -237,13 +237,13 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 12px;
     cursor: pointer;
     color: white !important;
-    background-color: #6cafc9;
+    background-color: rgb(91, 190, 255);
     height: 40px;
     transition: .3s;
 }
 
 .filtros-de-busqueda button:hover{
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
     transition: .3s;
 }
 
@@ -301,7 +301,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .box:hover{
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
     transition: .3s;
 }
 

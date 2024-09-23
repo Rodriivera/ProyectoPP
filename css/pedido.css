@@ -39,12 +39,29 @@ main{
     display: flex;
     align-items: center;
     gap: 1rem;
-    justify-content: end;
-    margin: 3rem 0;
+    justify-content: space-between;
+    margin: 2rem 0;
 }
 
 .resumen-pedido h2{
     font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.resumen-pedido a{
+    font-weight: 500;
+    font-size: 1rem;
+    transition: .3s;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    padding: .5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #000;
+}
+
+.resumen-pedido a:hover{
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
+    transition: .3s;
 }
 
 @media screen and (max-width: 1250px){

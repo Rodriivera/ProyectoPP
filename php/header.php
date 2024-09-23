@@ -10,30 +10,35 @@
 
             <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
-                        <?php if (isset($_SESSION['user_usuario'])): ?>
-                            <a class="sub-menu-link cuenta-mobile" onclick="toggleAccountMenu()">
-                                <i class="ri-user-3-line"></i>
-                                <p>Cuenta</p>
-                            </a>
-                            <div id="accountMenu" class="account-menu">
-                                <a href="cuenta.php" class="account-menu-link">Perfil</a>
-                                <a href="../php/pedidos.php" class="account-menu-link">Mis pedidos</a>
-                                <a href="./logout.php" class="account-menu-link"><span>Cerrar sesión</span></a>
-                            </div>
-                            <a href="#" class="sub-menu-link">
+                        
+                            <?php if (isset($_SESSION['user_usuario'])): ?>
+                                <a class="sub-menu-link cuenta-mobile" onclick="toggleAccountMenu()">
+                                    <i class="ri-user-3-line"></i>
+                                    <p>Cuenta</p>
+                                </a>
+                                
+                                <div id="accountMenu" class="account-menu">
+                                    <a href="cuenta.php" class="account-menu-link">Perfil</a>
+                                    <a href="../php/pedidos.php" class="account-menu-link">Mis pedidos</a>
+                                    <a href="./logout.php" class="account-menu-link"><span>Cerrar sesión</span></a>
+                                </div>
+                            <?php else: ?>
+                                <a href="login-register.php" class="sub-menu-link cuenta-mobile">
+                                    <i class="ri-user-3-line"></i>
+                                    <p>Cuenta</p>
+                                </a>
+                            <?php endif; ?>
+
+                            <a href="<?php echo isset($_SESSION['user_usuario']) ? '../php/carrito.php' : 'login-register.php'; ?>" class="sub-menu-link">
                                 <i class="ri-shopping-cart-line"></i>
                                 <p>Carrito</p>
                             </a>
-                            <a href="#" class="sub-menu-link">
+                            <a href="<?php echo isset($_SESSION['user_usuario']) ? '#' : 'login-register.php'; ?>" class="sub-menu-link">
                                 <i class="ri-heart-3-line"></i>
                                 <p>Favoritos</p>
                             </a>
-                        <?php else: ?>
-                            <a href="login-register.php" class="sub-menu-link cuenta-mobile">
-                                <i class="ri-login-box-line"></i>
-                                <p>Iniciar Sesión</p>
-                            </a>
-                        <?php endif; ?>
+
+
                     </div>
             </div> 
 
@@ -71,10 +76,16 @@
 
         <nav>
             <ul>
-                <li><i class="ri-heart-3-line nav"></i></li>
-                    
-
-                <li><i class="ri-shopping-cart-line nav"></i></li>
+                <li>
+                    <a href="<?php echo isset($_SESSION['user_usuario']) ? '#' : 'login-register.php'; ?>">
+                        <i class="ri-heart-3-line nav"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo isset($_SESSION['user_usuario']) ? '../php/carrito.php' : 'login-register.php'; ?>">
+                        <i class="ri-shopping-cart-line nav"></i>
+                    </a>
+                </li>
                 
 
 
@@ -109,27 +120,16 @@
                 } else {
                     // Si la sesión no está iniciada, muestra el enlace para iniciar sesión
                     echo '
-                    <li>
-                        <i onclick="toggleMenu2()" id="menu2"  class="ri-user-3-line nav menu-icon2"></i>
-                        <div class="sub-menu-wrap2" id="subMenu2">
-                            <div class="sub-menu2">
-                                <a href="login-register.php" class="sub-menu-link2 sesion">
-                                    <i class="ri-login-box-line"></i>
-                                    <p>Iniciar Sesion</p>
-                                </a>
-                            </div>
-                        </div>
-                    </li>';
+                          <a href="login-register.php">
+
+                            <i class="ri-user-3-line nav"></i>
+                        </a>
+                        </li>';
                 }
                 ?>
-            
-
-                    
-
-        
-                
             </ul>
         </nav>
+  
         
     </header>
 

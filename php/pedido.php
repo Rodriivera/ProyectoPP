@@ -77,6 +77,7 @@
                     $total = $row_total['total'];
 
                     echo "<div class='resumen-pedido'>";
+                    echo "<a href='pedidos.php'>Volver a pedidos</a>";
                     // echo "<h2>Fecha: " . $row_total['fecha_pedido'] . "</h2>";
                     // echo "<h2>Estado: $estado</h2>";
                     echo "<h2>Total: " . number_format($total, 0) . "</h2>";
