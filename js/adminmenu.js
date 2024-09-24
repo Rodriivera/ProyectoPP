@@ -113,6 +113,28 @@ function showSection(sectionId) {
     }
 }
 
+
+
+
+
+// window.onload = function() {
+//     if (window.location.hash === '#inventario-section') {
+//         document.getElementById('inventario-section').style.display = 'block';
+//         window.scrollTo(0, document.getElementById('inventario-section').offsetTop);
+//     }
+// }
+
+// window.onload = function() {
+//     if (window.location.hash === '#publicar-section') {
+//         document.getElementById('publicar-section').style.display = 'block';
+//         window.scrollTo(0, document.getElementById('publicar-section').offsetTop);
+//     }
+// }
+
+
+
+
+
 // Mostrar la primera sección por defecto
 showSection('estadisticas-section');
 

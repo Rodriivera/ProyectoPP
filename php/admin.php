@@ -23,7 +23,7 @@
                 <ul class="menu">
                
                     <li class="active"><span id="active" onclick="showSection('estadisticas-section')">Estadisticas</span></li>
-                    <li><span onclick="showSection('inventario-section')">Inventario</span></li>
+                    <li ><span onclick="showSection('inventario-section')">Inventario</span></li>
                     <li><span onclick="showSection('publicar-section')">Publicar</span></li>
                     <li><span onclick="showSection('mensaje-section')">Mensajes</span></li>
                 </ul>
@@ -97,7 +97,16 @@
                                 <td><?php echo $name; ?></td>
                                 <td><?php echo $stock; ?></td> 
                                 <td><?php echo number_format($price, 0); ?></td>
-                                <td class="td_operaciones"><button><i class="ri-pencil-line"></i></button><button class="td_operaciones_eliminar"><i class="ri-close-fill"></i></button></td>
+                                <td class="td_operaciones">
+                                    <form action="eliminar_producto.php" method="POST">
+
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+
+                                        <button><i class="ri-pencil-line"></i></button>
+                                        <button class="td_operaciones_eliminar"><i class="ri-close-fill"></i></button>
+                                    
+                                    </form>
+                                </td>
                             </tr>
                             <?php
                             }
@@ -116,62 +125,81 @@
     <section class="secciones" id="publicar-section">
 
         <div class="publicar_todo">
-        <div class="publicar_texto">
-        <h2>Publicar Producto</h2>
-        </div>
-        <div class="container_input"> 
-
-            <div class="nombre-m-c">
-
-                <div  class="input_label">   
-                    <label>Nombre</label>
-                    <input type="text">
-                </div>
-
-                <div class="input_label">   
-                    <label>Marca</label>
-                    <input type="text">
-                </div>
-
-                <div class="input_label">   
-                    <label>Categoria</label>
-                    <input type="text">
-                </div>
-
+            <div class="publicar_texto">
+                <h2>Publicar Producto</h2>
             </div>
 
-            <div class="input_label">   
+
                 
-                <label>Imagen</label>
-                <div id="preview" class="styleimage"><i class="ri-file-image-line"></i></div>
-                <input type="file" name="file" id="file">
+
+
+
+                <form action="publicar-admin.php" method="post" class="container_input">
+                    
+
+                        <div  class="input_label">   
+                            <label>Nombre</label>
+                            <input type="text" name="nombre">
+                        </div>
+
+                        <div class="input_label">   
+                            <label>Marca</label>
+                            <input type="text" name="marca">
+                        </div>
+
+                        <div class="input_label">   
+
+                            <label>Categoria</label>
+                            <select name="categoria" id="">
+                                <option value="">-Seleccionar categoria-</option>
+                                <option value="fragancias">Fragancias</option>
+                                <option value="maquillaje">Maquillaje</option>
+                                <option value="faciales">Faciales</option>
+                                <option value="capilares">Capilares</option>
+                                <option value="personales">Personales</option>
+                                <option value="regaleria">Regaleria</option>
+                                <option value="hogar">Hogar</option>
+                                <option value="accesorios">Accesorios</option>
+                            </select>
+                            
+                        </div>
+
+       
+
+                    <div class="input_label">   
+                        <label>Precio</label>
+                        <input type="number" min="0" name="precio">
+                    </div>
+
+                    
+
+                    <div class="input_label">   
+                        <label>Stock</label>
+                        <input type="number" min="0" name="stock">
+                    </div>
+
+                    <div class="input_label">   
+                        <label>Stock Minimo</label>
+                        <input type="number" min="0" name="min_stock">
                 
-                
-            </div>
+                    </div>
 
-            <div class="input_label">   
-                <label>Descripcion</label>
-                <textarea></textarea>
-            </div>
+                    <div class="input_label">   
+                        <label>Descripcion</label>
+                        <textarea name="descripcion"></textarea>
+                    </div>
 
-            <div class="input_label">   
-                <label>Precio</label>
-                <input type="number" min="0">
-            </div>
+                 
+                    <div >   
+                        
+                        <label class="file-label">Imagen</label>
+                        <div id="preview" class="styleimage"><i class="ri-file-image-line"></i></div>
+                        <input type="file" name="file" id="file" name="imagen">
+                        
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
 
-            
-
-            <div class="input_label">   
-                <label>Stock</label>
-                <input type="number" min="0">
-            </div>
-
-            <div class="input_label">   
-                <label>Stock Minimo</label>
-                <input type="number" min="0">
-        
-            </div>
-        </div>
         </div>
     </section>
 
