@@ -149,22 +149,22 @@ document.addEventListener("click", function(event) {
 // fin nav cuenta
 
 
-// cuenta mobile
-let subMenu3 = document.getElementById("subMenu3");
+// // cuenta mobile
+// let subMenu3 = document.getElementById("subMenu3");
 
-function toggleMenu3() {
-    subMenu3.classList.toggle("open-menu3");
+// function toggleMenu3() {
+//     subMenu3.classList.toggle("open-menu3");
     
     
-}
+// }
 
-// Add event listener to the document
-document.addEventListener("click", function(event) {
-    if (!subMenu3.contains(event.target) && !event.target.matches('.menu-icon3')) {
-        subMenu3.classList.remove("open-menu3");
+// // Add event listener to the document
+// document.addEventListener("click", function(event) {
+//     if (!subMenu3.contains(event.target) && !event.target.matches('.menu-icon3')) {
+//         subMenu3.classList.remove("open-menu3");
         
-    }
-});
+//     }
+// });
 
 
 

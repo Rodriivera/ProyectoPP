@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../media/Aromas.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/pedido.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="../css/favoritos.css?v=<?php echo time(); ?>" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,74 +25,61 @@
 
 <main>
 
-    <section class="pedidos">
-        
+<section class="favoritos">
+    <h1>Mis favoritos</h1>
+    <div class="favoritos-contenido">
 
+    <div class="favoritos-contenido">
         <?php
-        if (isset($_GET['id'])) {
-                $pedido_id = $_GET['id'];
-
-                echo "<h1>Detalles del Pedido #$pedido_id</h1>";
-
-        ?>
-
-        <div class="pedido-contenido">
-        
-        <?php
-            // Obtener productos del carrito
-            $sql = "SELECT dp.*, p.imagen_url, p.nombre, p.marca 
-                    FROM detalle_pedido dp 
-                    JOIN productos p ON dp.producto_id = p.id WHERE dp.pedido_id = $pedido_id";
-
-            $result = $conn->query($sql);
-
-            
+            // Obtener productos
+            $userId = $_SESSION['user_id'];
+            $query = "SELECT favoritos.*, productos.nombre, productos.precio, productos.imagen_url, productos.marca 
+                  FROM favoritos 
+                  JOIN productos ON favoritos.producto_id = productos.id 
+                  WHERE favoritos.usuario_id = $userId";
+            $result = $conn->query($query);
         ?>
 
         <?php if ($result->num_rows > 0) { ?>
-            <table class="pedido-tabla">
+            <table class="favoritos-tabla">
             <thead>
                 <tr>
                 <th>Imagen</th>
                 <th>Producto</th>
                 <th>Fabricante</th>
-                <th>Cantidad</th>
                 <th>Precio</th>
+                <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($row = $result->fetch_assoc()) { 
+
 
                 ?>
                 <tr>
                     <td><div class='imagen' style='background-image: url("<?php echo $row['imagen_url']; ?>");'></div></td>
                     <td><?php echo $row['nombre']; ?></td>
                     <td><?php echo $row['marca']; ?></td>
-                    <td><?php echo $row['cantidad']; ?></td>
+
+
                     <td><?php echo "$" . number_format($row['precio'], 0); ?></td>
+
+                    <td>
+                    <form class="borrar" action="eliminar_favoritos.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="id" value="<?php echo $row['producto_id']; ?>">
+                        <button type="submit" style="background:none;border:none;cursor:pointer;">
+                        <i class="ri-delete-bin-line"></i>
+                        </button>
+                    </form>
+                    </td>
                 </tr>
                 <?php } ?>
             </tbody>
-            <tfoot>
-                <?php
-                // Obtener el total del pedido
-                $sql_total = "SELECT SUM(precio * cantidad) as total FROM detalle_pedido WHERE pedido_id = $pedido_id";
-                $result_total = $conn->query($sql_total);
-                $total = 0;
-                if ($result_total->num_rows > 0) {
-                    $row_total = $result_total->fetch_assoc();
-                    $total = $row_total['total'];
-                }
-                ?>
-                <tr>                
-                <td colspan="4"></td>
-                <td colspan="1">Total:  $<?php echo number_format($total, 0); ?></td>
-                </tr>
-            </tfoot>
+            
             </table>
         <?php } else { ?>
             <div class="linea"></div>
-            <p>No tenés productos en tu pedido.</p>
+            <p>No tenés favoritos.</p>
             <div class="linea"></div>
 
         <?php } ?>
@@ -100,16 +87,20 @@
         
 
     </div>
-    <?php } ?>
 
-    </section>
+</section>
+
+
+
+
+
+
 
 
 </main>
 
 <?php include 'footer.php'; ?>
 
-<script src="../js/pedido.js"></script>
+<script src="../js/favoritos.js?v=<?php echo time(); ?></script>
 </body>
-
 </html>

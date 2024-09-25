@@ -33,7 +33,7 @@
                                 <i class="ri-shopping-cart-line"></i>
                                 <p>Carrito</p>
                             </a>
-                            <a href="<?php echo isset($_SESSION['user_usuario']) ? '#' : 'login-register.php'; ?>" class="sub-menu-link">
+                            <a href="<?php echo isset($_SESSION['user_usuario']) ? '../php/favoritos.php' : 'login-register.php'; ?>" class="sub-menu-link">
                                 <i class="ri-heart-3-line"></i>
                                 <p>Favoritos</p>
                             </a>
@@ -77,7 +77,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="<?php echo isset($_SESSION['user_usuario']) ? '#' : 'login-register.php'; ?>">
+                    <a href="<?php echo isset($_SESSION['user_usuario']) ? '../php/favoritos.php' : 'login-register.php'; ?>">
                         <i class="ri-heart-3-line nav"></i>
                     </a>
                 </li>

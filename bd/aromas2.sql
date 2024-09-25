@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2024 a las 20:57:12
+-- Tiempo de generación: 25-09-2024 a las 18:06:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,8 +40,8 @@ CREATE TABLE `carritos` (
 --
 
 INSERT INTO `carritos` (`id`, `usuario_id`, `producto_id`, `cantidad`, `fecha_agregado`) VALUES
-(2, 1, 14, 1, '2024-09-22 13:08:59'),
-(3, 1, 3, 2, '2024-09-22 16:00:15');
+(2, 1, 40, 1, '2024-09-24 17:24:19'),
+(3, 1, 3, 1, '2024-09-22 16:00:15');
 
 -- --------------------------------------------------------
 
@@ -78,6 +78,14 @@ CREATE TABLE `favoritos` (
   `producto_id` int(11) DEFAULT NULL,
   `fecha_agregado` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `favoritos`
+--
+
+INSERT INTO `favoritos` (`id`, `usuario_id`, `producto_id`, `fecha_agregado`) VALUES
+(1, 1, 30, '2024-09-22 12:33:34'),
+(2, 1, 8, '2024-09-22 12:41:45');
 
 -- --------------------------------------------------------
 
@@ -259,7 +267,7 @@ ALTER TABLE `detalle_pedido`
 -- AUTO_INCREMENT de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
