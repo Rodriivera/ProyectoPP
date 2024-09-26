@@ -32,9 +32,6 @@ document.querySelectorAll('.dropdown-list-item').forEach(item => {
 
 // fin obligar que seleccione una categoria
 
-
-
-
 // mostrar dropdown al clickear
 
 dropdownBtn.onclick = function(){
@@ -78,40 +75,30 @@ for (item of listItems){
 
 
 
-const allSideMenu = document.querySelectorAll('.menu li span');
-let active = document.getElementById('active')
-
-allSideMenu.forEach(item=> {
-	const li = item.parentElement;
-	item.addEventListener('click', function () {
-		allSideMenu.forEach(i=> {
-			i.parentElement.classList.remove('active');
-		})
-		li.classList.add('active');
-	})
-});
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    var boton = document.getElementById('active');
-    boton.disabled = false; // Asegúrate de que el botón esté habilitado
-});
 
 
-// mostrar y ocultar secciones
+/////////////// EVENTO CLICK PARA EL ASIDE
 
-function showSection(sectionId) {
-    // Oculta todas las secciones
-    const sections = document.querySelectorAll('.secciones');
-    sections.forEach(section => {
-        section.style.display = 'none';
-    });
+// const allSideMenu = document.querySelectorAll('.menu li span');
+// let active = document.getElementById('active')
 
-    // Muestra la sección correspondiente
-    const sectionToShow = document.getElementById(sectionId);
-    if (sectionToShow) {
-        sectionToShow.style.display = 'block';
-    }
-}
+// allSideMenu.forEach(item=> {
+//     const li = item.parentElement;
+//     item.addEventListener('click', function () {
+//         allSideMenu.forEach(i=> {
+//             i.parentElement.classList.remove('active');
+//         })
+//         li.classList.add('active');
+//     })
+// });
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//     var boton = document.getElementById('active');
+//     boton.disabled = false; // Asegúrate de que el botón esté habilitado
+// });
+
+
+
 
 
 
@@ -136,21 +123,6 @@ function showSection(sectionId) {
 
 
 // Mostrar la primera sección por defecto
-showSection('estadisticas-section');
+// showSection('estadisticas-section');
 
 
-
-
-///////  Preview Images 
-
-document.getElementById('file').onchange = function(e) {
-    let reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]); // Changed 'File' to 'files'
-    reader.onload = function() {
-        let preview = document.getElementById('preview');
-        let img = document.createElement('img');
-        img.src = reader.result;
-        preview.innerHTML = ''; // Clear previous images
-        preview.appendChild(img); // Use appendChild for better compatibility
-    };
-};

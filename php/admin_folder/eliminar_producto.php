@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos
-include 'db.php'; // Asegúrate de tener tu archivo de conexión
+include '../db.php'; // Asegúrate de tener tu archivo de conexión
 
 if (isset($_POST['id'])) {
     // Escapar el ID para evitar inyecciones SQL
@@ -11,7 +11,7 @@ if (isset($_POST['id'])) {
     
     if (mysqli_query($conn, $query)) {
         // Redirigir a la misma página o a la página del carrito después de la eliminación
-        header("Location: admin.php#inventario-section"); // Redirige a la página del carrito o la que elijas
+        header("Location: inventario_admin.php"); // Redirige a la página del carrito o la que elijas
         exit();
     }
 
