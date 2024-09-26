@@ -17,15 +17,14 @@
 
 <aside>
     <div class="container-admin">
-    <a href="../index.php" class="logo"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
-        <div class="container-lista-admin">
-            <ul class="menu">
-            
-                <li><a href="admin.php"></a><span>Estadisticas</span></a></li>
-                <li class="active"><a href="inventario_admin.php"><span>Inventario</span></a></li>
-                <li><a href="publicar_admin.php"><span>Publicar</span></a></li>
-                <li><a href="mensaje_admin.php"><span>Mensajes</span></a></li>
-            </ul>
+        <a href="../index.php" class="logo"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
+        <ul class="menu">
+        
+            <li><a href="admin.php"><span>Estadisticas</span></a></li>
+            <li class="active"><a href="inventario_admin.php"><span>Inventario</span></a></li>
+            <li><a href="publicar_admin.php"><span>Publicar</span></a></li>
+            <li><a href="mensaje_admin.php"><span>Mensajes</span></a></li>
+        </ul>
     </div>
 </aside>
 
@@ -73,7 +72,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        include 'db.php'; // Asegúrate de que 'db.php' esté configurado correctamente y $conn esté definido
+                        include '../db.php'; // Asegúrate de que 'db.php' esté configurado correctamente y $conn esté definido
 
                         $sql = "SELECT * FROM productos ORDER BY id ASC";
                         $result = $conn->query($sql);
