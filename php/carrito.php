@@ -118,9 +118,9 @@
                     }
                 ?>
                 
+                <td colspan="4"></td>
                 <td colspan="1">Total:  $<?php echo number_format($total, 0); ?></td>
-                <td colspan="3"></td>
-                <td colspan="6"><a href="#">Proceder al pago</a></td>
+                <td colspan="1"><a href="#">Proceder al pago</a></td>
                 </tr>
                 
             </tfoot>

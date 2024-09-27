@@ -203,7 +203,7 @@ session_start();
 
                     ?>
                     
-                            <a href="item.php?id=<?php echo $row['id']; ?>">
+                            <a href="producto.php?id=<?php echo $row['id']; ?>">
                             <div class="box">
 
                                 <div class="slide-img">
