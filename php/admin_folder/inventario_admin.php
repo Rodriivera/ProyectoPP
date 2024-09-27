@@ -96,10 +96,12 @@
                             <form action="eliminar_producto.php" method="POST">
 
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-
-                                <button><i class="ri-pencil-line"></i></button>
                                 <button class="td_operaciones_eliminar"><i class="ri-close-fill"></i></button>
                             
+                            </form>
+                            <form action="modificar_admin.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <a href="modificar_admin.php"><i class="ri-pencil-line"></i></a>
                             </form>
                         </td>
                     </tr>

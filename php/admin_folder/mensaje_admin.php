@@ -17,20 +17,21 @@
 
 
 
-    <section id="aside">
-        
+    
+    <aside>
         <div class="container-admin">
             <a href="../index.php" class="logo"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
     
             <ul class="menu">
             
-                <li><a href="estadisticas_admin.php"><span onclick="showSection('estadisticas-section')">Estadisticas</span></a></li>
-                <li><a href="inventario_admin.php"><span onclick="showSection('inventario-section')">Inventario</span></a></li>
-                <li><a href="publicar_admin.php"><span onclick="showSection('publicar-section')">Publicar</span></a></li>
-                <li class="active"><span onclick="showSection('mensaje-section')">Mensajes</span></li>
+            <li><a href="admin.php"><span>Estadisticas</span></a></li>
+            <li><a href="inventario_admin.php"><span>Inventario</span></a></li>
+            <li><a href="publicar_admin.php"><span>Publicar</span></a></li>
+            <li  class="active"><a href="mensaje_admin.php"><span>Mensajes</span></a></li>
             </ul>
         </div>
-    </section>
+    </aside>
+    
     
 </body>
 </html>

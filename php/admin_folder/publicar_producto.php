@@ -21,7 +21,7 @@
     
         // Verifica si el archivo es una imagen
         $tipoArchivo = strtolower(pathinfo($rutaDestino, PATHINFO_EXTENSION));
-        $tiposPermitidos = ['jpg', 'jpeg', 'png', 'gif'];
+        $tiposPermitidos = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
     
         if (in_array($tipoArchivo, $tiposPermitidos)) {
             // Intenta mover el archivo al directorio de destino
