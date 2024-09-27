@@ -20,7 +20,6 @@
         <a href="../index.php" class="logo"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
             <div class="container-lista-admin">
                 <ul class="menu">
-               
                     <li class="active"><span id="active" >Estadisticas</span></li>
                     <li><a href="inventario_admin.php"><span>Inventario</span></a></li>
                     <li><a href="publicar_admin.php"><span>Publicar</span></a></li>

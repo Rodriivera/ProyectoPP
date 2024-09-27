@@ -141,6 +141,8 @@ aside{
 
 
 
+
+
 /* SECCION PUBLICAR*/
 #publicar-section{
     background-color: var(--grey);
@@ -192,6 +194,14 @@ aside{
     
 }
 
+.container_input_number{
+    display: flex;
+    flex-direction: row;
+}
+
+.container_input_number .input_label{
+    margin-right: 1rem;
+}
 
 .nombre-m-c{
     display: grid;
@@ -239,7 +249,21 @@ input::file-selector-button{
     border-radius: 6px;
     cursor: pointer;
 }
-
-
+#file{
+   margin-top: 0.5rem;
+}
+#submit-btn{
+    background-color: var(--blue);
+    height: 2rem;
+    border: none;
+    width: 100px;
+}
+.input_number{
+    width: 100px;
+}
+.container_file{
+    display: flex;
+    flex-direction: row;
+}
 
 /* FIN PUBLICAR */

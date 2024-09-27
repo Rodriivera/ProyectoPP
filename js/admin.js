@@ -32,8 +32,9 @@ document.querySelectorAll('.dropdown-list-item').forEach(item => {
 
 // fin obligar que seleccione una categoria
 
-// mostrar dropdown al clickear
 
+
+// mostrar dropdown al clickear
 dropdownBtn.onclick = function(){
     
     // rotar icono
@@ -72,57 +73,3 @@ for (item of listItems){
  
 }
 // fin barra de busqueda
-
-
-
-
-
-/////////////// EVENTO CLICK PARA EL ASIDE
-
-// const allSideMenu = document.querySelectorAll('.menu li span');
-// let active = document.getElementById('active')
-
-// allSideMenu.forEach(item=> {
-//     const li = item.parentElement;
-//     item.addEventListener('click', function () {
-//         allSideMenu.forEach(i=> {
-//             i.parentElement.classList.remove('active');
-//         })
-//         li.classList.add('active');
-//     })
-// });
-
-// document.addEventListener('DOMContentLoaded', (event) => {
-//     var boton = document.getElementById('active');
-//     boton.disabled = false; // Asegúrate de que el botón esté habilitado
-// });
-
-
-
-
-
-
-
-
-// window.onload = function() {
-//     if (window.location.hash === '#inventario-section') {
-//         document.getElementById('inventario-section').style.display = 'block';
-//         window.scrollTo(0, document.getElementById('inventario-section').offsetTop);
-//     }
-// }
-
-// window.onload = function() {
-//     if (window.location.hash === '#publicar-section') {
-//         document.getElementById('publicar-section').style.display = 'block';
-//         window.scrollTo(0, document.getElementById('publicar-section').offsetTop);
-//     }
-// }
-
-
-
-
-
-// Mostrar la primera sección por defecto
-// showSection('estadisticas-section');
-
-

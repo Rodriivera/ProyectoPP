@@ -88,7 +88,7 @@
                     ?>
                     <tr>
                         <td><?php echo $id; ?></td>
-                        <td class="td_img"><div  class="td_imagen" style='background-image: url(<?php echo $image?>);'></div></td>
+                        <td class="td_img"><div  class="td_imagen" style='background-image: url("img_productos/<?php echo htmlspecialchars($image); ?>");'></div></td>
                         <td><?php echo $name; ?></td>
                         <td><?php echo $stock; ?></td> 
                         <td><?php echo number_format($price, 0); ?></td>
