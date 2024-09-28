@@ -310,6 +310,14 @@ tr{
     justify-content: center;
     align-items: center;
 }
+.td_operaciones div{
+    display: flex;
+  
+    justify-content: center;
+    align-items: center;
+    
+
+}
 .td_operaciones button{
     font-size: 22px;
     margin: 0 15px;
