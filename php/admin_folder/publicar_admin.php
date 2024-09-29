@@ -60,14 +60,14 @@
                 <label>Categoria</label>
                 <select name="categoria" id="" required>
                     <option value="">-Seleccionar categoria-</option>
-                    <option value="fragancias">Fragancias</option>
-                    <option value="maquillaje">Maquillaje</option>
-                    <option value="faciales">Faciales</option>
-                    <option value="capilares">Capilares</option>
-                    <option value="personales">Personales</option>
-                    <option value="regaleria">Regaleria</option>
-                    <option value="hogar">Hogar</option>
-                    <option value="accesorios">Accesorios</option>
+                    <option value="Fragancias">Fragancias</option>
+                    <option value="Maquillaje">Maquillaje</option>
+                    <option value="Faciales">Faciales</option>
+                    <option value="Capilares">Capilares</option>
+                    <option value="Personales">Personales</option>
+                    <option value="Regaleria">Regaleria</option>
+                    <option value="Hogar">Hogar</option>
+                    <option value="Accesorios">Accesorios</option>
                 </select>
                 
             </div>

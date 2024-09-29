@@ -106,17 +106,20 @@ input[type="number"] {
     font-weight: 500;
     color: white;
 
-    background-color: #5dccff;
+    
     transition: .2s;
     cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #5dccff;
 }
 
 .botones button[type="submit"]:hover{
     transition: .2s;
 
-    background-color: #00aeff;
-    transform: translateY(-1px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
+
 
 .botones button[type="reset"]{
     padding: 10px 20px;
@@ -124,7 +127,7 @@ input[type="number"] {
     border-radius: 6px;
     font-weight: 500;
     color: white;
-
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     background-color: #ff6969;
     transition: .2s;
     cursor: pointer;
@@ -133,8 +136,7 @@ input[type="number"] {
 .botones button[type="reset"]:hover{
     transition: .2s;
 
-    background-color: #ff0000ac;
-    transform: translateY(-1px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 

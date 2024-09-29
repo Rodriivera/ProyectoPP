@@ -146,6 +146,7 @@ main{
 
 .slide-img{
     height: 150px;
+    padding: 10px;
 }
 
 .slide-img img{

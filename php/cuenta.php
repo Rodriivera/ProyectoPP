@@ -83,7 +83,7 @@
 
                     <div class="contraseña items">
                         <label for="contraseña">Contraseña</label>
-                        <input type="password" name="contraseña" id="contraseña">
+                        <input type="password" name="contraseña" id="contraseña" placeholder="**********">
                     </div>
 
                     <div class="telefono items">

@@ -139,14 +139,15 @@ tfoot  a{
     color: white;
     font-size: .9rem;
     padding: 12px 24px;
-    border-radius: 12px;
-    transition: .1s;
+    border-radius: 8px;
+    transition: .2s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 tfoot a:hover{
-    background-color: #47a0c9;
-    transition: .1s;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    transition: .2s;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 

@@ -65,7 +65,7 @@
 
                 ?>
                 <tr>
-                    <td><div class='imagen' style='background-image: url("<?php echo $row['imagen_url']; ?>");'></div></td>
+                    <td><div class='imagen' style='background-image: url("./admin_folder/img_productos/<?php echo $row['imagen_url']; ?>");'></div></td>
                     <td><?php echo $row['nombre']; ?></td>
                     <td><?php echo $row['marca']; ?></td>
                     <td><?php echo $row['cantidad']; ?></td>

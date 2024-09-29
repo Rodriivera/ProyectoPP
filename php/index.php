@@ -158,7 +158,7 @@
                 <div class="box">
 
                     <div class="slide-img">
-                        <img src="<?php echo $image; ?>" alt="<?php echo $name; ?>">
+                    <img src="./admin_folder/img_productos/<?php echo $image; ?>" alt="<?php echo $name; ?>">
                     </div>
 
                     <div class="detail-box">

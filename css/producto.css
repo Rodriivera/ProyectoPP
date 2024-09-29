@@ -2,14 +2,15 @@ main{
     padding: 78.4px 8rem 0;
 }
 
-.producto{
-    
-}
+
 
 .producto-container{
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     margin: 3rem 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 4rem 0;
 }
 
 .producto-imagen{
@@ -90,14 +91,15 @@ main{
 .botones{
     width: 200px;
     display: flex;
-    gap: .5rem;
-    transition: .2s;
+    /* gap: .5rem; */
+    transition: .3s;
+    justify-content: space-around;
     
 }
 
 .botones:hover{
-    transition: .2s;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: .3s;
 }
 
 .producto-botones i{
@@ -136,13 +138,18 @@ main{
     transition: .1s;
 }
 
-.cantidad{
+.cantidadycarrito{
     display: flex;
-    align-items: center;
-    gap: 5px;
+    align-items: start;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
-.cantidad input{
+.cantidad{
+    display: flex;
+}
+
+.cantidadycarrito input{
     width: 25px;
     background: none;
     border: none;
@@ -152,6 +159,8 @@ main{
     color: black;
     outline: none;
 }
+
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -200,6 +209,7 @@ input[type="number"] {
     .producto-container{
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 2rem;
     }
     .producto-imagen{
         width: 100%;
@@ -209,5 +219,16 @@ input[type="number"] {
         justify-content: center;
         align-items: center;
     } */
+
+    .botones{
+        width: 100%;
+        justify-content: center;
+        gap: .5rem;
+        
+    }
+    .producto-imagen{
+        width: 300px;
+        height: 300px;
+    }
     
 }

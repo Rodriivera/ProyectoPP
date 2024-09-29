@@ -54,7 +54,7 @@
 
     <div class="producto-container">
 
-        <div class="producto-imagen" style=" background-image: url('<?php echo $imagen; ?>');"></div>
+        <div class="producto-imagen" style=" background-image: url('./admin_folder/img_productos/<?php echo $imagen; ?>');"></div>
 
         <div class="producto-texto-botones">
             <div class="producto-texto">
@@ -78,25 +78,32 @@
         // Verificar si la sesión está iniciada
         if (isset($_SESSION['user_id'])) { 
         ?>
-            <form class="cantidad" method="post" style="display: flex; align-items: center;">
+            <form class="cantidadycarrito" action="agregar_carrito.php" method="post"  onsubmit="this.querySelector('input[name=hidden_quantity]').value = this.querySelector('input[name=visible_quantity]').value;">
                 <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                
-                <!-- Botón para reducir cantidad -->
-                <button type="submit" name="update_quantity" class="btn" onclick="this.parentNode.querySelector('input[name=quantity]').stepDown();"><i class="ri-subtract-line"></i></button>
-                
-                <!-- Input de cantidad -->
-                <input type="number" name="quantity" value="1" min="1" max="<?php echo $stock; ?>" class="quantity-input">
-                
-                <!-- Botón para aumentar cantidad -->
-                <button type="submit" name="update_quantity" class="btn" onclick="this.parentNode.querySelector('input[name=quantity]').stepUp();"><i class="ri-add-line"></i></button>
-            </form>
+                <input type="hidden" name="hidden_quantity" value="1"> <!-- Input oculto para la cantidad -->
 
-            <form action="carrito.php" method="GET">
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <div class="cantidad">
+
+                    <!-- Botón para reducir cantidad -->
+                    <button type="button" class="btn" onclick="let qtyInput = this.parentNode.querySelector('input[name=visible_quantity]'); if (qtyInput.value > 1) qtyInput.stepDown();"><i class="ri-subtract-line"></i></button>
+                    
+                    <!-- Input visible de cantidad -->
+                    <input type="number" name="visible_quantity" value="1" min="1" max="<?php echo $stock; ?>" class="quantity-input">
+                    
+                    <!-- Botón para aumentar cantidad -->
+                    <button type="button" class="btn" onclick="this.parentNode.querySelector('input[name=visible_quantity]').stepUp();"><i class="ri-add-line"></i></button>
+
+                </div>
+
+                <!-- Botón para añadir al carrito -->
                 <button type="submit" class="botones añadir-al-carrito">
                     <i class="ri-shopping-cart-2-line"></i>Añadir al carrito
                 </button>
             </form>
+
+
+
+
         <?php
         } else { // Si la sesión no está iniciada, redirigir al login
         ?>
@@ -128,7 +135,7 @@
     // Verificar si la sesión está iniciada antes de añadir a favoritos
     if (isset($_SESSION['user_id'])) {
     ?>
-        <form action="agregar_favoritos.php" method="GET">
+        <form action="agregar_favoritos.php" method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <button type="submit" class="botones añadir-a-favoritos">
                 <i class="ri-heart-3-line"></i>Añadir a favoritos
