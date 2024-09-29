@@ -108,24 +108,29 @@
         } else { // Si la sesión no está iniciada, redirigir al login
         ?>
 
-            <form class="cantidad" method="post" style="display: flex; align-items: center;">
+            <form class="cantidadycarrito" action="login-register.php" method="post"  onsubmit="this.querySelector('input[name=hidden_quantity]').value = this.querySelector('input[name=visible_quantity]').value;">
                 <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                
-                <!-- Botón para reducir cantidad -->
-                <button type="submit" name="update_quantity" class="btn" onclick="this.parentNode.querySelector('input[name=quantity]').stepDown();"><i class="ri-subtract-line"></i></button>
-                
-                <!-- Input de cantidad -->
-                <input type="number" name="quantity" value="1" min="1" max="<?php echo $stock; ?>" class="quantity-input">
-                
-                <!-- Botón para aumentar cantidad -->
-                <button type="submit" name="update_quantity" class="btn" onclick="this.parentNode.querySelector('input[name=quantity]').stepUp();"><i class="ri-add-line"></i></button>
-            </form>
-            
-            <form action="login-register.php" method="GET">
+                <input type="hidden" name="hidden_quantity" value="1"> <!-- Input oculto para la cantidad -->
+
+                <div class="cantidad">
+
+                    <!-- Botón para reducir cantidad -->
+                    <button type="button" class="btn" onclick="let qtyInputt = this.parentNode.querySelector('input[name=visible_quantity]'); if (qtyInputt.value > 1) qtyInputt.stepDown();"><i class="ri-subtract-line"></i></button>
+                    
+                    <!-- Input visible de cantidad -->
+                    <input type="number" name="visible_quantity" value="1" min="1" max="<?php echo $stock; ?>" class="quantity-input">
+                    
+                    <!-- Botón para aumentar cantidad -->
+                    <button type="button" class="btn" onclick="this.parentNode.querySelector('input[name=visible_quantity]').stepUp();"><i class="ri-add-line"></i></button>
+
+                </div>
+
+                <!-- Botón para añadir al carrito -->
                 <button type="submit" class="botones añadir-al-carrito">
                     <i class="ri-shopping-cart-2-line"></i>Añadir al carrito
                 </button>
             </form>
+
         <?php
         }
     } else {
