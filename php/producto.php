@@ -19,6 +19,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Aromas</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -157,7 +161,7 @@
     <?php
     }
     ?>
-</div>
+    </div>
 
         
 
@@ -174,14 +178,50 @@
                 <p><?php echo $descripcion; ?></p>
             </div>
 
-
-
-
-
     </div>
     
     <div class="linea"></div>
 
+</section>
+
+    <section class="slider">
+        <span>Productos relacionados</span>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <?php
+                    $sql = "SELECT * FROM productos WHERE categoria = '$categoria' ORDER BY RAND()";
+                    $result = $conn->query($sql);
+
+                    while($row = $result->fetch_assoc()) {
+                        $name = $row['nombre'];
+                        $brand = $row['marca'];
+                        $price = $row['precio'];
+                        $image = $row['imagen_url'];
+                ?>
+                <div class="swiper-slide">
+                    <a href="producto.php?id=<?php echo $row['id']; ?>">
+                        
+                            <div class="imagen" style="background-image: url('./admin_folder/img_productos/<?php echo $image; ?>');"></div>
+                            <div class="info">
+                                <h2 title="<?php echo $name; ?>"><?php echo $name; ?></h2>
+                                <p><?php echo $brand; ?></p>
+                                <h3 class="price">$<?php echo number_format($price, 0); ?></h3>
+                            </div>
+                        
+                    </a>
+                </div>
+                <?php
+                    }
+                ?>
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+
+    </section>
+
 
     
 
@@ -189,15 +229,17 @@
 
 
 
-</section>
+
 
 
 </main>
 
 <?php include 'footer.php';?>
 
-<script src="../js/cuenta.js"></script>
-    
+<script src="../js/producto.js?v=<?php echo time();?>"></script>
+
+
+
 </body>
 
 </html>

@@ -1,8 +1,7 @@
 <?php
         include 'db.php';
 
-        $sql = "SELECT * FROM productos ORDER BY RAND() LIMIT 15";
-        $result = $conn->query($sql);
+        
 
         session_start();
 
@@ -29,11 +28,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Aromas</title>
-    <link rel="stylesheet" href="../css/lightslider.css?v=<?php echo time(); ?>">
-    <!-- <script src="../js/jquery.js?v=<?php echo time(); ?>"></script> -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="../js/lightslider.js?v=<?php echo time(); ?>"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
     
@@ -143,35 +139,42 @@
 
 
 
-    <section class="productos">
-        <h2>Algunos productos</h2>
-        <ul id="autoWidth" class="cs-hidden">
-            <?php
-                while($row = $result->fetch_assoc()) {
-                    $name = $row['nombre'];
-                    $brand = $row['marca'];
-                    $price = $row['precio'];
-                    $image = $row['imagen_url'];
-            ?>
-            <li class="item">
-                <a href="producto.php?id=<?php echo $row['id']; ?>">
-                <div class="box">
+    <section class="slider">
+        <span>Productos relacionados</span>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <?php
+                    $sql = "SELECT * FROM productos ORDER BY RAND() LIMIT 10";
+                    $result = $conn->query($sql);
 
-                    <div class="slide-img">
-                    <img src="./admin_folder/img_productos/<?php echo $image; ?>" alt="<?php echo $name; ?>">
-                    </div>
-
-                    <div class="detail-box">
-                        <h3 title="<?php echo $name; ?>"><?php echo $name; ?></h3>
-                        <h4><?php echo $brand; ?></h4>
-                        <p>$<?php echo number_format($price, 0); ?></p>
+                    while($row = $result->fetch_assoc()) {
+                        $name = $row['nombre'];
+                        $brand = $row['marca'];
+                        $price = $row['precio'];
+                        $image = $row['imagen_url'];
+                ?>
+                <div class="swiper-slide">
+                    <a href="producto.php?id=<?php echo $row['id']; ?>">
                         
-                    </div>
+                            <div class="imagen" style="background-image: url('./admin_folder/img_productos/<?php echo $image; ?>');"></div>
+                            <div class="info">
+                                <h2 title="<?php echo $name; ?>"><?php echo $name; ?></h2>
+                                <p><?php echo $brand; ?></p>
+                                <h3 class="price">$<?php echo number_format($price, 0); ?></h3>
+                            </div>
+                        
+                    </a>
                 </div>
-                </a>
-            </li>
-            <?php } ?>
-        </ul>
+                <?php
+                    }
+                ?>
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+
     </section>
 
     
