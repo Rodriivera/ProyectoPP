@@ -93,16 +93,21 @@
                         <td><?php echo $stock; ?></td> 
                         <td><?php echo number_format($price, 0); ?></td>
                         <td class="td_operaciones">
+                            <div>
+
+                            <form action="modificar_admin.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <button type="submit"><i class="ri-pencil-line"></i></button>
+                            </form>
+
                             <form action="eliminar_producto.php" method="POST">
 
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <button class="td_operaciones_eliminar"><i class="ri-close-fill"></i></button>
                             
                             </form>
-                            <form action="modificar_admin.php" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                <a href="modificar_admin.php"><i class="ri-pencil-line"></i></a>
-                            </form>
+                    
+                            </div>
                         </td>
                     </tr>
                     <?php

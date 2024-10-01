@@ -224,13 +224,16 @@ aside{
 }
 
 #preview{
-    
     display: flex;
     justify-content: center;
     align-items: center;
     width: 150px;
     height: 150px;
-    border: 2px dashed var(--blue);
+    border: 2px dashed #5dccff;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
 }
 #preview img{
     width: 90%;
@@ -239,24 +242,29 @@ aside{
 
 #preview i{
     font-size: 2.5rem;
-    color: var(--blue);
+    color: #5dccff;
 }
 input::file-selector-button{
-    color: white;
-    padding: 0.5rem;
+    background-color: #5dccff;
+    height: 2rem;
     border: none;
-    background-color: var(--blue);
-    border-radius: 6px;
+    width: 150px;
+    border-radius: 8px;
+    color: white;
     cursor: pointer;
 }
 #file{
    margin-top: 0.5rem;
 }
 #submit-btn{
-    background-color: var(--blue);
+    background-color: #5dccff;
     height: 2rem;
     border: none;
     width: 100px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+
 }
 .input_number{
     width: 100px;

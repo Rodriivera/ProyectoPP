@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../media/Aromas.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../css/admin_style/publicar_admin.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="../../css/admin_style/modificar_admin.css?v=<?php echo time(); ?>" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,8 +54,14 @@
                                 
                                 $row = $result->fetch_assoc();
                                 $nombre = $row['nombre'];
-                            } else {
-                                $nombre = '';
+                                $marca = $row['marca'];
+                                $precio = $row['precio'];
+                                $stock = $row['stock'];
+                                $min_stock = $row['min_stock'];
+                                $descripcion = $row['descripcion'];
+                                $categoria = $row['categoria'];
+                                $imagen = $row['imagen_url'];
+
                             }
         
         ?>
@@ -63,27 +69,26 @@
         
         <div  class="input_label">   
                 <label>Nombre</label>
-                <input type="text" name="nombre" required placeholder="<?php echo $nombre; ?>">
+                <input type="text" name="nombre"  placeholder="<?php echo $nombre; ?>">
             </div>
 
             <div class="input_label">   
                 <label>Marca</label>
-                <input type="text" name="marca" required>
+                <input type="text" name="marca"  placeholder="<?php echo $marca; ?>">
             </div>
-
+            
             <div class="input_label">   
 
                 <label>Categoria</label>
-                <select name="categoria" id="" required>
-                    <option value="">-Seleccionar categoria-</option>
-                    <option value="fragancias">Fragancias</option>
-                    <option value="maquillaje">Maquillaje</option>
-                    <option value="faciales">Faciales</option>
-                    <option value="capilares">Capilares</option>
-                    <option value="personales">Personales</option>
-                    <option value="regaleria">Regaleria</option>
-                    <option value="hogar">Hogar</option>
-                    <option value="accesorios">Accesorios</option>
+                <select name="categoria" id=""  autofocus="<?php echo $categoria; ?>">
+                    <option value="Fragancias" <?php if ($categoria === "Fragancias") echo 'selected'; ?>>Fragancias</option>
+                    <option value="Maquillaje" <?php if ($categoria === "Maquillaje") echo 'selected'; ?>>Maquillaje</option>
+                    <option value="Faciales" <?php if ($categoria === "Faciales") echo 'selected'; ?>>Faciales</option>
+                    <option value="Capilares" <?php if ($categoria === "Capilares") echo 'selected'; ?>>Capilares</option>
+                    <option value="Personales" <?php if ($categoria === "Personales") echo 'selected'; ?>>Personales</option>
+                    <option value="Regaleria" <?php if ($categoria === "Regaleria") echo 'selected'; ?>>Regaleria</option>
+                    <option value="Hogar" <?php if ($categoria === "Hogar") echo 'selected'; ?>>Hogar</option>
+                    <option value="Accesorios" <?php if ($categoria === "Accesorios") echo 'selected'; ?>>Accesorios</option>
                 </select>
                 
             </div>
@@ -93,17 +98,18 @@
                 
                 <div class="input_label">  
                     <label>Precio</label>
-                    <input class="input_number" type="number" min="0" name="precio" required>
+                    <input class="input_number" type="number" min="0" name="precio"  placeholder="<?php echo number_format($precio,0); ?>">
+                    
                 </div>
                 
                 <div class="input_label">   
                     <label>Stock</label>
-                    <input class="input_number" type="number" min="0" name="stock" required>
+                    <input class="input_number" type="number" min="0" name="stock"  placeholder="<?php echo $stock; ?>">
                 </div>
 
                 <div class="input_label">   
                     <label>Stock Minimo</label>
-                    <input class="input_number" type="number" min="0" name="min_stock">
+                    <input class="input_number" type="number" min="0" name="min_stock" placeholder="<?php echo $min_stock; ?>">
                 </div>
             </div>
 
@@ -115,16 +121,19 @@
 
             <div class="input_label">   
                 <label>Descripcion</label>
-                <textarea name="descripcion" required></textarea>
+                <textarea name="descripcion"  placeholder="<?php echo $descripcion; ?>"></textarea>
             </div>
 
 
             <div>    
                 <label class="file-label">Imagen</label>
-                <div id="preview" class="styleimage"><i class="ri-file-image-line"></i></div>
-                <input type="file" id="file" name="imagen" accept="image/*" required>
+                <div id="preview" class="styleimage">
+                    <img src="img_productos/<?php echo $imagen; ?>" style="max-width: 100%;" alt="">
+                </div>
+                <input type="file" id="file" name="imagen" accept="image/*" >
                 
-                <script>
+                
+                <script>    
                     const fileInput = document.getElementById('file');
                     const previewDiv = document.getElementById('preview');
 
@@ -151,8 +160,8 @@
                             reader.readAsDataURL(file);
                         }
                     });
-                </script>
-
+                </script> 
+                        
             </div>
 
             <button id="submit-btn" type="submit">Enviar</button>
