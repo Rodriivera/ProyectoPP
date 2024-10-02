@@ -7,7 +7,7 @@ main{
 .linea{
     width: 100%;
     height: 1px;
-    background-color: rgba(128, 128, 128, 0.15);
+    background-color: rgba(128, 128, 128, 0.25);
     margin: 3rem 0;
 }
 
@@ -68,7 +68,7 @@ th{
     padding:  7px 8px;
     background: none;
     color: black;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     text-decoration: none;
     border-radius: 6px;
     border: none;
@@ -78,7 +78,7 @@ th{
 }
 
 .btn:hover{
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     transition: .1s;
 }
 
@@ -93,7 +93,7 @@ th{
 }
 
 .borrar i:hover{
-    background-color: rgba(128, 128, 128, 0.070);
+    background-color: rgba(128, 128, 128, 0.15);
     transition: .1s;
 }
 

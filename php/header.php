@@ -5,7 +5,7 @@
 
 <header>
         <div class="logo-y-menu">
-        <a href="../php/index.php" class="logo"><img src="../media/Aromas_sf.png" alt="" width="175px"></a>
+        <a href="../php/index.php" class="logo"><img src="../media/Aromas-negro.png" alt="" width="190px"></a>
         <i onclick="toggleMenu()" id="menu" class="ri-menu-line menu-icon"></i>
 
             <div class="sub-menu-wrap" id="subMenu">

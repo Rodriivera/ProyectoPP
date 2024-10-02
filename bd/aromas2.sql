@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2024 a las 05:01:55
+-- Tiempo de generación: 03-10-2024 a las 00:24:53
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,9 +40,7 @@ CREATE TABLE `carritos` (
 --
 
 INSERT INTO `carritos` (`id`, `usuario_id`, `producto_id`, `cantidad`, `fecha_agregado`) VALUES
-(19, 1, 14, 1, '2024-09-29 03:50:33'),
-(20, 1, 11, 1, '2024-09-29 03:50:39'),
-(21, 1, 15, 1, '2024-09-29 03:56:22');
+(53, 1, 12, 1, '2024-10-02 22:24:03');
 
 -- --------------------------------------------------------
 
@@ -65,7 +63,10 @@ CREATE TABLE `detalle_pedido` (
 INSERT INTO `detalle_pedido` (`id`, `pedido_id`, `producto_id`, `cantidad`, `precio`) VALUES
 (1, 1, 16, 1, 5000.00),
 (2, 1, 8, 1, 5000.00),
-(3, 2, 11, 1, 50000.00);
+(3, 2, 11, 1, 50000.00),
+(4, 3, 15, 1, 160000.00),
+(5, 3, 33, 1, 50000.00),
+(6, 4, 8, 1, 12000.00);
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,9 @@ CREATE TABLE `pedidos` (
 
 INSERT INTO `pedidos` (`id`, `usuario_id`, `total`, `estado`, `fecha_pedido`) VALUES
 (1, 1, 10000.00, 'Enviado', '2024-09-10'),
-(2, 1, 50000.00, 'Cancelado', '2024-09-01');
+(2, 1, 50000.00, 'Cancelado', '2024-09-01'),
+(3, 1, 210000.00, 'Pendiente', '2024-10-02'),
+(4, 1, 12000.00, 'Pendiente', '2024-10-02');
 
 -- --------------------------------------------------------
 
@@ -140,14 +143,14 @@ INSERT INTO `productos` (`id`, `nombre`, `marca`, `precio`, `imagen_url`, `categ
 (5, 'Hydra Oil Spray ', 'Tresemme ', 8000.00, '5.jpg', 'Capilares', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (6, 'Protector Solar 50fps', 'Cocoa Beach', 20000.00, '6.jpg', 'Capilares', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (7, 'Serum Niacinamida ', 'Booster', 7000.00, '7.jpg', 'Faciales', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(8, 'Agua Micelar', 'Garnier ', 12000.00, '8.jpg', 'Faciales', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(8, 'Agua Micelar', 'Garnier ', 12000.00, '8.jpg', 'Faciales', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (9, 'Herramientas saca puntos negros', 'PS', 3000.00, '9.jpg', 'Faciales', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (10, 'Gel de limpieza ', 'Dermaglós', 7500.00, '10.jpg', 'Faciales', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (11, 'We Are Tribe', 'Benetton', 50000.00, '11.jpg', 'Fragancias', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (12, 'Man In Black', 'Bvlgari', 280000.00, '12.jpg', 'Fragancias', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (13, 'Gentelman EDP', 'Givenchy', 210000.00, '13.jpg', 'Fragancias', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (14, 'Chrome EDT', 'Azzaro', 200000.00, '14.jpg', 'Fragancias', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(15, 'Stronger With You', 'Giorgio Armani', 160000.00, '15.jpg', 'Fragancias', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(15, 'Stronger With You', 'Giorgio Armani', 160000.00, '15.jpg', 'Fragancias', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (16, 'Mascara de pestañas', 'Maybelline', 15000.00, '16.jpg', 'Maquillajes', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (17, 'Labial Líquido Brillante', 'Maybelline ', 23000.00, '17.jpg', 'Maquillajes', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (18, 'Labial', 'Vogue', 10000.00, '18.jpg', 'Maquillajes', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
@@ -165,7 +168,7 @@ INSERT INTO `productos` (`id`, `nombre`, `marca`, `precio`, `imagen_url`, `categ
 (30, 'Mouse Inalámbrico M240 Rosa', 'Logitech', 22000.00, '30.jpg', 'Regaleria', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (31, 'Vaso Quencher 1.18 Lts', 'Stanley', 120000.00, '31.jpg', 'Hogar', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (32, 'Vaso Vidrio Copón Vino Gourmet 450ml X6', 'Rigolleau ', 7200.00, '32.jpg', 'Hogar', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(33, 'Batería De Cocina Cacerola 3 Piezas Aluminio Teflón', 'Mta', 50000.00, '33.jpg', 'Hogar', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(33, 'Batería De Cocina Cacerola 3 Piezas Aluminio Teflón', 'Mta', 50000.00, '33.jpg', 'Hogar', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (34, 'Molinillo De Café Eléctrico Premium Acero Inox', 'Atma', 40000.00, '34.jpg', 'Hogar', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (35, 'Cafetera Italiana Clásica 9 Pocillos Manual Alumin', 'Atma', 25000.00, '35.jpg', 'Hogar', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (36, 'Bandolera Cartera', 'Bourbon', 19000.00, '36.jpg', 'Accesorios', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
@@ -257,25 +260,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `carritos`
 --
 ALTER TABLE `carritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_pedido`
 --
 ALTER TABLE `detalle_pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

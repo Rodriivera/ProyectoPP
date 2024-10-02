@@ -76,17 +76,17 @@ main{
 
 .categoria-separada a{
     border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    
     transition: .3s;
 }
 
 .categoria-separada a:hover{
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     transition: .3s;
 }
 
 .categoria-foto{
-    background-color: rgba(128, 128, 128, 0.070);
+    background-color: rgba(128, 128, 128, 0.15);
     border-radius: 50%;
     padding: 15px;
 
@@ -165,7 +165,7 @@ main{
   }
 
   .swiper-slide:hover{
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
     transition: .2s;
   }
 
@@ -229,8 +229,8 @@ main{
 
 .swiper-button-next,
 .swiper-button-prev {
-  width: 50px !important;  /* Ajusta el ancho de las flechas */
-  height: 50px !important; /* Ajusta la altura de las flechas */
+  width: 45px !important;  /* Ajusta el ancho de las flechas */
+  height: 45px !important; /* Ajusta la altura de las flechas */
   color: #000 !important;
 }
 
@@ -247,7 +247,21 @@ main{
     font-weight: 600;
 }
 
+.arrows{
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    opacity: 0.5;
+}
 
+.arrows:hover{
+    transition: .3s;
+    background-color: rgba(128, 128, 128, 0.2);
+    opacity: 1;
+
+}
 
 
 
@@ -277,7 +291,7 @@ main{
     background-color: rgba(128, 128, 128, 0.070);
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     transition: .3s;
 }
 
@@ -316,6 +330,7 @@ main{
 
     background-color: rgb(230, 245, 252);
     transition: .3s;
+    
 }
 
 #reembolso:hover{

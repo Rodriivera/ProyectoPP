@@ -86,7 +86,7 @@ mysqli_close($conn);
               </div>
 
               <div class="heading">
-                <h2>Iniciar sesion</h2>
+                <h2>Iniciar sesión</h2>
                 <h6>No estás registrado?</h6>
                 <a href="#" class="cambiar">Creá una cuenta</a>
               </div>

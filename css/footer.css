@@ -4,7 +4,7 @@ footer{
     margin-top: auto;
     padding: 1.5rem 8rem 1rem;
     background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     
     
     
@@ -40,7 +40,7 @@ footer{
 }
 
 .redes a:hover{
-    background-color: rgba(128, 128, 128, 0.070);
+    background-color: rgba(128, 128, 128, 0.15);
     transition: .3s;
 }
 
@@ -52,7 +52,7 @@ footer{
 footer h3{
     font-size: 1rem;
     font-weight: 600;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.15); 
+    border-bottom: 2px solid rgba(128, 128, 128, 0.25); 
     padding-bottom:.5rem;
     margin-bottom: .6rem;
     display: inline-block;

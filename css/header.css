@@ -17,14 +17,14 @@
     align-items: center;
     border-radius: 50px;
     background-color: white !important;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     transition: .3s;
 
     max-height: 40px;
 }
 
 .search-bar:focus-within{
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     transition: .3s;
 }
 
@@ -63,7 +63,7 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height .5s ease;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
 #list.show{
@@ -130,7 +130,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     padding: 1.2rem 8rem 1.2rem 8rem;
     position: fixed;
     width: 100%;
@@ -162,7 +162,7 @@ nav i{
 
 .nav:hover{
     /* background-color: rgba(128, 128, 128, 0.045); */
-    background-color: rgba(128, 128, 128, 0.070);
+    background-color: rgba(128, 128, 128, 0.15);
     transition: .3s;
 }
 
@@ -177,7 +177,7 @@ nav i{
     max-height: 0px;
     overflow: hidden;
     transition: max-height .5s;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     z-index: 99;
     border-radius: 12px;
 }
@@ -337,7 +337,16 @@ nav i{
     color: red;
 }
 
+.logo-y-menu{
+    display: flex;
+    align-items: center;
+}
 
+.logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 
 
 
@@ -351,6 +360,8 @@ nav i{
     .sub-menu-wrap{
         display: none;
     }
+
+    
 
 }
 

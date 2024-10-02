@@ -11,15 +11,24 @@ if (isset($_POST['id']) && isset($_SESSION['user_id']) && isset($_POST['hidden_q
     $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
     $cantidad = mysqli_real_escape_string($conn, $_POST['hidden_quantity']); // Capturar la cantidad oculta enviada
 
-    // Consulta para agregar el producto al carrito del usuario
-    $query = "INSERT INTO carritos (usuario_id, producto_id, cantidad) VALUES ($user_id, $product_id, $cantidad)";
-    
-    if (mysqli_query($conn, $query)) {
-        // Redirigir a la página del carrito después de la adición
+    // Verificar si el producto ya está en el carrito del usuario
+    $check_query = "SELECT * FROM carritos WHERE usuario_id = $user_id AND producto_id = $product_id";
+    $result = mysqli_query($conn, $check_query);
+
+    if (mysqli_num_rows($result) > 0) {
         header("Location: carrito.php");
         exit();
     } else {
-        echo "Error al agregar el producto: " . mysqli_error($conn);
+        // Consulta para agregar el producto al carrito del usuario
+        $query = "INSERT INTO carritos (usuario_id, producto_id, cantidad) VALUES ($user_id, $product_id, $cantidad)";
+        
+        if (mysqli_query($conn, $query)) {
+            // Redirigir a la página del carrito después de la adición
+            header("Location: carrito.php");
+            exit();
+        } else {
+            echo "Error al agregar el producto: " . mysqli_error($conn);
+        }
     }
 
     mysqli_close($conn);
