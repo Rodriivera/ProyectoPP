@@ -96,6 +96,7 @@
                             <div>
 
                             <form action="modificar_admin.php" method="POST">
+                                
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <button type="submit"><i class="ri-pencil-line"></i></button>
                             </form>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="../media/Aromas.png" type="image/x-icon">
     <link rel="stylesheet" href="../../css/admin_style/admin.css?v=<?php echo time(); ?>" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
@@ -35,9 +36,10 @@
 
 
 
-    <section class="secciones" id="estadisticas-section">
-
-
+    <section class="content">
+        <div class="container_graficos">
+            <canvas class="canvas_bar" id="myChart"></canvas>
+        </div>
     </section>
 
 
@@ -45,7 +47,7 @@
 
 
  
-    
-    <script src="../../js/admin.js?v=<?php echo time(); ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/chart.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>

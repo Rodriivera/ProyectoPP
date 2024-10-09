@@ -126,37 +126,32 @@ aside{
 
 
 
+/* /////////////////////////// FIN ASIDE ///////////////////////*/
+
+
+
+
 
 
 /* SECCIONES DE ADMINISTRACION */
-.secciones{
+.content{
     position: absolute;
     background-color: var(--grey);
     width: 100%;
+    height: 100%;
     padding-left: 200px;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* FIN SECCIONES DE ADMINISTRACION */
-
-
-
-
-
-
-/* SECTION DE ESTADISTICAS */
 #estadisticas-section{
-    background-color: var(--grey);
+   
 }
 
-
-
-
-
-
-
-
-
-
+.canvas_bar{
+    width: 600px;  
+}
 
 
 

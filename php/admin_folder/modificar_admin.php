@@ -42,43 +42,39 @@
 
         <form  class="container_input" id="upload-form" action="modificar_producto.php" method="POST" enctype="multipart/form-data">
         
-        <?php
-        include '../db.php';
+            <?php
+            include '../db.php';
 
-        $id = $_REQUEST['id']; // ID del registro a editar
+            $id = $_REQUEST['id']; // ID del registro a editar
 
-        $sql = "SELECT * FROM productos WHERE id = '$id'";
-                            $result = $conn->query($sql);
+            $sql = "SELECT * FROM productos WHERE id = '$id'";
+            $result = $conn->query($sql);
 
-                            if ($result->num_rows > 0) {
-                                
-                                $row = $result->fetch_assoc();
-                                $nombre = $row['nombre'];
-                                $marca = $row['marca'];
-                                $precio = $row['precio'];
-                                $stock = $row['stock'];
-                                $min_stock = $row['min_stock'];
-                                $descripcion = $row['descripcion'];
-                                $categoria = $row['categoria'];
-                                $imagen = $row['imagen_url'];
-
-                            }
-        
-        ?>
-        
-        
-        <div  class="input_label">   
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $nombre = $row['nombre'];
+                $marca = $row['marca'];
+                $precio = $row['precio'];
+                $stock = $row['stock'];
+                $min_stock = $row['min_stock'];
+                $descripcion = $row['descripcion'];
+                $categoria = $row['categoria'];
+                // $imagen = $row['imagen_url'];
+            }
+            ?>
+            
+            
+            <div  class="input_label">   
                 <label>Nombre</label>
-                <input type="text" name="nombre"  placeholder="<?php echo $nombre; ?>">
-            </div>
-
-            <div class="input_label">   
-                <label>Marca</label>
-                <input type="text" name="marca"  placeholder="<?php echo $marca; ?>">
+                <input type="text" name="nombre"  value="<?php echo $nombre; ?>">
             </div>
             
             <div class="input_label">   
+                <label>Marca</label>
+                <input type="text" name="marca"  value="<?php echo $marca; ?>">
+            </div>           
 
+            <div class="input_label">   
                 <label>Categoria</label>
                 <select name="categoria" id=""  autofocus="<?php echo $categoria; ?>">
                     <option value="Fragancias" <?php if ($categoria === "Fragancias") echo 'selected'; ?>>Fragancias</option>
@@ -90,7 +86,6 @@
                     <option value="Hogar" <?php if ($categoria === "Hogar") echo 'selected'; ?>>Hogar</option>
                     <option value="Accesorios" <?php if ($categoria === "Accesorios") echo 'selected'; ?>>Accesorios</option>
                 </select>
-                
             </div>
 
 
@@ -98,18 +93,18 @@
                 
                 <div class="input_label">  
                     <label>Precio</label>
-                    <input class="input_number" type="number" min="0" name="precio"  placeholder="<?php echo number_format($precio,0); ?>">
+                    <input class="input_number" type="number" min="0" name="precio" value="<?php echo htmlspecialchars($precio,0); ?>">
                     
                 </div>
                 
                 <div class="input_label">   
                     <label>Stock</label>
-                    <input class="input_number" type="number" min="0" name="stock"  placeholder="<?php echo $stock; ?>">
+                    <input class="input_number" type="number" min="0" name="stock"  value="<?php echo $stock; ?>">
                 </div>
 
                 <div class="input_label">   
                     <label>Stock Minimo</label>
-                    <input class="input_number" type="number" min="0" name="min_stock" placeholder="<?php echo $min_stock; ?>">
+                    <input class="input_number" type="number" min="0" name="min_stock" value="<?php echo $min_stock; ?>">
                 </div>
             </div>
 
@@ -121,16 +116,16 @@
 
             <div class="input_label">   
                 <label>Descripcion</label>
-                <textarea name="descripcion"  placeholder="<?php echo $descripcion; ?>"></textarea>
+                <textarea name="descripcion"><?php echo htmlspecialchars($descripcion) ?></textarea>
             </div>
 
 
-            <div>    
+            <!-- <div>    
                 <label class="file-label">Imagen</label>
                 <div id="preview" class="styleimage">
                     <img src="img_productos/<?php echo $imagen; ?>" style="max-width: 100%;" alt="">
                 </div>
-                <input type="file" id="file" name="imagen" accept="image/*" >
+                <input type="file" id="file" name="imagen" accept="image/*">
                 
                 
                 <script>    
@@ -162,7 +157,7 @@
                     });
                 </script> 
                         
-            </div>
+            </div> -->
 
             <button id="submit-btn" type="submit">Enviar</button>
 
@@ -175,4 +170,7 @@
 
 
 
-    <script src="../../js/admin.js?v=<?php echo time(); ?>"></script>
+
+
+</body>
+</html>
