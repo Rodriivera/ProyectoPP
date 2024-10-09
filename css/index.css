@@ -288,10 +288,10 @@ main{
 
 .prestacion-separada{
     display: flex;
-    background-color: rgba(128, 128, 128, 0.070);
+    background-color: rgba(128, 128, 128, 0.15);
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); */
     transition: .3s;
 }
 

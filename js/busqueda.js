@@ -18,7 +18,8 @@ dropdownBtn3.onclick = function(event) {
     if (list3.classList.contains('show3')) {
         icon3.style.rotate = '0deg';
     } else {
-        icon3.style.rotate = '-180deg';
+        icon3.style.rotate = '180deg';
+        icon3.style.transition = '0.3s';
     }
     list3.classList.toggle('show3');
 };
@@ -28,6 +29,7 @@ document.addEventListener('click', function(event) {
     if (!list3.contains(event.target)) {
         list3.classList.remove('show3');
         icon3.style.rotate = '0deg'; // Restaurar rotación del icono
+        icon3.style.transition = '0.3s';
     }
 });
 
@@ -55,7 +57,8 @@ dropdownBtn2.onclick = function(event) {
     if (list2.classList.contains('show2')) {
         icon2.style.rotate = '0deg';
     } else {
-        icon2.style.rotate = '-180deg';
+        icon2.style.rotate = '180deg';
+        icon2.style.transition = '0.3s';
     }
     list2.classList.toggle('show2');
 };
@@ -65,6 +68,7 @@ document.addEventListener('click', function(event) {
     if (!list2.contains(event.target)) {
         list2.classList.remove('show2');
         icon2.style.rotate = '0deg'; // Restaurar rotación del icono
+        icon2.style.transition = '0.3s';
     }
 });
 

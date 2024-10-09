@@ -298,7 +298,7 @@ nav i{
 
 .sub-menu-link2:hover{
     transition: .2s;
-    background-color: rgba(128, 128, 128, 0.070);
+    background-color: rgba(128, 128, 128, 0.15);
 }
 
 

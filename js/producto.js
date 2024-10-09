@@ -1,3 +1,30 @@
+function toggleContent() {
+  const content = document.getElementById("content");
+  const arrow = document.getElementById("arrow");
+
+  if (content.classList.contains("hidden")) {
+      content.classList.remove("hidden");
+      content.classList.add("visible");
+      arrow.classList.add("arrow-rotate"); // Añadir clase para rotar el icono
+  } else {
+      content.classList.remove("visible");
+      content.classList.add("hidden");
+      arrow.classList.remove("arrow-rotate"); // Quitar clase para volver a la posición original
+      arrow.classList.add("arrow-default");
+  }
+}
+
+  
+
+
+
+
+
+
+
+
+
+
 
     var swiper = new Swiper('.swiper', {
       slidesPerView: 6,

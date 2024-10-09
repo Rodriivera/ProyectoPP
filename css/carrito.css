@@ -63,6 +63,7 @@ th{
 }
 
 
+
 .btn {
     display: inline-block;
     padding:  7px 8px;
@@ -129,7 +130,7 @@ input[type="number"] {
 tfoot td{
     padding: 3rem 0 3.5rem;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 tfoot  a{

@@ -169,18 +169,24 @@
 
     </div>   
     
-    <div class="linea"></div>
+    <!-- <div class="linea"></div> -->
 
     <div class="producto-descripcion">
 
             <div class="descripcion">
-                <h2>Descripción del producto</h2>
-                <p><?php echo $descripcion; ?></p>
+
+
+                <h2 onclick="toggleContent()">Detalles del producto<i id="arrow" class="ri-arrow-down-s-line"></i></h2>
+                <div id="content" class="hidden">
+                    <p><?php echo $descripcion; ?></p>
+                </div>
+
+
             </div>
 
     </div>
     
-    <div class="linea"></div>
+    <!-- <div class="linea"></div> -->
 
 </section>
 
@@ -215,8 +221,8 @@
                 ?>
             </div>
             <!-- Add Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next arrows"></div>
+            <div class="swiper-button-prev arrows"></div>
         </div>
 
 
