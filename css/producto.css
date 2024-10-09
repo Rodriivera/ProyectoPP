@@ -27,6 +27,7 @@ main{
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+    width: 350px;
 }
 
 .producto-texto{
@@ -89,11 +90,12 @@ main{
 }
 
 .botones{
-    width: 200px;
+    width: 100%;
     display: flex;
     /* gap: .5rem; */
     transition: .3s;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1rem;
     
 }
 
@@ -178,22 +180,32 @@ input[type="number"] {
     gap: 1.5rem;
 }
 
+.producto-descripcion{
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
 
 .descripcion{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    /* gap: 1rem; */
 }
 
 
 .descripcion h2{
     font-size: 1.5rem;
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .descripcion p{
     font-size: 1.1rem;
     line-height: 25px;
+    margin-top: 1rem;
 }
 
 .linea{
@@ -202,6 +214,49 @@ input[type="number"] {
     background-color: rgba(128, 128, 128, 0.25);
     margin: 3rem 0;
 }
+
+
+
+
+
+
+.hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .2s  ;
+}
+
+.visible {
+    max-height: 500px; /* Asegúrate de que sea lo suficientemente grande para todo el contenido */
+    transition: max-height .5s ;
+}
+
+.descripcion h2 {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+
+
+.arrow-rotate {
+    transform: rotate(180deg); /* Rota el icono 180 grados */
+    transition: transform 0.3s; /* Transición suave para la rotación */
+}
+
+.arrow-default{
+    transition: transform 0.3s;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -337,6 +392,21 @@ input[type="number"] {
     font-weight: 600;
 }
 
+.arrows{
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    opacity: 0.5;
+}
+
+.arrows:hover{
+    transition: .3s;
+    background-color: rgba(128, 128, 128, 0.2);
+    opacity: 1;
+
+}
 
 
 @media screen and (max-width: 1250px){
@@ -366,6 +436,10 @@ input[type="number"] {
     .producto-imagen{
         width: 300px;
         height: 300px;
+    }
+
+    .producto-texto-botones{
+        width: 100%;
     }
     
 }

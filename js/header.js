@@ -44,7 +44,8 @@ dropdownBtn.onclick = function(){
     
         icon.style.rotate = '0deg';
     }else{
-    icon.style.rotate = '-180deg';
+    icon.style.rotate = '180deg';
+    icon.style.transition = '0.3s';
     }      
     list.classList.toggle('show');
 };
@@ -57,6 +58,7 @@ window.onclick = function(e) {
     ) {
         list.classList.remove('show');
         icon.style.rotate = '0deg';
+        icon.style.transition = '0.3s';
     }
 
 }
