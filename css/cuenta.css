@@ -142,11 +142,13 @@ input[type="number"] {
 
 
 
+.DNI{
+    grid-column: 1/3;
+}
 
-
-
-
-
+.mensaje{
+    padding-top: 1rem;
+}
 
 
 

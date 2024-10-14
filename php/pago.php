@@ -33,9 +33,9 @@
 
         <h1>Completar la compra</h1>
 
-        <div class="tarjetas">
+        
 
-            <div class="resumen tarjeta">
+        <div class="resumen tarjeta">
 
                 <div class="tarjeta-texto">
                     <h2>Resumen de la compra</h2>
@@ -46,6 +46,7 @@
                     <table class="resumen_tabla">
                         <thead>
                             <tr>
+                                <th class="hidden">Imagen</th>
                                 <th>Producto</th>
                                 <th>Cantidad</th>
                                 <th>Precio</th>
@@ -64,6 +65,9 @@
 
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
+                                    ?>
+                                    <td class="hidden"><div class='imagen' style='background-image: url("./admin_folder/img_productos/<?php echo $row['imagen_url']; ?>");'></div></td>
+                                    <?php
                                     echo "<td>" . $row['nombre'] . "</td>";
                                     echo "<td>" . $row['cantidad'] . "</td>";
                                     echo "<td>$" . number_format($row['precio'], 0) . "</td>";
@@ -93,8 +97,10 @@
                 </div>
 
 
-            </div>
+        </div>
 
+
+        <form class="tarjetas" action="compra_exitosa.php" method="POST"> 
 
             <div class="forma_pago tarjeta">
 
@@ -104,8 +110,15 @@
                 </div>
                 
                 <div class="form_container">
+                    <?php
+                        // Obtener datos del usuario
+                        $userId = $_SESSION['user_id'];
+                        $query = "SELECT * FROM usuarios WHERE id = $userId";
+                        $result = $conn->query($query);
+                        $user = $result->fetch_assoc();
+                    ?>
 
-                    <form action="agregar_pedido.php" method="POST">
+                    
 
                                 <div class="labels-inputs">
                                     <label for="numero-tarjeta">Numero de la tarjeta</label>
@@ -113,7 +126,7 @@
 
                                 </div>
 
-                                <div class="fecha-ccv">
+                                
 
                                     <div class="labels-inputs">
                                         <label for="fecha-vencimiento">Fecha de vencimiento</label>
@@ -122,24 +135,101 @@
 
                                     <div class="labels-inputs">
                                         <label for="ccv">CCV</label>
-                                        <input id="ccv" type="text" maxlength="3" required placeholder="123" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,3)">
+                                        <input id="ccv" type="text" minlength="3" maxlength="3" required placeholder="123" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,3)">
                                     </div>
 
-                                </div>
+                                
 
                                 <div class="labels-inputs">
-                                    <label for="nombre-titular">Nombre del titular</label>
+                                    <label for="nombre-titular">Titular de la tarjeta</label>
                                     <input id="nombre-titular" type="text" required placeholder="Julio César Falcioni Capdevila" oninput="onlyText(this)">
                                 </div>
 
-                                <button type="submit"><i class="ri-bank-card-line"></i>Pagar $<?php echo number_format($total, 0); ?></button>
+                                
 
-                    </form>
+                                
+
+                    
                 </div>
 
             </div>
 
-        </div>
+            <div class="envio tarjeta">
+
+                <div class="tarjeta-texto">
+                    <h2>Detalles del envio</h2>
+                    <p>Ingrese los datos del envio</p>
+                </div>
+
+                <div class="envio-container">
+
+                    <div class="fecha-ccv">
+
+                        <div class="labels-inputs">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" type="text" required value="<?php echo $user['nombre']; ?>" placeholder="Julio César" oninput="onlyText(this)">
+                        </div>
+
+                        <div class="labels-inputs">
+                            <label for="apellido">Apellido</label>
+                            <input id="apellido" type="text" required value="<?php echo $user['apellido']; ?>" placeholder="Falcioni Capdevila" oninput="onlyText(this)">
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="fecha-ccv">
+                        <div class="labels-inputs">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" required value="<?php echo $user['email']; ?>" placeholder="nombre@dominio.com" oninput="onlyText(this)">
+                        </div>
+
+                        <div class="labels-inputs">
+                            <label for="telefono">Telefono</label>
+                            <input id="telefono" type="number" required value="<?php echo $user['telefono']; ?>" placeholder="1234567890" oninput="onlyNumber(this)">
+                        </div>
+                    </div>
+
+                    <div class="fecha-ccv">
+
+                        <div class="labels-inputs">
+                            <label for="direccion">Direccion</label>
+                            <input id="direccion" type="text" required value="<?php echo $user['direccion']; ?>" placeholder="Calle 123">
+                        </div>
+                        
+                        <div class="labels-inputs">
+                            <label for="dni">DNI</label>
+                            <input id="dni" type="number" required value="<?php echo $user['dni']; ?>" placeholder="12345678" oninput="onlyNumber(this)">
+                        </div>
+
+                    </div>
+
+                    <div class="fecha-ccv">
+
+                        <div class="labels-inputs">
+                            <label for="ciudad">Ciudad</label>
+                            <input id="ciudad" type="text" required value="<?php echo $user['ciudad']; ?>" placeholder="Ciudad" oninput="onlyText(this)">
+                        </div>
+
+                        <div class="labels-inputs">
+                            <label for="codigo-postal">Codigo postal</label>
+                            <input id="codigo-postal" type="number" required value="<?php echo $user['codigo_postal']; ?>" placeholder="12345" oninput="onlyNumber(this)">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="boton">
+                <button type="submit"><i class="ri-bank-card-line"></i>Pagar $<?php echo number_format($total, 0); ?></button>
+            </div> 
+           
+
+        </form>
 
     </section>
 

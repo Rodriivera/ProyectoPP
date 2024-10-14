@@ -1,0 +1,33 @@
+.mensaje{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 178.4px 0 100px;
+    gap: 1rem;
+    background-color: var(--color-white);
+    justify-content: center;
+}
+
+.mensaje h1{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.mensaje h2{
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.mensaje p{
+    font-size: 1.1rem;
+    line-height: 25px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1250px){
+    .mensaje{
+        padding: 215.2px 0 100px;
+    }
+}

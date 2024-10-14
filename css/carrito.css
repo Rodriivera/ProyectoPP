@@ -80,7 +80,7 @@ th{
 
 .btn:hover{
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-    transition: .1s;
+    transition: .2s;
 }
 
 .borrar i{
@@ -89,7 +89,7 @@ th{
     padding: 8px;
     /* background-color: #e0e0e0; */
     border-radius: 6px;
-    transition: .1s;
+    transition: .2s;
     
 }
 

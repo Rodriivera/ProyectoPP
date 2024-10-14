@@ -38,47 +38,33 @@
                 
                 <div class="informacion-personal">
 
+                    <?php
+                        // Obtener datos del usuario
+                        $userId = $_SESSION['user_id'];
+                        $query = "SELECT * FROM usuarios WHERE id = $userId";
+                        $result = $conn->query($query);
+                        $user = $result->fetch_assoc();
+                    ?>
+
+                    <div class="items">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" placeholder="Julio César" value="<?php echo $user['nombre']; ?>">
+                    </div>
+
+                    <div class="items">
+                        <label for="apellidos">Apellido</label>
+                        <input type="text" name="apellido" id="apellido" placeholder="Falcioni Capdevila" value="<?php echo $user['apellido']; ?>">
+                    </div>
+
+
                     <div class="usuario items">
                         <label for="usuario">Usuario</label>
-                        <?php
-
-                            $user_id = $_SESSION['user_id'];
-                            $sql = "SELECT usuario FROM usuarios WHERE id = '$user_id'";
-                            $result = $conn->query($sql);
-
-                            if ($result->num_rows > 0) {
-
-                                $row = $result->fetch_assoc();
-                                $usuario = $row['usuario'];
-                            } else {
-                                $usuario = '';
-                            }
-
-
-                        ?>
-
-                        <input type="text" name="usuario" id="usuario" placeholder="<?php echo $usuario; ?>">
+                        <input type="text" name="usuario" id="usuario" placeholder="Juliocesar" value="<?php echo $user['usuario']; ?>">
                     </div>
 
                     <div class="email items">
                         <label for="email">Email</label>
-
-                        <?php
-
-                            $sql = "SELECT email FROM usuarios WHERE id = '$user_id'";
-                            $result = $conn->query($sql);
-
-                            if ($result->num_rows > 0) {
-
-                                $row = $result->fetch_assoc();
-                                $email = $row['email'];
-                            } else {
-                                $email = '';
-                            }
-
-                        ?>
-                        <input type="email" name="email" id="email" pattern="[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-]([\.]?[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-])+@[a-zA-Z0-9]([^@&%$\/\(\)=?¿!\.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" placeholder="<?php echo $email; ?>">
-
+                        <input type="email" name="email" id="email" placeholder="nombre@dominio.com" pattern="[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-]([\.]?[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-])+@[a-zA-Z0-9]([^@&%$\/\(\)=?¿!\.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" value="<?php echo $user['email']; ?>">
                     </div>
 
                     <div class="contraseña items">
@@ -88,23 +74,12 @@
 
                     <div class="telefono items">
                         <label for="telefono">Telefono</label>
+                        <input type="number" name="telefono" id="telefono" min="0" step="1" inputmode="numeric" placeholder="123456789" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" value="<?php echo $user['telefono']; ?>">
+                    </div>
 
-                        <?php
-
-                            $sql = "SELECT telefono FROM usuarios WHERE id = '$user_id'";
-                            $result = $conn->query($sql);
-
-                            if ($result->num_rows > 0) {
-                                
-                                $row = $result->fetch_assoc();
-                                $telefono = $row['telefono'];
-                            } else {
-                                $telefono = '';
-                            }
-
-                        ?>
-
-                        <input type="number" name="telefono" id="telefono" min="0" step="1" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="<?php echo $telefono; ?>">
+                    <div class="DNI items">
+                        <label for="dni">DNI</label>
+                        <input type="number" name="dni" id="dni" placeholder="12345678" value="<?php echo $user['dni']; ?>">
                     </div>
 
                 </div>
@@ -117,61 +92,17 @@
 
                     <div class="direccion items">
                         <label for="direccion">Dirección</label>
-
-                        <?php
-
-                            $sql = "SELECT direccion FROM usuarios WHERE id = '$user_id'";
-                            $result = $conn->query($sql);
-
-                            if ($result->num_rows > 0) {
-                                
-                                $row = $result->fetch_assoc();
-                                $direccion = $row['direccion'];
-                            } else {
-                                $direccion = '';
-                            }
-
-                        ?>
-
-                        <input type="text" name="direccion" id="direccion" placeholder="<?php echo $direccion; ?>">
+                        <input type="text" name="direccion" id="direccion" placeholder="Calle 123" value="<?php echo $user['direccion']; ?>">
                     </div>
 
                     <div class="ciudad items">
                         <label for="ciudad">Ciudad</label>
-
-                        <?php
-
-                            $sql = "SELECT ciudad FROM usuarios WHERE id = '$user_id'";
-                            $result = $conn->query($sql);
-
-                            if ($result->num_rows > 0) {
-                                
-                                $row = $result->fetch_assoc();
-                                $ciudad = $row['ciudad'];
-                            } else {
-                                $ciudad = '';
-                            }
-
-                        ?>
-
-                        <input type="text" name="ciudad" id="ciudad" placeholder="<?php echo $ciudad; ?>">
+                        <input type="text" name="ciudad" id="ciudad" placeholder="Ramallo" value="<?php echo $user['ciudad']; ?>">
                     </div>
 
                     <div class="codigo-postal items">
                         <label for="codigo-postal">Codigo postal</label>
-
-                        <?php
-                        $sql = "SELECT codigo_postal FROM usuarios WHERE id = '$user_id'";
-                        $result = $conn->query($sql);
-                        if ($result->num_rows > 0) {
-                            $row = $result->fetch_assoc();
-                            $cp = $row['codigo_postal'];
-                        } else {
-                            $cp = '';
-                        }
-
-                        ?>
-                        <input type="number" name="codigo-postal" id="codigo-postal" min="0" step="1" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="<?php echo $cp; ?>">
+                        <input type="number" name="codigo-postal" id="codigo-postal" placeholder="12345" min="0" step="1" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" value="<?php echo $user['codigo_postal']; ?>">
                     </div>
 
                 </div>
@@ -179,7 +110,7 @@
                 <?php
                 if (isset($_POST['actualizar'])) {
                     $user_id = $_SESSION['user_id'];
-                    $campos = ['usuario', 'email', 'contraseña', 'telefono', 'direccion', 'ciudad', 'codigo_postal'];
+                    $campos = ['nombre', 'apellido', 'usuario', 'email', 'contraseña', 'telefono', 'dni', 'direccion', 'ciudad', 'codigo_postal'];
                     $error = false;
 
                     // Verificar si el usuario o email ya están en uso
@@ -187,7 +118,7 @@
                         $nuevo_usuario = $conn->real_escape_string($_POST['usuario']);
                         $check_usuario = $conn->query("SELECT id FROM usuarios WHERE usuario = '$nuevo_usuario' AND id != '$user_id'");
                         if ($check_usuario->num_rows > 0) {
-                            echo "El nombre de usuario ya está en uso. ";
+                            echo "<div class='mensaje'>El nombre de usuario ya está en uso. </div>";
                             $error = true;
                         }
                     }
@@ -196,7 +127,7 @@
                         $nuevo_email = $conn->real_escape_string($_POST['email']);
                         $check_email = $conn->query("SELECT id FROM usuarios WHERE email = '$nuevo_email' AND id != '$user_id'");
                         if ($check_email->num_rows > 0) {
-                            echo "El email ya está en uso. ";
+                            echo "<div class='mensaje'>El email ya está en uso. </div>";
                             $error = true;
                         }
                     }
@@ -213,7 +144,7 @@
                                 $conn->query($sql);
                             }
                         }
-                        echo "Perfil actualizado correctamente.";
+                        echo "<div class='mensaje'>Perfil actualizado correctamente. </div>";
                     } 
                 }
 
