@@ -34,6 +34,10 @@
     font-family: "Montserrat", sans-serif;
     text-decoration: none;
     user-select: none;
+    
+}
+body{
+    background-color: var(--grey);
 }
 
 
@@ -136,23 +140,149 @@ aside{
 /* SECCIONES DE ADMINISTRACION */
 .content{
     position: absolute;
-    background-color: var(--grey);
     width: 100%;
-    height: 100%;
-    padding-left: 200px;
+    padding-left: 200px !important ;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 }
 /* FIN SECCIONES DE ADMINISTRACION */
-#estadisticas-section{
-   
+
+
+
+
+
+/* /////////////////////////////  GRAFICOS //////////////////////*/
+.container_graficos{
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    margin-top: 3rem;
+    gap: 1rem;
+}
+
+
+canvas{
+    padding: 2rem;
+    margin: auto;
 }
 
 .canvas_bar{
-    width: 600px;  
+    position: relative;
+    width: 700px;
+    margin-top: 1.5rem;
+}
+
+.graficos{
+    height: 500px;
+    width: 800px;
+    min-width: 750px;
+    border-radius: 16px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    background-color: white;
+   
+}
+
+.graficos span{
+    display: flex;
+    align-items: center;
+    margin-top: 0.6rem;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--dark);
 }
 
 
 
 
+
+/* /////////////////////////////  SELLCARDS //////////////////////*/
+.sellcards{
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.card{
+    height: 230px;
+    width: 300px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    position: relative;
+    
+}
+.card h2{
+    color: rgb(0, 0, 0, 0.6);
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: absolute;
+    margin: 0 8px;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    
+}
+
+.card i{
+    font-size: 2rem;
+    color: rgb(0, 0, 0, 0.6);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 12px;   
+}
+
+
+
+.container_datos {
+    position: absolute;
+    font-weight: 600;
+    bottom: 70px;
+    left: 20px;
+    color: rgb(153, 255, 0);
+    
+}
+.container_datos p{
+    position: relative;
+    top: -9px;
+    left: -9px;
+}
+.container_datos i{
+    position: relative;
+    font-size: 1rem;
+    color: rgb(153, 255, 0);
+}
+    
+.dato{
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+}
+#total_sell div{
+    top: 95px;
+}
+#total_product div{
+    top: 95px;
+}
+
+/* responsive */
+@media screen and (max-width: 1250px){
+    .sellcards{
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-gap: 1rem;
+        margin-left:  150px;
+    }
+    
+}
+@media screen and (max-width: 1700px){
+    .container_graficos{
+        display: grid;
+    }
+    .graficos{
+        margin-top: 20px;
+    }
+}

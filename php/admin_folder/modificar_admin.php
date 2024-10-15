@@ -20,7 +20,6 @@
 <aside>
     <div class="container-admin">
     <a href="../index.php" class="logo"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
-        <div class="container-lista-admin">
             <ul class="menu">
             
                 <li><a href="admin.php"><span>Estadisticas</span></li>
@@ -38,15 +37,15 @@
         <div class="publicar_texto">
             <h2>Modificar Producto</h2>
         </div>
-
+            
 
         <form  class="container_input" id="upload-form" action="modificar_producto.php" method="POST" enctype="multipart/form-data">
-        
+           
             <?php
             include '../db.php';
 
             $id = $_REQUEST['id']; // ID del registro a editar
-
+            
             $sql = "SELECT * FROM productos WHERE id = '$id'";
             $result = $conn->query($sql);
 
@@ -62,7 +61,7 @@
                 // $imagen = $row['imagen_url'];
             }
             ?>
-            
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
             
             <div  class="input_label">   
                 <label>Nombre</label>

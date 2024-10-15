@@ -65,7 +65,9 @@
                         <th>Id</th>
                         <th>Imagen</th>
                         <th>Nombre</th>
+                        <th>Marca</th>
                         <th>Stock</th>
+                        <th>Min-Stock</th>
                         <th>Precio</th>
                         <th>Operaciones</th>
                     </tr>
@@ -81,16 +83,21 @@
                             while($row = $result->fetch_assoc()) {
                                 $id = $row['id'];
                                 $name = $row['nombre'];
+                                $marca = $row['marca'];
                                 $price = $row['precio'];
                                 $image = $row['imagen_url'];
                                 $stock = $row['stock'];
+                                $min_stock = $row['min_stock'];
+
 
                     ?>
                     <tr>
                         <td><?php echo $id; ?></td>
                         <td class="td_img"><div  class="td_imagen" style='background-image: url("img_productos/<?php echo htmlspecialchars($image); ?>");'></div></td>
                         <td><?php echo $name; ?></td>
+                        <td><?php echo $marca; ?></td>
                         <td><?php echo $stock; ?></td> 
+                        <td><?php echo $min_stock; ?></td> 
                         <td><?php echo number_format($price, 0); ?></td>
                         <td class="td_operaciones">
                             <div>

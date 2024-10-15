@@ -11,6 +11,8 @@
     $min_stock = $_POST["min_stock"];
     $precio = $_POST["precio"];
     
+    
+
     // Imprimir para depuración
     echo "ID del producto: $id<br>";
     $query = "UPDATE productos SET 
@@ -21,7 +23,7 @@
         stock='$stock', 
         min_stock='$min_stock', 
         descripcion='$descripcion' 
-        WHERE id=' $id'";
+        WHERE id='$id'";
     
     echo "Consulta: $query<br>";
     
@@ -34,4 +36,4 @@
     
     // Cerrar conexión
     $conn->close();
-    ?>
+?>
