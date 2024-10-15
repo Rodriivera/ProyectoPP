@@ -58,7 +58,7 @@ h1{
     position: relative;
     /* width: 175px; */
     border-radius: 12px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     cursor: pointer;
 
     /* max-height: 40px; */
@@ -93,7 +93,8 @@ h1{
     max-height: 0;
     overflow: hidden;
     transition: max-height .5s ease;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+
 }
 
 #list3.show3{
@@ -130,11 +131,13 @@ h1{
     position: relative;
     /* width: 175px; */
     border-radius: 12px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+
     cursor: pointer;
 
     /* max-height: 40px; */
 }
+
 
 .dropdown-list2 a{
     color: black;
@@ -165,7 +168,8 @@ h1{
     max-height: 0;
     overflow: hidden;
     transition: max-height .5s ease;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+
 }
 
 #list2.show2{
@@ -211,12 +215,21 @@ h1{
     /* height: 40px; */
     /* width: 175px; */
     border-radius: 12px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    transition: .2s;
+
     font-size: .9rem;
 }
 
+.rangos-precio:focus{
+    transition: .2s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+}
+
 .filtro-precio form button{
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+
     padding: .6rem;
     height: 40px;
     border-radius: 12px;
@@ -233,7 +246,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .filtros-de-busqueda button{
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+
     border-radius: 12px;
     cursor: pointer;
     color: white !important;
@@ -243,7 +257,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .filtros-de-busqueda button:hover{
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     transition: .3s;
 }
 
@@ -292,7 +306,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .box{
 
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+
     border-radius: 12px;
     overflow: hidden;
     transition: .3s;
@@ -301,7 +316,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .box:hover{
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     transition: .3s;
 }
 

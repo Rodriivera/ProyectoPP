@@ -8,7 +8,7 @@ main{
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     margin: 3rem 0;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     border-radius: 12px;
     padding: 4rem 0;
 }
@@ -96,11 +96,11 @@ main{
     transition: .3s;
     justify-content: center;
     gap: 1rem;
-    
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 }
 
 .botones:hover{
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     transition: .3s;
 }
 
@@ -126,7 +126,7 @@ main{
     padding:  7px 8px;
     background: none;
     color: black;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     text-decoration: none;
     border-radius: 6px;
     border: none;
@@ -136,7 +136,7 @@ main{
 }
 
 .btn:hover{
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     transition: .1s;
 }
 
@@ -181,10 +181,11 @@ input[type="number"] {
 }
 
 .producto-descripcion{
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     border-radius: 12px;
     padding: 2rem;
     margin-bottom: 3rem;
+    color: #000;
 }
 
 .descripcion{
@@ -303,14 +304,14 @@ input[type="number"] {
     align-items: center;
 
     border-radius: 12px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     margin: 3px;
     padding: 10px;
     transition: .2s;
   }
 
   .swiper-slide:hover{
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     transition: .2s;
   }
 

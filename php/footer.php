@@ -7,7 +7,7 @@
             <div class="logoyinfo">
 
                 <div class="logoyredes">
-                    <img src="../media/Aromas_sf.png" alt="logo aromas" width="175px">
+                    <img src="../media/Aromas-negro.png" alt="logo aromas" width="175px">
                     <div class="redes">
                         <a href="#"><i class="ri-facebook-line"></i></a>
                         <a href="#"><i class="ri-instagram-line"></i></a>

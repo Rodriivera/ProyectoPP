@@ -88,6 +88,7 @@
                             <tr>
                                 <td>Total:</td>
                                 <td></td>
+                                <td></td>
                                 <td>$<?php echo number_format($total, 0); ?></td>
                             </tr>
                         </tfoot>
@@ -224,7 +225,8 @@
             </div>
 
 
-            <div class="boton">
+            <div class="botones">
+                <button>Cancelar compra</button>
                 <button type="submit"><i class="ri-bank-card-line"></i>Pagar $<?php echo number_format($total, 0); ?></button>
             </div> 
            

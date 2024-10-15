@@ -62,9 +62,9 @@
                         <input type="text" name="usuario" id="usuario" placeholder="Juliocesar" value="<?php echo $user['usuario']; ?>">
                     </div>
 
-                    <div class="email items">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="nombre@dominio.com" pattern="[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-]([\.]?[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-])+@[a-zA-Z0-9]([^@&%$\/\(\)=?¿!\.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" value="<?php echo $user['email']; ?>">
+                    <div class="DNI items">
+                        <label for="dni">DNI</label>
+                        <input type="number" name="dni" id="dni" placeholder="12345678" value="<?php echo $user['dni']; ?>">
                     </div>
 
                     <div class="contraseña items">
@@ -77,9 +77,11 @@
                         <input type="number" name="telefono" id="telefono" min="0" step="1" inputmode="numeric" placeholder="123456789" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" value="<?php echo $user['telefono']; ?>">
                     </div>
 
-                    <div class="DNI items">
-                        <label for="dni">DNI</label>
-                        <input type="number" name="dni" id="dni" placeholder="12345678" value="<?php echo $user['dni']; ?>">
+                    
+
+                    <div class="email items">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="nombre@dominio.com" pattern="[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-]([\.]?[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-])+@[a-zA-Z0-9]([^@&%$\/\(\)=?¿!\.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" value="<?php echo $user['email']; ?>">
                     </div>
 
                 </div>

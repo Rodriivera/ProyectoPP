@@ -17,7 +17,7 @@ main{
 
 form h2{
     margin: 1rem 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: rgba(128, 128, 128, 0.81);
 }
@@ -26,6 +26,10 @@ form h2{
     display: flex;
     flex-direction: column;
     gap: .5rem;
+}
+
+.items label{
+    font-size: 1.1rem;
 }
 
 
@@ -55,17 +59,18 @@ form h2{
 
 
 .info-cuenta label{
-    font-size: .85rem;
+    font-size: 1rem;
     font-weight: 400;
     
 }
 
 .info-cuenta input{
+    font-size: .9rem;
     padding: 10px;
     font-weight: 400;
     border: none;
     border-radius: 6px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     transition: .2s;
     
 }
@@ -73,7 +78,7 @@ form h2{
 .info-cuenta input:focus{
     transition: .2s;
     outline: none;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Para navegadores WebKit (Chrome, Safari, Edge) */
@@ -90,8 +95,8 @@ input[type="number"] {
 
 .linea{
     width: 100%;
-    height: 1px;
-    background-color: rgba(128, 128, 128, 0.25);
+    height: 2px;
+    background-color: #e0e0e0;
     margin: 2rem 0;
 }
 
@@ -106,7 +111,7 @@ input[type="number"] {
     font-weight: 500;
     color: white;
 
-    
+    font-size: .9rem;
     transition: .2s;
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -131,6 +136,8 @@ input[type="number"] {
     background-color: #ff6969;
     transition: .2s;
     cursor: pointer;
+    font-size: .9rem;
+
 }
 
 .botones button[type="reset"]:hover{
@@ -142,12 +149,12 @@ input[type="number"] {
 
 
 
-.DNI{
+.email{
     grid-column: 1/3;
 }
 
 .mensaje{
-    padding-top: 1rem;
+    padding-top: 1.5rem;
 }
 
 

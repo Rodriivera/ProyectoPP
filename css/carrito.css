@@ -44,8 +44,8 @@ table {
 th, td {
     padding: 12px;
     text-align: center;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: .9rem;
+    border-bottom: 2px solid #e0e0e0;
+    font-size: 1rem;
     
     justify-content: center;
 }
@@ -69,7 +69,7 @@ th{
     padding:  7px 8px;
     background: none;
     color: black;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     text-decoration: none;
     border-radius: 6px;
     border: none;
@@ -79,7 +79,7 @@ th{
 }
 
 .btn:hover{
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     transition: .2s;
 }
 
@@ -138,17 +138,17 @@ tfoot  a{
     text-decoration: none;
     background-color: #5dccff;
     color: white;
-    font-size: .9rem;
+    font-size: .95rem;
     padding: 12px 24px;
     border-radius: 8px;
     transition: .2s;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 }
 
 tfoot a:hover{
     transition: .2s;
 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -169,7 +169,7 @@ tfoot a:hover{
         justify-content: center;
         margin-bottom: 2rem;
         /* padding-bottom: 1rem; */
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
         border-radius: 12px;
         
     }
