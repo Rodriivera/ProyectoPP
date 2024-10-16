@@ -274,7 +274,7 @@ button{
 }
 
 table{
-    background-color: lightblue;
+    background-color: rgba(54, 162, 235, 0.3);
     border-radius: 12px;
     width: 90%;
     margin: 10px;

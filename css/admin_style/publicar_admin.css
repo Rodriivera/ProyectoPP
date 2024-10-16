@@ -36,7 +36,9 @@
     user-select: none;
 }
 
-
+body{
+    background-color: var(--grey);
+}
 
 /* header */
 
@@ -144,10 +146,6 @@ aside{
 
 
 /* SECCION PUBLICAR*/
-#publicar-section{
-    background-color: var(--grey);
-
-}
 
 .input_label{
     display: flex;
