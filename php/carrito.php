@@ -42,7 +42,7 @@
 <section class="carrito">
     <h1>Mi carrito</h1>
 
-    <div class="carrito-contenido">
+    <div class="hidden">
         
         <?php
             // Obtener productos del carrito
@@ -139,6 +139,95 @@
         
 
     </div>
+
+    
+    <div class="carrito-contenido">
+
+        <?php
+            // Obtener productos del carrito
+            $userId = $_SESSION['user_id'];
+            $query = "SELECT carritos.*, productos.nombre, productos.precio, productos.imagen_url, productos.marca 
+                  FROM carritos 
+                  JOIN productos ON carritos.producto_id = productos.id 
+                  WHERE carritos.usuario_id = $userId";
+            $result = $conn->query($query);
+        ?>
+
+        <?php if ($result->num_rows > 0) { ?>
+            
+            <?php while ($row = $result->fetch_assoc()) { 
+                
+                
+                $precioTotal = $row['precio'] * $row['cantidad'];
+
+            ?>
+            <a href="../php/producto.php?id=<?php echo $row['producto_id']; ?>">
+                <div class="producto">
+
+                    <div class="imagen" style="background-image: url('./admin_folder/img_productos/<?php echo $row['imagen_url']; ?>');"></div>
+                    <div class="info-producto">
+                        <h2><?php echo $row['nombre']; ?></h2>
+                        <p><?php echo $row['marca']; ?></p>
+                        <h3>$<?php echo number_format($row['precio'], 0); ?></h3>
+                    </div>
+
+                    <div class="acciones">
+
+                        
+                        <form class="borrar" action="eliminar_carrito.php" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<?php echo $row['producto_id']; ?>">
+                            <button type="submit" style="background:none;border:none;cursor:pointer;">
+                                <i class="ri-delete-bin-line"></i>
+                            </button>
+                        </form>
+                        
+                        <form class="cantidad" method="post" style="display: flex; align-items: center;">
+                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                            
+                            <!-- Botón para reducir cantidad -->
+                            <button type="submit" name="update_quantity" class="btn" onclick="this.parentNode.querySelector('input[name=quantity]').stepDown();"><i class="ri-subtract-line"></i></button>
+                            
+                            <!-- Input de cantidad -->
+                            <input type="number" name="quantity" value="<?= $row['cantidad'] ?>" min="1" class="quantity-input">
+                            
+                            <!-- Botón para aumentar cantidad -->
+                            <button type="submit" name="update_quantity" class="btn" onclick="this.parentNode.querySelector('input[name=quantity]').stepUp();"><i class="ri-add-line"></i></button>
+                            
+                        </form>
+                    </div>
+
+                    
+                
+
+                </div>
+            </a>
+
+            <?php } ?>
+
+        <?php } else { ?>
+            <div class="no-carrito">
+                <p>No tenés productos en tu carrito.</p>
+            </div>
+            
+        <?php } ?>
+
+        <?php
+                    $total = 0;
+                    $result->data_seek(0); // Reset result pointer to the beginning
+                    while ($row = $result->fetch_assoc()) {
+                    $total += $row['precio'] * $row['cantidad'];
+                    }
+        ?>
+
+        
+
+    </div>
+
+    <div class="resumen <?php echo ($total == 0) ? 'hidden' : ''; ?>">
+        <span>Total:  $<?php echo number_format($total, 0); ?></span>
+        <a href="pago.php">Proceder al pago</a>
+    </div>
+
 </section>
 </main>
 

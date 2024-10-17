@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2024 a las 20:05:49
+-- Tiempo de generación: 17-10-2024 a las 20:03:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,8 +40,9 @@ CREATE TABLE `carritos` (
 --
 
 INSERT INTO `carritos` (`id`, `usuario_id`, `producto_id`, `cantidad`, `fecha_agregado`) VALUES
-(61, 4, 14, 1, '2024-10-14 17:15:14'),
-(67, 1, 36, 1, '2024-10-14 17:51:26');
+(81, 1, 11, 1, '2024-10-17 17:57:13'),
+(82, 1, 12, 1, '2024-10-17 17:57:18'),
+(83, 1, 32, 1, '2024-10-17 17:57:47');
 
 -- --------------------------------------------------------
 
@@ -97,7 +98,9 @@ CREATE TABLE `favoritos` (
 --
 
 INSERT INTO `favoritos` (`id`, `usuario_id`, `producto_id`, `fecha_agregado`) VALUES
-(11, 1, 13, '2024-09-30 01:03:43');
+(22, 1, 11, '2024-10-17 17:57:24'),
+(23, 1, 12, '2024-10-17 17:57:27'),
+(24, 1, 32, '2024-10-17 17:57:52');
 
 -- --------------------------------------------------------
 
@@ -137,11 +140,11 @@ INSERT INTO `pedidos` (`id`, `usuario_id`, `total`, `estado`, `fecha_pedido`) VA
 
 CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `marca` varchar(60) NOT NULL,
+  `nombre` varchar(40) DEFAULT NULL,
+  `marca` varchar(30) NOT NULL,
   `precio` decimal(10,2) DEFAULT NULL,
   `imagen_url` varchar(255) DEFAULT NULL,
-  `categoria` varchar(100) DEFAULT NULL,
+  `categoria` varchar(30) DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
   `min_stock` int(11) NOT NULL,
   `descripcion` text DEFAULT NULL,
@@ -184,10 +187,10 @@ INSERT INTO `productos` (`id`, `nombre`, `marca`, `precio`, `imagen_url`, `categ
 (29, 'Mochila infantil', 'Ajaxgold', 17000.00, '29.jpg', 'Regaleria', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (30, 'Mouse Inalámbrico M240 Rosa', 'Logitech', 22000.00, '30.jpg', 'Regaleria', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (31, 'Vaso Quencher 1.18 Lts', 'Stanley', 120000.00, '31.jpg', 'Hogar', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(32, 'Vaso Vidrio Copón Vino Gourmet 450ml X6', 'Rigolleau ', 7200.00, '32.jpg', 'Hogar', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(33, 'Batería De Cocina Cacerola 3 Piezas Aluminio Teflón', 'Mta', 50000.00, '33.jpg', 'Hogar', 8, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(34, 'Molinillo De Café Eléctrico Premium Acero Inox', 'Atma', 40000.00, '34.jpg', 'Hogar', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(35, 'Cafetera Italiana Clásica 9 Pocillos Manual Alumin', 'Atma', 25000.00, '35.jpg', 'Hogar', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(32, 'Vaso Vidrio Gourmet 450ml X6', 'Rigolleau ', 7200.00, '32.jpg', 'Hogar', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(33, 'Batería De Cocina', 'Mta', 50000.00, '33.jpg', 'Hogar', 8, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(34, 'Molinillo De Café Eléctrico ', 'Atma', 40000.00, '34.jpg', 'Hogar', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(35, 'Cafetera Italiana Clásica 9 Pocillos', 'Atma', 25000.00, '35.jpg', 'Hogar', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (36, 'Bandolera Cartera', 'Bourbon', 19000.00, '36.jpg', 'Accesorios', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (38, 'Broche De Pelo Mariposa X 12', 'Iko Shop', 5700.00, '38.jpg', 'Accesorios', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (39, 'Aros Cristal Plata 925', 'Cubic', 10000.00, '39.jpg', 'Accesorios', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
@@ -222,7 +225,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `usuario`, `nombre`, `apellido`, `dni`, `email`, `contraseña`, `direccion`, `telefono`, `ciudad`, `fecha_registro`, `codigo_postal`) VALUES
 (1, 'rodri', 'Rodrigo', 'Vera', 54657772, 'rodri@gmail.com', '$2y$10$AamscTCfVaeG4sviX4k5Se94.9pUubkhH.FNfwc8nqVUFBRZpkpc6', 'Mitre 1402', '3364100596', 'San Nicolás de los Arroyos', '2024-09-12 14:27:32', '2900'),
-(4, 'rodrii', '', '', NULL, 'rodrii@gmail.com', '$2y$10$.6DPOlJg/SE0Ect/ii3q5OogzEJ8NYybd2v05R24aVmc58L/x4tWa', NULL, NULL, '', '2024-09-15 02:00:47', '');
+(4, 'rodrii', '', '', NULL, 'rodrii@gmail.com', '$2y$10$.6DPOlJg/SE0Ect/ii3q5OogzEJ8NYybd2v05R24aVmc58L/x4tWa', NULL, NULL, '', '2024-09-15 02:00:47', ''),
+(5, 'admin', '', '', NULL, 'admin@gmail.com', '$2y$10$n.L35FG3Tx35VyBUPcsjjucDJWzvyVIsMEcbitZJP1d8Xgs1u8sti', NULL, NULL, NULL, '2024-10-16 23:53:11', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -280,7 +284,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `carritos`
 --
 ALTER TABLE `carritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_pedido`
@@ -292,7 +296,7 @@ ALTER TABLE `detalle_pedido`
 -- AUTO_INCREMENT de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
@@ -310,7 +314,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

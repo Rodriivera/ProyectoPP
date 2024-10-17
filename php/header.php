@@ -11,32 +11,41 @@
             <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
                         
-                            <?php if (isset($_SESSION['user_usuario'])): ?>
-                                <a class="sub-menu-link cuenta-mobile" onclick="toggleAccountMenu()">
-                                    <i class="ri-user-3-line"></i>
-                                    <p>Cuenta</p>
-                                </a>
-                                
-                                <div id="accountMenu" class="account-menu">
-                                    <a href="cuenta.php" class="account-menu-link">Perfil</a>
-                                    <a href="../php/pedidos.php" class="account-menu-link">Mis pedidos</a>
-                                    <a href="./logout.php" class="account-menu-link"><span>Cerrar sesión</span></a>
-                                </div>
-                            <?php else: ?>
-                                <a href="login-register.php" class="sub-menu-link cuenta-mobile">
-                                    <i class="ri-user-3-line"></i>
-                                    <p>Cuenta</p>
-                                </a>
-                            <?php endif; ?>
+                    <?php if (isset($_SESSION['user_usuario'])): ?>
+                        <a class="sub-menu-link cuenta-mobile" onclick="toggleAccountMenu()">
+                            <i class="ri-user-3-line"></i>
+                            <p>Cuenta</p>
+                        </a>
+                        
+                        <div id="accountMenu" class="account-menu">
+                            <a href="cuenta.php" class="account-menu-link">Perfil</a>
+                            <a href="../php/pedidos.php" class="account-menu-link">Mis pedidos</a>
+                            <a href="./logout.php" class="account-menu-link"><span>Cerrar sesión</span></a>
+                        </div>
+                    <?php else: ?>
+                        <a href="login-register.php" class="sub-menu-link cuenta-mobile">
+                            <i class="ri-user-3-line"></i>
+                            <p>Cuenta</p>
+                        </a>
+                    <?php endif; ?>
 
-                            <a href="<?php echo isset($_SESSION['user_usuario']) ? '../php/carrito.php' : 'login-register.php'; ?>" class="sub-menu-link">
-                                <i class="ri-shopping-cart-line"></i>
-                                <p>Carrito</p>
-                            </a>
-                            <a href="<?php echo isset($_SESSION['user_usuario']) ? '../php/favoritos.php' : 'login-register.php'; ?>" class="sub-menu-link">
-                                <i class="ri-heart-3-line"></i>
-                                <p>Favoritos</p>
-                            </a>
+                    <a href="<?php echo isset($_SESSION['user_usuario']) ? '../php/carrito.php' : 'login-register.php'; ?>" class="sub-menu-link">
+                        <i class="ri-shopping-cart-line"></i>
+                        <p>Carrito</p>
+                    </a>
+                    <a href="<?php echo isset($_SESSION['user_usuario']) ? '../php/favoritos.php' : 'login-register.php'; ?>" class="sub-menu-link">
+                        <i class="ri-heart-3-line"></i>
+                        <p>Favoritos</p>
+                    </a>
+
+                    <?php if (isset($_SESSION['user_usuario']) && $_SESSION['user_usuario'] == 'admin'): ?>
+                        <a href="./admin_folder/admin.php" class="sub-menu-link">
+                            <i class="ri-dashboard-2-line"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    <?php endif; ?>
+
+
 
 
                     </div>
@@ -76,6 +85,13 @@
 
         <nav>
             <ul>
+                <?php if (isset($_SESSION['user_usuario']) && $_SESSION['user_usuario'] == 'admin'): ?>
+                    <li>
+                        <a href="./admin_folder/admin.php">
+                            <i class="ri-dashboard-2-line nav"></i>
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <li>
                     <a href="<?php echo isset($_SESSION['user_usuario']) ? '../php/favoritos.php' : 'login-register.php'; ?>">
                         <i class="ri-heart-3-line nav"></i>
@@ -86,6 +102,7 @@
                         <i class="ri-shopping-cart-line nav"></i>
                     </a>
                 </li>
+                
                 
 
 

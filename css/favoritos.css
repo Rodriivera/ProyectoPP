@@ -18,14 +18,14 @@ main{
 
 
 
-.imagen{
+/* .imagen{
     width: 125px;
     height: 125px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     
-}
+} */
 
 
 .favoritos h1{
@@ -41,7 +41,7 @@ main{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .favoritos-tabla{
@@ -110,13 +110,119 @@ th{
 
 
 
+.favoritos{
+    margin-bottom: 2rem;
+}
+
+.producto{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr .5fr;
+    align-items: center;
+    /* justify-items: center; */
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 1rem;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    transition: .2s;
+}
+
+
+.imagen{
+    margin: 0 auto;
+}
+
+
+
+.info-producto h2{
+    font-size: 1.2rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+}
+
+.info-producto p{
+    font-size: .9rem;
+    font-weight: 400;
+    text-align: start;
+    color: rgba(128, 128, 128, 0.75) !important;
+    text-wrap: nowrap;
+    overflow: hidden;
+    padding: .3rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.info-producto h3{
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black
+}
+
+
+.no-favoritos{
+    
+    border-radius: 12px;
+    padding: 4rem 0;
+    font-size: 1.1rem;
+}
+
+
+
+.producto:hover{
+    transition: .2s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.borrar{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 768px){
+    .favoritos-contenido{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .producto{
+        
+        margin: 0;
+    }
+    .info-producto p{
+        padding: .6rem 0;
+    }
+    
+    
+}
+
+
 
 
 @media screen and (max-width: 1250px){
     main{
         padding: 118.1px 1rem 0;
     }
-    thead{
+    /* thead{
         display: none;
     }
 
@@ -126,7 +232,6 @@ th{
         align-items: center;
         justify-content: center;
         margin-bottom: 2rem;
-        /* padding-bottom: 1rem; */
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
         border-radius: 12px;
         
@@ -136,7 +241,7 @@ th{
 
     td{
         border-bottom: none;
-    }
+    } */
     .hidden{
         display: none;
     }

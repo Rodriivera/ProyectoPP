@@ -226,7 +226,7 @@
 
 
             <div class="botones">
-                <button>Cancelar compra</button>
+                <button type="button" onclick="window.location.href='carrito.php'"><i class="ri-close-circle-line"></i>Cancelar compra</button>
                 <button type="submit"><i class="ri-bank-card-line"></i>Pagar $<?php echo number_format($total, 0); ?></button>
             </div> 
            

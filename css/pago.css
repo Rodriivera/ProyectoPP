@@ -227,8 +227,10 @@ input[type="number"] {
     
 }
 
-.boton i{
+.botones i{
     margin-right: 5px;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 

@@ -35,7 +35,7 @@ main {
   height: 640px;
   background-color: #fff;
   border-radius: 3.3rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .inner-box {
@@ -112,14 +112,14 @@ form a {
 .heading h6 {
   color: #bababa;
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   display: inline;
 }
 
 .cambiar {
   color: #151111;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 500;
   transition: 0.2s;
   border-bottom: 1px solid transparent;
@@ -232,7 +232,7 @@ label {
 .sign-btn:hover {
   background-color: white;
   color: #151111;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
 }
 

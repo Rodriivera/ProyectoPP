@@ -27,9 +27,9 @@
 
 <section class="favoritos">
     <h1>Mis favoritos</h1>
-    <div class="favoritos-contenido">
 
-    <div class="favoritos-contenido">
+
+    <!-- <div class="favoritos-contenido">
         <?php
             // Obtener productos
             $userId = $_SESSION['user_id'];
@@ -86,6 +86,56 @@
 
         
 
+    </div> -->
+
+    <div class="favoritos-contenido">
+        <?php
+            // Obtener productos
+            $userId = $_SESSION['user_id'];
+            $query = "SELECT favoritos.*, productos.nombre, productos.precio, productos.imagen_url, productos.marca 
+                  FROM favoritos 
+                  JOIN productos ON favoritos.producto_id = productos.id 
+                  WHERE favoritos.usuario_id = $userId";
+            $result = $conn->query($query);
+        ?>
+
+        <?php if ($result->num_rows > 0) { ?>
+
+
+            <?php while ($row = $result->fetch_assoc()) { ?>
+                <a href="../php/producto.php?id=<?php echo $row['producto_id']; ?>">
+                    <div class="producto">
+
+                    <div class="imagen" style="background-image: url('./admin_folder/img_productos/<?php echo $row['imagen_url']; ?>');"></div>
+
+                    <div class="info-producto">
+                        <h2><?php echo $row['nombre']; ?></h2>
+                        <p><?php echo $row['marca']; ?></p>
+                        <h3><?php echo "$" . number_format($row['precio'], 0); ?></h3>
+                    </div>
+
+                    <form class="borrar" action="eliminar_favoritos.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="id" value="<?php echo $row['producto_id']; ?>">
+                        <button type="submit" style="background:none;border:none;cursor:pointer;">
+                        <i class="ri-delete-bin-line"></i>
+                        </button>
+                    </form>
+                    
+                    </div>
+                </a>
+                
+            <?php } ?>
+
+
+        <?php } else { ?>
+            
+            <div class="no-favoritos">
+                <p>No tenés favoritos.</p>
+            </div>
+
+        <?php } ?>
+
+            
     </div>
 
 </section>
