@@ -50,30 +50,35 @@
         ?>
 
         <?php if ($result->num_rows > 0) { ?>
-            <table class="pedido-tabla">
-            <thead>
-                <tr>
-                <th>Imagen</th>
-                <th>Producto</th>
-                <th>Fabricante</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                </tr>
-            </thead>
-            <tbody>
+            
                 <?php while ($row = $result->fetch_assoc()) { 
 
                 ?>
-                <tr>
-                    <td><div class='imagen' style='background-image: url("./admin_folder/img_productos/<?php echo $row['imagen_url']; ?>");'></div></td>
-                    <td><?php echo $row['nombre']; ?></td>
-                    <td><?php echo $row['marca']; ?></td>
-                    <td><?php echo $row['cantidad']; ?></td>
-                    <td><?php echo "$" . number_format($row['precio'], 0); ?></td>
-                </tr>
+                
+                <a href="../php/producto.php?id=<?php echo $row['producto_id']; ?>">
+                    <div class="producto">
+
+                        <div class="imagen" style="background-image: url('./admin_folder/img_productos/<?php echo $row['imagen_url']; ?>');"></div>
+
+                        <div class="info-producto">
+                            <h2><?php echo $row['nombre']; ?></h2>
+                            <p><?php echo $row['marca']; ?></p>
+                            <h3><?php echo "$" . number_format($row['precio'], 0); ?></h3>
+                        </div>
+
+                        <div class="cantidad">
+                            <p><?php echo $row['cantidad']; ?></p>
+                        </div>
+                    
+                    </div>
+                </a>
+
+
+
+
+
                 <?php } ?>
-            </tbody>
-            <tfoot>
+            
                 <?php
                 // Obtener el total del pedido
                 $sql_total = "SELECT SUM(precio * cantidad) as total FROM detalle_pedido WHERE pedido_id = $pedido_id";
@@ -84,21 +89,23 @@
                     $total = $row_total['total'];
                 }
                 ?>
-                <tr>                
-                <td colspan="4"></td>
-                <td colspan="1">Total:  $<?php echo number_format($total, 0); ?></td>
-                </tr>
-            </tfoot>
-            </table>
+
+                
+                
+
         <?php } else { ?>
-            <div class="linea"></div>
-            <p>No tenés productos en tu pedido.</p>
-            <div class="linea"></div>
+            <div class="no-pedido">
+                <p>No tenés productos en tu pedido.</p>
+            </div>
 
         <?php } ?>
 
         
 
+    </div>
+
+    <div class="total">
+            <p>Total: $<?php echo number_format($total, 0); ?></p>
     </div>
     <?php } ?>
 

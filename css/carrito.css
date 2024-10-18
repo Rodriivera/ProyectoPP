@@ -230,14 +230,20 @@ tfoot a:hover{
 .no-carrito{
     
     border-radius: 12px;
-    padding: 4rem 0 6rem;
+    padding: 4rem 0;
     font-size: 1.1rem;
+    grid-column: 1 / 4;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .resumen{
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 3rem 0;
+    justify-items: center;
+    align-items: center;
 }
 
 .resumen a{
@@ -258,8 +264,7 @@ tfoot a:hover{
 
 .resumen a:hover{
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    background: #fff;
-    color: black;
+    background: #5dccff;;
     transition: .2s;
 } 
 
@@ -273,7 +278,14 @@ tfoot a:hover{
     display: none;
 }
 
-@media screen and (min-width: 768px){
+
+@media screen and (max-width: 900px){
+    .resumen{
+        padding: .5rem 0 3rem;
+        }
+}
+
+@media screen and (min-width: 900px){
     .carrito-contenido{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -302,7 +314,7 @@ tfoot a:hover{
     .resumen{
         grid-template-columns: 1fr;
         gap: 1rem;
-        padding: .5rem 0 3rem;
+        
     }
     
     

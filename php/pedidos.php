@@ -24,58 +24,45 @@
 <?php include 'header.php'; ?>
 
 <main>
-    
+
 
     <section class="pedidos">
-        <h1>Mis pedidos</h1>
 
+    <h1>Mis pedidos</h1>
+                
+    <div class="pedidos-container">
         <?php
-            // Obtener productos del carrito
+            // Obtener pedidos
             $id = $_SESSION['user_id'];
             $sql = "SELECT * FROM pedidos WHERE usuario_id = $id";
             $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) { 
+
+            while ($row = $result->fetch_assoc()) {?>
+            <a href="pedido.php?id=<?php echo $row['id'];?>">
+            <div class="pedido">
+                <h2>Numero #<?php echo $row['id']; ?></h2>
+                <p><?php echo $row['fecha_pedido']; ?></p>
+                <p><?php echo "$" . number_format($row['total'], 0); ?></p>
+                <p class="estados <?php echo strtolower($row['estado']); ?>"><?php echo $row['estado']; ?></p>
+            </div>
+            </a>
+
+        <?php
+            }
+        } else { ?>
+            <div class="no-pedidos">
+                <p>No tenés pedidos.</p>
+            </div>
+        <?php
+        }
+
         ?>
 
-        <?php if ($result->num_rows > 0) { ?>
-            <table class="pedidos-tabla">
-            <thead>
-                <tr>
-                <th>Pedido</th>
-                <th>Fecha</th>
-                <th>Total</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php 
-            
-            while ($row = $result->fetch_assoc()) { 
 
-            ?>
-
-                <tr>
-                    <td>Numero #<?php echo $row['id']; ?></td>
-                    <td><?php echo $row['fecha_pedido']; ?></td>
-                    <td><?php echo "$" . number_format($row['total'], 0); ?></td>
-                    <td><?php echo $row['estado']; ?></td>
-                    <td><a href="pedido.php?id=<?php echo $row['id'];?>">Ver detalles</a></td>
-                </tr>
-
-            <?php 
-
-            } 
-
-            ?>
-
-            </tbody>
-            </table>
-        <?php } else { ?>
-            <div class="linea"></div>
-            <p>No tenés Pedidos.</p>
-            <div class="linea"></div>
-
-        <?php } ?>
+    </div>
+    
 
 
 

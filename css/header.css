@@ -320,9 +320,12 @@ nav i{
     left: 0; /* Adjust this value as needed */
     background-color: white;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    border-top: 1.5px solid #ccc;
     z-index: 99999;
     width: 200px;
 }
+
+
 .account-menu-link {
     display: block;
     margin: 15px 20px;
@@ -335,6 +338,10 @@ nav i{
 
 .account-menu span{
     color: red;
+}
+
+.mobile-items:hover{
+    background-color: rgba(128, 128, 128, 0.15);
 }
 
 .logo-y-menu{

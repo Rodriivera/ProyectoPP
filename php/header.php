@@ -38,14 +38,12 @@
                         <p>Favoritos</p>
                     </a>
 
-                    <?php if (isset($_SESSION['user_usuario']) && $_SESSION['user_usuario'] == 'admin'): ?>
+                    <?php if (isset($_SESSION['user_usuario']) && $_SESSION['user_usuario'] === 'admin'): ?>
                         <a href="./admin_folder/admin.php" class="sub-menu-link">
                             <i class="ri-dashboard-2-line"></i>
                             <p>Dashboard</p>
                         </a>
                     <?php endif; ?>
-
-
 
 
                     </div>

@@ -11,12 +11,12 @@ main{
     margin-bottom: 2rem;
 }
 .info-cuenta h1{
-    margin: 2rem 0 1rem;
+    margin: 2rem 0;
     font-weight: 600;
 }
 
 form h2{
-    margin: 1rem 0;
+    margin: 0 0 1rem;
     font-size: 1.1rem;
     font-weight: 500;
     color: rgba(128, 128, 128, 0.81);
@@ -37,12 +37,27 @@ form h2{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    
+}
+
+.personal{
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .informacion-ubicacion{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+}
+
+.ubicacion{
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 1.5rem;
+    
 }
 
 .direccion{
@@ -53,14 +68,21 @@ form h2{
 .botones{
     display: flex;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     justify-content: end;
 }
 
+.btn-juntos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+}
 
 .info-cuenta label{
-    font-size: 1rem;
+    font-size: .95rem;
     font-weight: 400;
+    /* color: rgba(128, 128, 128, 0.81); */
     
 }
 
@@ -100,12 +122,19 @@ input[type="number"] {
     margin: 2rem 0;
 }
 
+.botones{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 .botones button{
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
 .botones button[type="submit"]{
-    padding: 10px 20px;
+    padding: 10px 40px;
     border: none;
     border-radius: 6px;
     font-weight: 500;
@@ -114,26 +143,26 @@ input[type="number"] {
     font-size: .9rem;
     transition: .2s;
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    background-color: #5dccff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    background-color: black;
 }
 
 .botones button[type="submit"]:hover{
     transition: .2s;
-
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    background-color: #5dccff;;
+    
 }
 
 
 
 .botones button[type="reset"]{
-    padding: 10px 20px;
+    padding: 10px 40px;
     border: none;
     border-radius: 6px;
     font-weight: 500;
-    color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    background-color: #ff6969;
+    color: rgb(240, 0, 0);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    background-color: white;
     transition: .2s;
     cursor: pointer;
     font-size: .9rem;
@@ -142,10 +171,14 @@ input[type="number"] {
 
 .botones button[type="reset"]:hover{
     transition: .2s;
+    background-color: rgb(240, 0, 0);
+    color: white;
 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    
 }
-
+.mensaje{
+    margin-top: 1rem;
+}
 
 
 
@@ -153,21 +186,32 @@ input[type="number"] {
     grid-column: 1/3;
 }
 
-.mensaje{
-    padding-top: 1.5rem;
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 800px){
+    .botones{
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .btn-juntos{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -179,10 +223,7 @@ input[type="number"] {
         display: flex;
         flex-direction: column;
     }
-    .botones{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+    
 }
 
 
