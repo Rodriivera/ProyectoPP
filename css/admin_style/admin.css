@@ -139,12 +139,11 @@ aside{
 
 /* SECCIONES DE ADMINISTRACION */
 .content{
-    position: absolute;
     width: 100%;
-    padding-left: 200px !important ;
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    align-items: center;
+    padding-left: 200px;
     margin-top: 20px;
 }
 /* FIN SECCIONES DE ADMINISTRACION */
@@ -155,11 +154,11 @@ aside{
 
 /* /////////////////////////////  GRAFICOS //////////////////////*/
 .container_graficos{
+    
+    margin: 3rem 25px 0 25px;
     display: flex;
-    justify-content: space-around;
-    width: 95%;
-    margin-top: 3rem;
-    gap: 1rem;
+    justify-content: space-between;
+   
 }
 
 
@@ -199,21 +198,28 @@ canvas{
 
 
 /* /////////////////////////////  SELLCARDS //////////////////////*/
+
+
+
+
+
 .sellcards{
-    width: 100%;
-    margin-top: 2rem;
+    margin: 0 25px 0 25px;
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
+  
 }
+
+
+
 .card{
     height: 230px;
     width: 300px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     border-radius: 16px;
     position: relative;
-    
 }
+
 .card h2{
     color: rgb(0, 0, 0, 0.6);
     font-size: 1.5rem;
@@ -269,16 +275,16 @@ canvas{
 }
 
 /* responsive */
-@media screen and (max-width: 1250px){
+@media screen and (max-width: 1440px){
     .sellcards{
+        width: 100%;
         display: grid;
-        grid-template-columns: 2fr 2fr;
+        grid-template-columns: 1fr 1fr;
         grid-gap: 1rem;
-        margin-left:  150px;
     }
     
 }
-@media screen and (max-width: 1700px){
+@media screen and (max-width: 1200px){
     .container_graficos{
         display: grid;
     }

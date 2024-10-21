@@ -39,7 +39,6 @@
 
 
     <section class="content">
-
         <div class="sellcards">
             <div class="card" id="best_product" style="background-color: rgba(255, 99, 132, 0.3) ">
                 <h2>Producto mas vendido</h2>
