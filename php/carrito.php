@@ -40,7 +40,7 @@
 
 <main>
 <section class="carrito">
-    <h1>Mi carrito</h1>
+    <h1>Carrito</h1>
 
 
     

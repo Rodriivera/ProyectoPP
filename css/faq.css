@@ -1,0 +1,41 @@
+body{
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+main{
+    padding: 78px 8rem 0;
+}
+
+
+
+.faq h1{
+    margin: 2rem 0;
+    font-weight: 600;
+}
+
+.faq{
+    padding-bottom: 1rem;
+}
+
+.preguntas h2{
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.preguntas p{
+    margin: 1.5rem 0 ;
+}
+
+
+
+
+
+@media screen and (max-width: 1250px){
+    main{
+        padding: 118px 1rem 0;
+    }
+    /* .envios_y_garantias li{
+        margin: 2rem 0;
+    } */
+}

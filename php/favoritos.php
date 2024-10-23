@@ -26,7 +26,7 @@
 <main>
 
 <section class="favoritos">
-    <h1>Mis favoritos</h1>
+    <h1>Favoritos</h1>
 
 
     <div class="favoritos-contenido">

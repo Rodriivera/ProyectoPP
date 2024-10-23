@@ -1,3 +1,9 @@
+body{
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+
 main{
     padding: 78.4px 8rem 0;
 
@@ -26,42 +32,6 @@ main{
     background-position: center;
     margin: 0 auto;
 }
-
-.carrito-tabla{
-    width: 100%;
-}
-
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    /* margin-bottom: 3rem; */
-    background-color: #fff;
-    /* box-shadow: 0 0 3px rgba(0,0,0,0.2);
-    border-radius: 6px; */
-}
-
-th, td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 2px solid #e0e0e0;
-    font-size: 1rem;
-    
-    justify-content: center;
-}
-
-tfoot td{
-    border-bottom: none;
-}
-
-
-th{
-
-    font-weight: 600;
-    padding: 12px;
-    color: #00000070;
-}
-
 
 
 .btn {
@@ -235,7 +205,7 @@ tfoot a:hover{
     grid-column: 1 / 4;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .resumen{

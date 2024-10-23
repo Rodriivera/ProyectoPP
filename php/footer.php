@@ -35,11 +35,9 @@
                 <div class="politicas">
                     <h3>Politicas</h3>
                     <ul>
-                        <li><a href="#">Envios</a></li>
-                        <li><a href="#">Devoluciones</a></li>
-                        <li><a href="#">Privacidad</a></li>
-                        <li><a href="#">Terminos y condiciones</a></li>
-                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="envio_y_garantia.php">Envios y Garantía</a></li>
+                        <li><a href="terminos.php">Términos y Condiciones</a></li>
+                        <li><a href="faq.php">FAQ</a></li>
 
                     </ul>
                 </div>

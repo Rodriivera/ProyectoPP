@@ -5,7 +5,7 @@
     list-style-type: none;
     font-family: "Montserrat", sans-serif;
     text-decoration: none;
-    user-select: none;
+    /* user-select: none; */
 }
 
 

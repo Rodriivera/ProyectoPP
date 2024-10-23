@@ -171,12 +171,12 @@
     
     <!-- <div class="linea"></div> -->
 
-    <div class="producto-descripcion">
+    <div class="producto-descripcion"  onclick="toggleContent()">
 
             <div class="descripcion">
 
 
-                <h2 onclick="toggleContent()">Detalles del producto<i id="arrow" class="ri-arrow-down-s-line"></i></h2>
+                <h2>Detalles del producto<i id="arrow" class="ri-arrow-down-s-line"></i></h2>
                 <div id="content" class="hidden">
                     <p><?php echo $descripcion; ?></p>
                 </div>

@@ -38,7 +38,7 @@
     <?php include 'header.php'; ?>
 
 
-    <main>
+<main>
 
         
     <section class="ads">
@@ -240,7 +240,7 @@
    
 
 
-    </main>
+</main>
 
 
     <?php include 'footer.php'; ?>

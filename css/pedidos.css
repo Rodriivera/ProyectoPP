@@ -1,3 +1,10 @@
+body{
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+
+
 html{
     height: 100%;
 }
@@ -41,7 +48,7 @@ main{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    margin: 0 0 2rem;
+    margin: 0 0 4rem;
 }
 
 .pedido{
@@ -87,22 +94,28 @@ main{
 }
 
 .enviado{
-    color: white !important;
-    background-color: rgb(0, 180, 0) !important;
+    color: rgb(0, 180, 0) !important;
+    /* background-color: rgb(0, 180, 0) !important; */
+    /* font-weight: 400 !important; */
+    border: 2px solid rgb(0, 180, 0) !important;
     border-radius: 8px;
     padding: .4rem;
 }
 
 .pendiente{
-    color: white !important;
-    background-color: orange !important;
+    color: orange !important;
+    /* background-color: orange !important; */
+    /* font-weight: 400 !important; */
+    border: 2px solid orange !important;
     border-radius: 8px;
     padding: .4rem;
 }
 
 .cancelado{
-    color: white !important;
-    background-color: rgb(240, 0, 0) !important;
+    color: red !important;
+    /* background-color: red !important; */
+    /* font-weight: 400 !important; */
+    border: 2px solid red !important;
     border-radius: 8px;
     padding: .4rem;
     

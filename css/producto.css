@@ -1,3 +1,10 @@
+body{
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+
+
 main{
     padding: 78.4px 8rem 0;
 }
@@ -205,6 +212,7 @@ input[type="number"] {
     padding: 2rem;
     margin-bottom: 3rem;
     color: #000;
+    cursor: pointer;
 }
 
 .descripcion{
@@ -252,7 +260,7 @@ input[type="number"] {
 }
 
 .descripcion h2 {
-    cursor: pointer;
+    
     font-size: 24px;
     font-weight: 600;
     color: #333;

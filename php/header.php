@@ -19,7 +19,7 @@
                         
                         <div id="accountMenu" class="account-menu">
                             <a href="cuenta.php" class="account-menu-link">Perfil</a>
-                            <a href="../php/pedidos.php" class="account-menu-link">Mis pedidos</a>
+                            <a href="../php/pedidos.php" class="account-menu-link">Pedidos</a>
                             <a href="./logout.php" class="account-menu-link"><span>Cerrar sesión</span></a>
                         </div>
                     <?php else: ?>
@@ -111,37 +111,38 @@
                 // Verifica si la sesión está iniciada
                 if (isset($_SESSION['user_usuario'])) {
                     // Si la sesión está iniciada, muestra el email del usuario
-                    echo '
-                    <li>
-                        <i onclick="toggleMenu2()" id="menu2"  class="ri-user-3-line nav menu-icon2"></i>
-                        
-                        <div class="sub-menu-wrap2" id="subMenu2">
-                            <div class="sub-menu2">
-                                <a href="cuenta.php" class="sub-menu-link2 sesion">
-                                    <i class="ri-pencil-line"></i>
-                                    <p title="' . $_SESSION['user_usuario'] . '">' . $_SESSION['user_usuario'] . '</p>
-                                </a>
-                                <a href="../php/pedidos.php" class="sub-menu-link2">
-                                    <i class="ri-shopping-bag-4-line"></i>
-                                    <p>Mis pedidos</p>
-                                </a>
-                                <a href="logout.php" class="sub-menu-link2 cerrar">
-                                    <i class="ri-logout-box-line"></i>
-                                    <p>Cerrar sesión</p>
-                                </a>
+                    ?>
+                        <li>
+                            <i onclick="toggleMenu2()" id="menu2" class="ri-user-3-line nav menu-icon2"></i>
+                            
+                            <div class="sub-menu-wrap2" id="subMenu2">
+                                <div class="sub-menu2">
+                                    <a href="cuenta.php" class="sub-menu-link2 sesion">
+                                        <i class="ri-pencil-line"></i>
+                                        <p title="<?php echo $_SESSION['user_usuario']; ?>"><?php echo $_SESSION['user_usuario']; ?></p>
+                                    </a>
+                                    <a href="../php/pedidos.php" class="sub-menu-link2">
+                                        <i class="ri-shopping-bag-4-line"></i>
+                                        <p>Pedidos</p>
+                                    </a>
+                                    <a href="logout.php" class="sub-menu-link2 cerrar">
+                                        <i class="ri-logout-box-line"></i>
+                                        <p>Cerrar sesión</p>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </li>';
-                } else {
-                    // Si la sesión no está iniciada, muestra el enlace para iniciar sesión
-                    echo '
-                          <a href="login-register.php">
-
-                            <i class="ri-user-3-line nav"></i>
-                        </a>
-                        </li>';
-                }
-                ?>
+                        </li>
+                    <?php
+                    } else {
+                    ?>
+                        <li>
+                            <a href="login-register.php">
+                                <i class="ri-user-3-line nav"></i>
+                            </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
             </ul>
         </nav>
   
