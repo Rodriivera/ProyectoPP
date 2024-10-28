@@ -23,7 +23,7 @@
             <li><a href="admin.php"><span>Estadisticas</span></a></li>
             <li class="active"><a href="inventario_admin.php"><span>Inventario</span></a></li>
             <li><a href="publicar_admin.php"><span>Publicar</span></a></li>
-            <li><a href="mensaje_admin.php"><span>Mensajes</span></a></li>
+          
         </ul>
     </div>
 </aside>

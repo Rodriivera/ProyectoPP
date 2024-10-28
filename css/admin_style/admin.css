@@ -154,17 +154,17 @@ aside{
 
 /* /////////////////////////////  GRAFICOS //////////////////////*/
 .container_graficos{
-    
     margin: 3rem 25px 0 25px;
     display: flex;
     justify-content: space-between;
-   
+    
 }
 
 
 canvas{
     padding: 2rem;
     margin: auto;
+    max-width: 90%;
 }
 
 .canvas_bar{
@@ -238,23 +238,28 @@ canvas{
     position: absolute;
     bottom: 0;
     right: 0;
-    margin: 12px;   
+    margin: 10px 5px 10px 10px;   
 }
 
-
+ 
 
 .container_datos {
     position: absolute;
     font-weight: 600;
     bottom: 70px;
     left: 20px;
-    color: rgb(153, 255, 0);
+    color: rgb(255, 255, 255);
+    width: 90%; /* Ajusta el ancho según sea necesario */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que se desborda */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos */
     
 }
 .container_datos p{
     position: relative;
     top: -9px;
     left: -9px;
+    color: rgb(153, 255, 0);
 }
 .container_datos i{
     position: relative;
@@ -266,6 +271,7 @@ canvas{
     color: white;
     font-size: 2rem;
     font-weight: 600;
+    
 }
 #total_sell div{
     top: 95px;
@@ -276,19 +282,25 @@ canvas{
 
 /* responsive */
 @media screen and (max-width: 1440px){
-    .sellcards{
+    
+    .content{
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+    .sellcards{
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 1rem;
     }
-    
-}
-@media screen and (max-width: 1200px){
+
     .container_graficos{
         display: grid;
+        margin: auto;
     }
     .graficos{
-        margin-top: 20px;
+        margin-top: 2rem;
     }
+    
 }

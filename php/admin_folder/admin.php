@@ -26,7 +26,6 @@
                     <li class="active"><span id="active" >Estadisticas</span></li>
                     <li><a href="inventario_admin.php"><span>Inventario</span></a></li>
                     <li><a href="publicar_admin.php"><span>Publicar</span></a></li>
-                    <li><a href="mensaje_admin.php"><span>Mensajes</span></a></li>
                 </ul>
         </div>
     </aside>
@@ -34,58 +33,119 @@
     
   
 
+   
+    <?php  
+        include '../db.php';
+
+        //  calcular producto mas vendido 
+        $sql = "SELECT producto_id, SUM(cantidad) AS total_cantidad, SUM(precio * cantidad) AS total_ventas 
+        FROM ventas
+        GROUP BY producto_id
+        ORDER BY total_cantidad DESC
+        LIMIT 1";
+        $result = $conn->query($sql);
+        $prodmasvendido = $result->fetch_assoc();
+
+        // buscar el nombre del producto mas vendido
+        $sql2 = "SELECT nombre FROM productos WHERE id = $prodmasvendido[producto_id]";
+        $result2 = $conn->query($sql2);
+    
+        // calcular categoria mas vendida
+        $sql3= "SELECT categoria, SUM(cantidad) AS total_cantidad, SUM(precio * cantidad) AS total_ventas
+        FROM ventas
+        GROUP BY categoria
+        ORDER BY total_ventas DESC
+        LIMIT 1";
+        $result3 = $conn->query($sql3);
+
+        $sql4= "SELECT categoria, SUM(cantidad) AS total_cantidad, SUM(precio * cantidad) AS total_ventas
+        FROM ventas
+        GROUP BY categoria
+        ORDER BY total_ventas DESC
+        LIMIT 1";
+        $result4 = $conn->query($sql4);
+        
+
+     
+        // calcular total de ventas
+        $sql5 = "SELECT SUM(precio * cantidad) AS total_ventas FROM ventas";
+        $result5 = $conn->query($sql5);
+        $total_ventas = $result5->fetch_assoc()['total_ventas'];
+
+
+        // calcular total de productos vendidos
+        $sql6 = "SELECT SUM(cantidad) AS total_cantidad FROM ventas";
+        $result6 = $conn->query($sql6);
+        $total_cantidad = $result6->fetch_assoc()['total_cantidad'];
+
+    ?>
+
 
 
 
 
     <section class="content">
         <div class="sellcards">
+            <!-- producto mas vendido -->
             <div class="card" id="best_product" style="background-color: rgba(255, 99, 132, 0.3) ">
                 <h2>Producto mas vendido</h2>
-                <div class="container_datos">
-                    <span class="dato">Armani Code</span>
-                    <p><i class="fa-solid fa-arrow-trend-up"></i>$1,000.00</p>
+                <div class="container_datos"> 
+                    <span class="dato"><?php echo $result2->fetch_assoc()['nombre'];?></span>
+                    <p><i class="fa-solid fa-arrow-trend-up"></i>$<?php echo $prodmasvendido['total_ventas']; ?></p>
                 </div>  
                 <i class="fa-solid fa-thumbs-up"></i>
             </div>
+
+            <!-- categoria mas vendida -->
             <div class="card" id="best_category" style="background-color: rgba(54, 162, 235, 0.3)">
                 <h2>Categoria mas vendida</h2>
                 <div class="container_datos">
-                    <span class="dato">Perfumeria</span>
-                    <p><i class="fa-solid fa-arrow-trend-up"></i>$1,000.00</p>
+                    <span class="dato"> <?php echo $result4->fetch_assoc()['categoria']; ?> </span>
+                    <p><i class="fa-solid fa-arrow-trend-up"></i>$<?php echo $result3->fetch_assoc()['total_ventas']; ?></p>
                 </div>
                 <i class="fa-solid fa-icons"></i>
             </div>
+
+            <!-- total de ventas -->
             <div class="card" id="total_sell" style="background-color: rgba(201, 33, 807, 0.3)">
                 <h2>Total ventas</h2>
                 <div class="container_datos">
-                    <span class="dato">$100,000.00</span>
+                    <span class="dato">$<?php echo $total_ventas; ?></span>
                 </div>
                 <i class="fa-solid fa-box-archive"></i>
             </div>
+
+            <!-- total de productos vendidos -->
             <div class="card" id="total_product" style="background-color: rgba(75, 192, 192, 0.3)">
-                <h2>Total de productos</h2>
+                <h2>Total de productos vendidos</h2>
                 <div class="container_datos">
-                    <span class="dato">100,000</span>
+                    <span class="dato"><?php echo $total_cantidad; ?></span>
                     <p></p>
                 </div>
                 <i class="fa-solid fa-cubes-stacked"></i>
             </div>
         </div>
 
+
+
         <div class="container_graficos">
             <div class="graficos">
                 <span>Ventas</span>
                 <canvas class="canvas_bar" id="myChart"></canvas>
             </div>
+
             <div class="graficos">
                 <span>Categorias</span>
                 <canvas class="canvas_pie" id="pie-chart"></canvas>
             </div>
         </div>
+
     </section>
 
 
+
+
+   
    
 
 
