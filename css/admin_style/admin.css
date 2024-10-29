@@ -162,20 +162,19 @@ aside{
 
 
 canvas{
-    padding: 2rem;
+    
     margin: auto;
     max-width: 90%;
 }
 
 .canvas_bar{
     position: relative;
-    width: 700px;
+    /*width: 700px;*/
     margin-top: 1.5rem;
 }
 
 .graficos{
-    height: 500px;
-    width: 800px;
+    
     min-width: 750px;
     border-radius: 16px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);

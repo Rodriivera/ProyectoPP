@@ -33,15 +33,16 @@ while ($producto = $productos->fetch_assoc()) {
 
     // Restar la cantidad comprada del stock del producto
     $conn->query("UPDATE productos SET stock = stock - $cantidad WHERE id = $productoId");
+    // enviar datos para la grafica del admin
+$categoria = $conn->query("SELECT categoria FROM productos WHERE id = $productoId")->fetch_assoc()['categoria'];
+$conn->query("INSERT INTO ventas (producto_id, categoria, precio, cantidad, fecha) VALUES ($productoId, '$categoria', $precio, $cantidad, NOW())");
 }
 
 // Vaciar el carrito del usuario
 $conn->query("DELETE FROM carritos WHERE usuario_id = $userId");
 
 
-// enviar datos para la grafica del admin
-$categoria = $conn->query("SELECT categoria FROM productos WHERE id = $productoId")->fetch_assoc()['categoria'];
-$conn->query("INSERT INTO ventas (producto_id, categoria, precio, cantidad, fecha) VALUES ($productoId, '$categoria', $precio, $cantidad, NOW())");
+
 
 
 ?>

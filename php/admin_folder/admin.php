@@ -131,12 +131,12 @@
         <div class="container_graficos">
             <div class="graficos">
                 <span>Ventas</span>
-                <canvas class="canvas_bar" id="myChart"></canvas>
+                <canvas class="canvas_bar" id="myChart"  width="600" height="300"></canvas>
             </div>
 
             <div class="graficos">
                 <span>Categorias</span>
-                <canvas class="canvas_pie" id="pie-chart"></canvas>
+                <canvas class="canvas_pie" id="pie-chart" ></canvas>
             </div>
         </div>
 

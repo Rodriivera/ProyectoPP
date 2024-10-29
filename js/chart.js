@@ -15,7 +15,7 @@ fetch('../admin_folder/datos_chart_bar.php') // Cambia esta ruta al archivo PHP
             data: {
                 labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
                 datasets: [{
-                    label: 'Ventas $',
+                    label: data.labels,
                     data: data.data, // Asegúrate de que 'data' tenga la estructura correcta
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.3)',
