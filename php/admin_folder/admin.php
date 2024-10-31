@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="../media/Aromas.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../media/Aromas.png" type="image/x-icon">
     <link rel="stylesheet" href="../../css/admin_style/admin.css?v=<?php echo time(); ?>" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +16,26 @@
     <title>Aromas</title>
 </head>
 <body>
+
+    <header>
+        <div class="logo-header">
+            <a href="../index.php"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="admin.php">Estadisticas</a>
+                </li>
+                <li>
+                    <a href="inventario_admin.php">Inventario</a>
+                </li>
+                <li>
+                    <a href="publicar_admin.php">Publicar</a>
+                </li>
+            </ul>
+        </nav>
+        
+    </header>
 
 
     <aside>

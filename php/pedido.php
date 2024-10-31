@@ -40,9 +40,10 @@
         
         <?php
             // Obtener productos del carrito
-            $sql = "SELECT dp.*, p.imagen_url, p.nombre, p.marca 
-                    FROM detalle_pedido dp 
-                    JOIN productos p ON dp.producto_id = p.id WHERE dp.pedido_id = $pedido_id";
+            $sql = "SELECT detalle_pedido.*, productos.imagen_url, productos.nombre, productos.marca 
+                    FROM detalle_pedido 
+                    JOIN productos ON detalle_pedido.producto_id = productos.id 
+                    WHERE detalle_pedido.pedido_id = $pedido_id";
 
             $result = $conn->query($sql);
 
@@ -80,13 +81,14 @@
                 <?php } ?>
             
                 <?php
-                // Obtener el total del pedido
-                $sql_total = "SELECT SUM(precio * cantidad) as total FROM detalle_pedido WHERE pedido_id = $pedido_id";
-                $result_total = $conn->query($sql_total);
-                $total = 0;
-                if ($result_total->num_rows > 0) {
-                    $row_total = $result_total->fetch_assoc();
-                    $total = $row_total['total'];
+                // Obtener el total del pedido desde la tabla pedidos
+                $total_query = "SELECT total, envio FROM pedidos WHERE id = $pedido_id";
+                $total_result = $conn->query($total_query);
+
+                if ($total_result && $total_result->num_rows > 0) {
+                    $row = $total_result->fetch_assoc();
+                    $total = $row['total'];
+                    $envio = $row['envio'];
                 }
                 ?>
 
@@ -105,7 +107,19 @@
     </div>
 
     <div class="total">
-            <p>Total: $<?php echo number_format($total, 0); ?></p>
+        <div class="izq">
+            <p>Subtotal:</p>
+            <p>Envio:</p>
+            <p>Total:</p>
+        </div>
+        <div class="der">
+            <p>$<?php echo number_format(($total-$envio), 0); ?></p>
+            <p>$<?php echo number_format($envio, 0); ?></p>
+            <p>$<?php echo number_format($total, 0); ?></p>
+        </div>
+            <!-- <p>Subtotal: $<?php echo number_format(($total-$envio), 0); ?></p>
+            <p>Envio: $<?php echo number_format($envio, 0); ?></p>
+            <p>Total: $<?php echo number_format($total, 0); ?></p> -->
     </div>
     <?php } ?>
 

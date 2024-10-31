@@ -14,6 +14,25 @@
 </head>
 <body>
 
+    <header>
+        <div class="logo-header">
+            <a href="../index.php"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="admin.php">Estadisticas</a>
+                </li>
+                <li>
+                    <a href="inventario_admin.php">Inventario</a>
+                </li>
+                <li>
+                    <a href="publicar_admin.php">Publicar</a>
+                </li>
+            </ul>
+        </nav>
+        
+    </header>
 
 <aside>
     <div class="container-admin">
@@ -36,14 +55,14 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Imagen</th>
+                        <th class="hidden">Id</th>
+                        <th class="hidden">Imagen</th>
                         <th>Nombre</th>
                         <th>Marca</th>
                         <th>Stock</th>
-                        <th>Min-Stock</th>
+                        <th class="hidden">Min-Stock</th>
                         <th>Precio</th>
-                        <th>Operaciones</th>
+                        <th>Botones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -66,12 +85,12 @@
 
                     ?>
                     <tr>
-                        <td><?php echo $id; ?></td>
-                        <td class="td_img"><div  class="td_imagen" style='background-image: url("img_productos/<?php echo htmlspecialchars($image); ?>");'></div></td>
+                        <td class="hidden"><?php echo $id; ?></td>
+                        <td class="td_img hidden"><div  class="td_imagen" style='background-image: url("img_productos/<?php echo htmlspecialchars($image); ?>");'></div></td>
                         <td><?php echo $name; ?></td>
                         <td><?php echo $marca; ?></td>
                         <td><?php echo $stock; ?></td> 
-                        <td><?php echo $min_stock; ?></td> 
+                        <td class="hidden"><?php echo $min_stock; ?></td> 
                         <td><?php echo number_format($price, 0); ?></td>
                         <td class="td_operaciones">
                             <div>

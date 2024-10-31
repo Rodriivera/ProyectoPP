@@ -354,3 +354,60 @@ tbody tr:nth-child(odd){
 
 
 /* /////////////////////////// SACCIONES ADMIN ///////////////////////*/
+
+
+
+header{
+    display: none;
+}
+@media screen and (max-width: 1000px){
+    aside{
+        display: none;
+    }
+    .secciones{
+        margin-top: 100px;
+        padding-left: 0;
+        
+    }
+    header{
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        padding: 1rem;
+        position:fixed;
+        width: 100%;
+        z-index: 9999;
+        top: 0;
+        gap: 1rem;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    }
+    nav ul{
+        display: flex;
+        gap: 2rem;
+        
+    }
+    nav ul a{
+        color: black;
+    }
+    .td_operaciones{
+        display: inline-block;
+    }
+    .td_operaciones div{
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+    }
+    .hidden{
+        display: none;
+        
+    }
+
+
+}

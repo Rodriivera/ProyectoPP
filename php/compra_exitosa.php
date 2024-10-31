@@ -6,16 +6,17 @@ session_start();
 $userId = $_SESSION['user_id'];
 
 // Calcular el total del carrito
-$total = 0;
+$total = $_REQUEST['total'];
+$envio = $_REQUEST['envio'];
 $productos = $conn->query("SELECT * FROM carritos WHERE usuario_id = $userId");
 while ($producto = $productos->fetch_assoc()) {
     // Obtener el precio del producto
     $precioProducto = $conn->query("SELECT precio FROM productos WHERE id = " . $producto['producto_id'])->fetch_assoc()['precio'];
-    $total += $precioProducto * $producto['cantidad'];
+    
 }
 
 // Insertar el pedido en la tabla 'pedidos'
-$conn->query("INSERT INTO pedidos (usuario_id, total, estado, fecha_pedido) VALUES ($userId, $total, 'Pendiente', NOW())");
+$conn->query("INSERT INTO pedidos (usuario_id, total, envio, estado, fecha_pedido) VALUES ($userId, $total, $envio, 'Pendiente', NOW())");
 
 // Obtener el ID del pedido recién insertado
 $pedidoId = $conn->insert_id;

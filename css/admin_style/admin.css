@@ -154,10 +154,10 @@ aside{
 
 /* /////////////////////////////  GRAFICOS //////////////////////*/
 .container_graficos{
-    margin: 3rem 25px 0 25px;
+    margin: 2rem 25px 2rem 25px;
     display: flex;
-    justify-content: space-between;
-    
+    flex-direction: column;
+    gap: 1rem;
 }
 
 
@@ -278,14 +278,19 @@ canvas{
     top: 95px;
 }
 
+header{
+    display: none;
+}
+
 /* responsive */
-@media screen and (max-width: 1440px){
+@media screen and (max-width: 1200px){
     
     .content{
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        
     } 
     .sellcards{
         display: grid;
@@ -293,12 +298,71 @@ canvas{
         grid-gap: 1rem;
     }
 
-    .container_graficos{
+    /* .container_graficos{
         display: grid;
         margin: auto;
-    }
-    .graficos{
+    } */
+    /* .graficos{
         margin-top: 2rem;
+    } */
+    
+}
+
+@media screen and (max-width: 1000px){
+    .content{
+        margin-top: 125px;
+    }
+    header{
+        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        padding: 1rem;
+        position:fixed;
+        width: 100%;
+        z-index: 9999;
+        top: 0;
+        gap: 1rem;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     }
     
+    nav ul{
+        display: flex;
+        gap: 2rem;
+        
+    }
+    nav ul a{
+        color: black;
+    }
+    
+    aside{
+        display: none;
+    }
+
+    .content{
+        padding-left: 0;
+    }
+
+    .container_graficos{
+        gap: 1rem;
+        margin: 1rem 0 1rem 0 ;
+    }
+    
+
+}
+
+@media screen and (max-width: 800px){
+    .sellcards{
+        grid-template-columns: 1fr;
+    }
+    .graficos{
+        min-width: 375px;
+        
+    }
+    .card{
+        width: 375px;
+    }
+
 }

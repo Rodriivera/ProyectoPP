@@ -17,7 +17,25 @@
 </head>
 <body>
 
-
+<header>
+        <div class="logo-header">
+            <a href="../index.php"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="admin.php">Estadisticas</a>
+                </li>
+                <li>
+                    <a href="inventario_admin.php">Inventario</a>
+                </li>
+                <li>
+                    <a href="publicar_admin.php">Publicar</a>
+                </li>
+            </ul>
+        </nav>
+        
+    </header>
 
 
 <aside>
@@ -86,7 +104,7 @@
                 </div>
 
                 <div class="input_label">   
-                    <label>Stock Minimo</label>
+                    <label>Min-Stock</label>
                     <input class="input_number" type="number" min="0" name="min_stock">
                 </div>
             </div>

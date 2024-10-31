@@ -140,7 +140,7 @@
 
 
     <section class="slider">
-        <span>Productos relacionados</span>
+        <span>Productos recomendados</span>
         <div class="swiper">
             <div class="swiper-wrapper">
                 <?php
@@ -189,7 +189,7 @@
                 </div>
                 <div class="prestacion-texto">
                 <h3>Envio gratis</h3>
-                <p>En compras superiores a $10.000</p>
+                <p>En compras superiores a $50.000</p>
                 </div>
             </div>
 

@@ -80,11 +80,29 @@
                             <?php
 
                                 $result->data_seek(0); // Reset result pointer to the beginning
+                                $subtotal = 0;
                                 $total = 0;
+                                $envio = 5000;
                                 while ($row = $result->fetch_assoc()) {
-                                    $total += $row['precio'] * $row['cantidad'];
+                                    $subtotal += $row['precio'] * $row['cantidad'];
                                 }
+                                if ($subtotal >= 50000) {
+                                    $envio = 0;
+                                }
+                                $total = $subtotal + $envio;
                             ?>
+                            <tr>
+                                <td>Subtotal:</td>
+                                <td></td>
+                                <td></td>
+                                <td>$<?php echo number_format($subtotal, 0); ?></td>
+                            </tr>
+                            <tr>
+                                <td>Envio:</td>
+                                <td></td>
+                                <td></td>
+                                <td>$<?php echo number_format($envio, 0); ?></td>
+                            </tr>
                             <tr>
                                 <td>Total:</td>
                                 <td></td>
@@ -225,10 +243,12 @@
             </div>
 
 
+            <input type="hidden" name="total" value="<?php echo $total; ?>">
+            <input type="hidden" name="envio" value="<?php echo $envio; ?>">
             <div class="botones">
                 <button type="button" onclick="window.location.href='carrito.php'"><i class="ri-close-circle-line"></i>Cancelar compra</button>
                 <button type="submit"><i class="ri-bank-card-line"></i>Pagar $<?php echo number_format($total, 0); ?></button>
-            </div> 
+            </div>
            
 
         </form>

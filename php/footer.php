@@ -48,7 +48,6 @@
                     <ul>
                         <li><p>Telefono: 44228085</p></li>
                         <li><p>Correo: aromas@aromas.com</p></li>
-                        <li><p>Direccion: Bartolomé Mitre 384</p></li>
                         <li><p>Horario: Lunes a Viernes de 9:00 a 18:00</p></li>
                     </ul>
                 </div>

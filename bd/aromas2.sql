@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2024 a las 01:40:08
+-- Tiempo de generación: 31-10-2024 a las 20:48:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,9 +40,8 @@ CREATE TABLE `carritos` (
 --
 
 INSERT INTO `carritos` (`id`, `usuario_id`, `producto_id`, `cantidad`, `fecha_agregado`) VALUES
-(81, 1, 11, 1, '2024-10-17 17:57:13'),
-(82, 1, 12, 1, '2024-10-17 17:57:18'),
-(83, 1, 32, 1, '2024-10-17 17:57:47');
+(104, 1, 17, 1, '2024-10-31 18:35:34'),
+(105, 1, 30, 1, '2024-10-31 18:35:37');
 
 -- --------------------------------------------------------
 
@@ -63,26 +62,13 @@ CREATE TABLE `detalle_pedido` (
 --
 
 INSERT INTO `detalle_pedido` (`id`, `pedido_id`, `producto_id`, `cantidad`, `precio`) VALUES
-(1, 1, 16, 1, 5000.00),
-(2, 1, 8, 1, 5000.00),
-(3, 2, 11, 1, 50000.00),
-(4, 3, 15, 1, 160000.00),
-(5, 3, 33, 1, 50000.00),
-(6, 4, 8, 1, 12000.00),
-(7, 5, 12, 1, 280000.00),
-(8, 5, 43, 5, 250000.00),
-(9, 6, 13, 1, 210000.00),
-(10, 6, 14, 1, 200000.00),
-(11, 7, 8, 1, 12000.00),
-(12, 8, 44, 1, 170000.00),
-(13, 8, 33, 1, 50000.00),
-(14, 23, 39, 1, 10000.00),
-(15, 24, 35, 1, 25000.00),
-(16, 24, 11, 2, 50000.00),
-(17, 25, 13, 1, 210000.00),
-(18, 26, 38, 1, 5700.00),
-(19, 27, 6, 1, 20000.00),
-(20, 28, 16, 2, 15000.00);
+(24, 32, 11, 1, 50000.00),
+(25, 32, 14, 1, 200000.00),
+(26, 33, 13, 1, 210000.00),
+(27, 34, 15, 1, 160000.00),
+(28, 34, 43, 1, 250000.00),
+(29, 35, 44, 1, 170000.00),
+(30, 35, 13, 1, 210000.00);
 
 -- --------------------------------------------------------
 
@@ -103,8 +89,7 @@ CREATE TABLE `favoritos` (
 
 INSERT INTO `favoritos` (`id`, `usuario_id`, `producto_id`, `fecha_agregado`) VALUES
 (22, 1, 11, '2024-10-17 17:57:24'),
-(23, 1, 12, '2024-10-17 17:57:27'),
-(24, 1, 32, '2024-10-17 17:57:52');
+(23, 1, 12, '2024-10-17 17:57:27');
 
 -- --------------------------------------------------------
 
@@ -116,7 +101,8 @@ CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL,
   `usuario_id` int(11) DEFAULT NULL,
   `total` decimal(10,2) DEFAULT NULL,
-  `estado` enum('Pendiente','Enviado','Entregado','Cancelado') DEFAULT 'Pendiente',
+  `envio` int(11) NOT NULL,
+  `estado` enum('Pendiente','Enviado','Cancelado') DEFAULT 'Pendiente',
   `fecha_pedido` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -124,21 +110,11 @@ CREATE TABLE `pedidos` (
 -- Volcado de datos para la tabla `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `usuario_id`, `total`, `estado`, `fecha_pedido`) VALUES
-(1, 1, 10000.00, 'Enviado', '2024-09-10'),
-(2, 1, 50000.00, 'Cancelado', '2024-09-01'),
-(3, 1, 210000.00, 'Pendiente', '2024-10-02'),
-(4, 1, 12000.00, 'Pendiente', '2024-10-02'),
-(5, 1, 1530000.00, 'Pendiente', '2024-10-08'),
-(6, 1, 410000.00, 'Pendiente', '2024-10-12'),
-(7, 1, 12000.00, 'Pendiente', '2024-10-14'),
-(8, 1, 220000.00, 'Pendiente', '2024-10-14'),
-(23, 1, 10000.00, 'Pendiente', '2024-10-14'),
-(24, 1, 125000.00, 'Pendiente', '2024-10-14'),
-(25, 6, 210000.00, 'Pendiente', '2024-10-28'),
-(26, 6, 5700.00, 'Pendiente', '2024-10-28'),
-(27, 6, 20000.00, 'Pendiente', '2024-10-28'),
-(28, 6, 30000.00, 'Pendiente', '2024-10-28');
+INSERT INTO `pedidos` (`id`, `usuario_id`, `total`, `envio`, `estado`, `fecha_pedido`) VALUES
+(32, 1, 255000.00, 5000, 'Pendiente', '2024-10-31'),
+(33, 1, 215000.00, 5000, 'Enviado', '2024-10-31'),
+(34, 1, 415000.00, 5000, 'Cancelado', '2024-10-31'),
+(35, 1, 380000.00, 0, 'Pendiente', '2024-10-31');
 
 -- --------------------------------------------------------
 
@@ -174,11 +150,11 @@ INSERT INTO `productos` (`id`, `nombre`, `marca`, `precio`, `imagen_url`, `categ
 (8, 'Agua Micelar', 'Garnier ', 12000.00, '8.jpg', 'Faciales', 8, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (9, 'Herramientas saca puntos negros', 'PS', 3000.00, '9.jpg', 'Faciales', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (10, 'Gel de limpieza ', 'Dermaglós', 7500.00, '10.jpg', 'Faciales', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(11, 'We Are Tribe', 'Benetton', 50000.00, '11.jpg', 'Fragancias', 8, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(11, 'We Are Tribe', 'Benetton', 50000.00, '11.jpg', 'Fragancias', 6, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (12, 'Man In Black', 'Bvlgari', 280000.00, '12.jpg', 'Fragancias', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(13, 'Gentelman EDP', 'Givenchy', 210000.00, '13.jpg', 'Fragancias', 8, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(14, 'Chrome EDT', 'Azzaro', 200000.00, '14.jpg', 'Fragancias', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(15, 'Stronger With You', 'Giorgio Armani', 160000.00, '15.jpg', 'Fragancias', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(13, 'Gentelman EDP', 'Givenchy', 210000.00, '13.jpg', 'Fragancias', 5, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(14, 'Chrome EDT', 'Azzaro', 200000.00, '14.jpg', 'Fragancias', 8, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
+(15, 'Stronger With You', 'Giorgio Armani', 160000.00, '15.jpg', 'Fragancias', 8, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (16, 'Mascara de pestañas', 'Maybelline', 15000.00, '16.jpg', 'Maquillajes', 8, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (17, 'Labial Líquido Brillante', 'Maybelline ', 23000.00, '17.jpg', 'Maquillajes', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (18, 'Labial', 'Vogue', 10000.00, '18.jpg', 'Maquillajes', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
@@ -203,8 +179,8 @@ INSERT INTO `productos` (`id`, `nombre`, `marca`, `precio`, `imagen_url`, `categ
 (38, 'Broche De Pelo Mariposa X 12', 'Iko Shop', 5700.00, '38.jpg', 'Accesorios', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (39, 'Aros Cristal Plata 925', 'Cubic', 10000.00, '39.jpg', 'Accesorios', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
 (40, 'Deadpool Wolverine Collar Doble', 'Marvel', 9000.00, '40.jpg', 'Accesorios', 10, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-12 14:17:34'),
-(43, 'Sauvage EDP 60 ml', 'Dior', 250000.00, 'D_NQ_NP_2X_759071-MLA74782387697.jpg', 'Fragancias', 5, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-30 02:39:23'),
-(44, 'Cool Water Man Edp 100Ml', 'Davidoff', 170000.00, 'D_NQ_NP_2X_753372-MLU74220036233.jpg', 'Fragancias', 9, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-30 02:41:30');
+(43, 'Sauvage EDP 60 ml', 'Dior', 250000.00, 'D_NQ_NP_2X_759071-MLA74782387697.jpg', 'Fragancias', 4, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-30 02:39:23'),
+(44, 'Cool Water Man Edp 100Ml', 'Davidoff', 170000.00, 'D_NQ_NP_2X_753372-MLU74220036233.jpg', 'Fragancias', 7, 5, 'Proin egestas lectus in justo tincidunt feugiat. Nam in tempor lorem. Ut sed pharetra diam. Sed a tellus dolor. Mauris pharetra tortor quis libero interdum, et euismod orci condimentum. Suspendisse non convallis dolor. Aenean blandit faucibus metus ut placerat. Aenean elementum posuere justo vitae mollis. Pellentesque elementum quam et consequat sodales. In hac habitasse platea dictumst. Sed gravida diam sapien, in consectetur ligula posuere a. Praesent facilisis dapibus nunc, et pellentesque eros vulputate a.', '2024-09-30 02:41:30');
 
 -- --------------------------------------------------------
 
@@ -257,12 +233,13 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id`, `producto_id`, `categoria`, `precio`, `cantidad`, `fecha`) VALUES
-(4, 4, 'Capilares ', 1000, 2, '2024-10-28'),
-(5, 5, 'Perfumeria', 3000, 1, '2024-10-28'),
-(6, 8, 'Capilares ', 1500, 1, '2024-10-28'),
-(9, 6, 'Capilares', 20000, 1, '2024-02-28'),
-(10, 16, 'Maquillajes', 15000, 2, '2024-10-28'),
-(11, 1, 'Personales', 0, 0, '2024-01-01');
+(15, 11, 'Fragancias', 50000, 1, '2024-10-31'),
+(16, 14, 'Fragancias', 200000, 1, '2024-10-31'),
+(17, 13, 'Fragancias', 210000, 1, '2024-10-31'),
+(18, 15, 'Fragancias', 160000, 1, '2024-10-31'),
+(19, 43, 'Fragancias', 250000, 1, '2024-10-31'),
+(20, 44, 'Fragancias', 170000, 1, '2024-10-31'),
+(21, 13, 'Fragancias', 210000, 1, '2024-10-31');
 
 --
 -- Índices para tablas volcadas
@@ -326,13 +303,13 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `carritos`
 --
 ALTER TABLE `carritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_pedido`
 --
 ALTER TABLE `detalle_pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `favoritos`
@@ -344,7 +321,7 @@ ALTER TABLE `favoritos`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -362,7 +339,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas
