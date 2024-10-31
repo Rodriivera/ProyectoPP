@@ -13,7 +13,7 @@ fetch('../admin_folder/datos_chart_bar.php') // Cambia esta ruta al archivo PHP
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                labels: ['', '', '', '', '', '', '', '', '', '', '', ''],
                 datasets: [{
                     label: data.labels,
                     data: data.data, // Asegúrate de que 'data' tenga la estructura correcta

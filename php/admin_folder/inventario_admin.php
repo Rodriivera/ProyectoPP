@@ -32,32 +32,6 @@
 
         <div class="container-tabla">
 
-            <form class="search-bar" action="busqueda.php" method="GET" id="searchForm"> 
-                <div class="dropdown">
-                    <div id="drop-text" class="dropdown-text">
-                        <span id="span">Categorías</span>
-                        <i id="icon" class="ri-arrow-down-s-line"></i>
-                    </div>
-                    <ul id="list" class="dropdown-list">
-                        <li class="dropdown-list-item">Fragancias</li>
-                        <li class="dropdown-list-item">Maquillajes</li>
-                        <li class="dropdown-list-item">Faciales</li>
-                        <li class="dropdown-list-item">Capilares</li>
-                        <li class="dropdown-list-item">Personales</li>
-                        <li class="dropdown-list-item">Regalería</li>
-                        <li class="dropdown-list-item">Hogar</li>
-                        <li class="dropdown-list-item">Accesorios</li>
-                    </ul>
-                    
-                </div>
-
-                <input type="hidden" id="selected-category" name="category" value="Todo">
-
-                <div class="search-box">
-                    <input type="text" id="search-input" name="search" placeholder="Buscar">
-                    <button type="submit"><i class="ri-search-line"></i></button>
-                </div>
-            </form>
 
             <table>
                 <thead>
