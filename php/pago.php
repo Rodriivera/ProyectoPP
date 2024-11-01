@@ -82,7 +82,15 @@
                                 $result->data_seek(0); // Reset result pointer to the beginning
                                 $subtotal = 0;
                                 $total = 0;
-                                $envio = 5000;
+
+                                $envio = 0;
+
+                                $queryconf = "SELECT * FROM configuraciones WHERE clave = 'valor-envio'";
+                                $resultconf = $conn->query($queryconf);
+                                $envio = (float)$resultconf->fetch_assoc()['valor'];
+
+
+
                                 while ($row = $result->fetch_assoc()) {
                                     $subtotal += $row['precio'] * $row['cantidad'];
                                 }

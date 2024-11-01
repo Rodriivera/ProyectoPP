@@ -19,7 +19,7 @@
 
 <header>
         <div class="logo-header">
-            <a href="../index.php"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
+            <a href="../index.php"><img src="../../media/Aromas-negro.png" alt="" width="175px"></a>
         </div>
         <nav>
             <ul>

@@ -19,7 +19,7 @@
 
     <header>
         <div class="logo-header">
-            <a href="../index.php"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
+            <a href="../index.php"><img src="../../media/Aromas-negro.png" alt="" width="175px"></a>
         </div>
         <nav>
             <ul>
@@ -158,6 +158,30 @@
                 <span>Categorias</span>
                 <canvas class="canvas_pie" id="pie-chart" ></canvas>
             </div>
+        </div>
+
+        <div class="configuraciones">
+            <h2>Configuraciones</h2>
+            <form action="admin.php" method="post">
+                <div class="input-label">
+                    <label for="envio">Valor envio</label>
+                    <input min="0" type="number" name="envio" pattern="\d+" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                </div>
+
+                <button type="submit">Guardar</button>
+            </form>
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $envio = $_POST['envio'];
+
+            $sql = "UPDATE configuraciones SET valor = $envio WHERE clave = 'valor-envio'";
+            if ($conn->query($sql) === TRUE) {
+            echo "<p>Valores actualizados correctamente.</p>";
+            } else {
+            echo "<p>Error al actualizar los valores.</p>";
+            }
+        }
+        ?>
         </div>
 
     </section>

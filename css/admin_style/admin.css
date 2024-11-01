@@ -282,6 +282,61 @@ header{
     display: none;
 }
 
+.configuraciones{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 0rem 25px 2rem;
+    flex-direction: column;
+    align-items: start;
+}
+
+.input-label{
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
+}
+
+.input-label input{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.configuraciones button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--dark);
+    color: white;
+    transition: .2s;
+}
+
+.configuraciones button:hover{
+    background-color: var(--color-primary);
+    color: white;
+    transition: .2s;
+
+}
+
+.configuraciones form{
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    
+    
+}
+
 /* responsive */
 @media screen and (max-width: 1200px){
     
