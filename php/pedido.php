@@ -32,7 +32,7 @@
         if (isset($_GET['id'])) {
                 $pedido_id = $_GET['id'];
 
-                echo "<h1>Detalles del Pedido #$pedido_id</h1>";
+                echo "<h1 class='hidden'>Detalles del Pedido #$pedido_id</h1>";
 
         ?>
 
@@ -57,7 +57,7 @@
                 ?>
                 
                 <a href="../php/producto.php?id=<?php echo $row['producto_id']; ?>">
-                    <div class="producto">
+                    <div class="producto hidden">
 
                         <div class="imagen" style="background-image: url('./admin_folder/img_productos/<?php echo $row['imagen_url']; ?>');"></div>
 
@@ -96,7 +96,7 @@
                 
 
         <?php } else { ?>
-            <div class="no-pedido">
+            <div class="no-pedido hidden">
                 <p>No tenés productos en tu pedido.</p>
             </div>
 
@@ -106,7 +106,7 @@
 
     </div>
 
-    <div class="total">
+    <div class="total hidden">
         <div class="izq">
             <p>Subtotal:</p>
             <p>Envio:</p>

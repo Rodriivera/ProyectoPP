@@ -41,7 +41,7 @@
 <main>
 
         
-    <section class="ads">
+    <section class="ads hidden">
         <div class="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item"><img src="../media/chanel_3_1920x480_1.jpg" alt="Image 1"></div>
@@ -53,7 +53,7 @@
         
     
     
-    <section class="categorias">
+    <section class="categorias hidden">
 
         <h2>Nuestras categorias</h2>
 
@@ -139,7 +139,7 @@
 
 
 
-    <section class="slider">
+    <section class="slider hidden">
         <span>Productos recomendados</span>
         <div class="swiper">
             <div class="swiper-wrapper">
@@ -178,7 +178,7 @@
     </section>
 
     
-    <section class="prestaciones">
+    <section class="prestaciones hidden">
 
         <div class="prestaciones-container">
 

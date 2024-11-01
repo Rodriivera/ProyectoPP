@@ -62,3 +62,22 @@ function onlyText(input) {
     // Remover todo lo que no sea letras o espacios
     input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
 }
+
+  // Mostrar elementos ocultos al aparecer en pantalla
+
+  const hiddenElements = document.querySelectorAll('.hidden');
+
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.remove('hidden');
+              entry.target.classList.add('show');
+          }
+      });
+  });
+  
+  hiddenElements.forEach(element => {
+      observer.observe(element);
+  });
+  
+  // fin mostrar elementos ocultos al aparecer en pantalla

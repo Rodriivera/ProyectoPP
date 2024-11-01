@@ -28,7 +28,7 @@
 
     <section class="pedidos">
 
-    <h1>Mis pedidos</h1>
+    <h1 class="hidden">Mis pedidos</h1>
                 
     <div class="pedidos-container">
         <?php
@@ -41,7 +41,7 @@
 
             while ($row = $result->fetch_assoc()) {?>
             <a href="pedido.php?id=<?php echo $row['id'];?>">
-            <div class="pedido">
+            <div class="pedido hidden">
                 <h2>Numero #<?php echo $row['id']; ?></h2>
                 <p><?php echo $row['fecha_pedido']; ?></p>
                 <p><?php echo "$" . number_format($row['total'], 0); ?></p>
@@ -52,7 +52,7 @@
         <?php
             }
         } else { ?>
-            <div class="no-pedidos">
+            <div class="no-pedidos hidden">
                 <p>No tenés pedidos.</p>
             </div>
         <?php
@@ -74,5 +74,7 @@
 <?php include 'footer.php'; ?>
 
 </body>
+
 <script src="../js/pedidos.js"></script>
+
 </html>

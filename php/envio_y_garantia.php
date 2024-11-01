@@ -33,7 +33,7 @@
 
         <h2>Envíos</h2>
         <ul>
-            <li><span>Envío Gratis:</span> Disfrutá de envío gratuito en todas tus compras superiores a $10,000.</li>
+            <li><span>Envío Gratis:</span> Disfrutá de envío gratuito en todas tus compras superiores a $50,000.</li>
             <li><span>Tiempo de entrega:</span> Los tiempos de entrega varían dependiendo de la ubicación, pero normalmente oscilan entre 3 y 7 días hábiles.</li>
             <li><span>Rastreo de pedidos:</span> Recibirás un número de seguimiento por correo electrónico una vez que tu pedido haya sido enviado.</li>
         </ul>

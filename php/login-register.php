@@ -2,55 +2,43 @@
 session_start();
 include './db.php';
 
-$error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : '';
+$error_message = $_SESSION['error_message'] ?? '';
 unset($_SESSION['error_message']);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['usuario']) && isset($_POST['contraseña'])) {
-        $usuario = mysqli_real_escape_string($conn, $_POST['usuario']);
-        $contraseña = mysqli_real_escape_string($conn, $_POST['contraseña']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuario = mysqli_real_escape_string($conn, $_POST['usuario'] ?? '');
+    $contraseña = mysqli_real_escape_string($conn, $_POST['contraseña'] ?? '');
+    $email = mysqli_real_escape_string($conn, $_POST['email'] ?? '');
 
-        if (isset($_POST['sign-up'])) {
-            $email = mysqli_real_escape_string($conn, $_POST['email']);
-            // Check if username or email already exists
-            $check_query = "SELECT * FROM usuarios WHERE usuario = '$usuario' OR email = '$email'";
-            $check_result = mysqli_query($conn, $check_query);
-            if (mysqli_num_rows($check_result) > 0) {
-                $_SESSION['error_message'] = 'Este usuario o correo electrónico ya está registrado. Por favor, utiliza otro.';
-            } else {
-                // Registration
-                $hashed_password = password_hash($contraseña, PASSWORD_DEFAULT);
-                $query = "INSERT INTO usuarios (usuario, email, contraseña) VALUES ('$usuario', '$email', '$hashed_password')";
-                if (mysqli_query($conn, $query)) {
-                    $_SESSION['error_message'] = 'Registro exitoso. Por favor, inicia sesión.';
-                } else {
-                    $_SESSION['error_message'] = 'Error en el registro: ' . mysqli_error($conn);
-                }
-            }
-        } elseif (isset($_POST['sign-in'])) {
-            // Login logic
-            $query = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
-            $result = mysqli_query($conn, $query);
-            if ($row = mysqli_fetch_assoc($result)) {
-                if (password_verify($contraseña, $row['contraseña'])) {
-                    $_SESSION['user_id'] = $row['id'];
-                    $_SESSION['user_usuario'] = $row['usuario'];
-                    header("Location: index.php");
-                    exit();
-                } else {
-                    $_SESSION['error_message'] = 'Contraseña incorrecta.';
-                }
-            } else {
-                $_SESSION['error_message'] = 'Usuario no encontrado.';
-            }
+    if (isset($_POST['sign-up'])) {
+        $exists = mysqli_query($conn, "SELECT 1 FROM usuarios WHERE usuario='$usuario' OR email='$email'");
+        if (mysqli_num_rows($exists)) {
+            $_SESSION['error_message'] = 'Usuario o correo ya registrado.';
+        } else {
+            $hashed_password = password_hash($contraseña, PASSWORD_DEFAULT);
+            $success = mysqli_query($conn, "INSERT INTO usuarios (usuario, email, contraseña) VALUES ('$usuario', '$email', '$hashed_password')");
+            $_SESSION['error_message'] = $success ? 'Registro exitoso. Inicia sesión.' : 'Error en el registro.';
         }
-        header("Location: " . $_SERVER['PHP_SELF']);
-        exit();
     }
+
+    if (isset($_POST['sign-in'])) {
+        $result = mysqli_query($conn, "SELECT * FROM usuarios WHERE usuario='$usuario'");
+        $row = mysqli_fetch_assoc($result);
+        if ($row && password_verify($contraseña, $row['contraseña'])) {
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['user_usuario'] = $row['usuario'];
+            header("Location: index.php");
+            exit();
+        }
+        $_SESSION['error_message'] = $row ? 'Contraseña incorrecta.' : 'Usuario no encontrado.';
+    }
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
 }
 
 mysqli_close($conn);
 ?>
+
 
 
 

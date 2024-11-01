@@ -4,7 +4,7 @@ body{
     grid-template-rows: auto 1fr auto;
 }
 main{
-    padding: 78px 8rem;
+    padding: 78px 8rem 3rem;
 }
 
 .pago_container{
@@ -69,7 +69,7 @@ table{
 
 
 tbody td{
-    padding: 20px;
+    padding: 20px 0;
     font-size: 1rem;
     font-weight: 400;
     text-align: center;
@@ -172,6 +172,7 @@ tfoot td{
     width: 100%;
     
     gap: 1rem;
+    margin-top: .5rem;
 }
 
 .botones button{
@@ -218,7 +219,9 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
-
+tfoot td{
+    font-size: 1rem;
+}
 
 
 
@@ -241,7 +244,7 @@ input[type="number"] {
 
 @media screen and (max-width: 1250px){
     main{
-        padding: 118px 1rem 4rem;
+        padding: 118px 1rem 3rem;
     }
     .tarjetas{
         display: flex;
@@ -250,4 +253,36 @@ input[type="number"] {
     /* .hidden{
         display: none;
     } */
+}
+
+@media screen and (max-width: 800px){
+    .botones{
+        display: grid;
+        grid-template-columns: 1fr ;
+        
+        
+    }
+    
+}
+
+.show {
+    opacity: 1;
+    animation: fade-in-up 1s;
+}
+
+.hidden {
+    opacity: 0;
+    transition: all 1s;
+}
+
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

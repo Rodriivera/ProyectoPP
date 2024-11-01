@@ -56,7 +56,7 @@
         ?>
 
 
-    <div class="producto-container">
+    <div class="producto-container hiddenn">
 
         <div class="producto-imagen" style=" background-image: url('./admin_folder/img_productos/<?php echo $imagen; ?>');"></div>
 
@@ -171,7 +171,7 @@
     
     <!-- <div class="linea"></div> -->
 
-    <div class="producto-descripcion"  onclick="toggleContent()">
+    <div class="producto-descripcion hiddenn"  onclick="toggleContent()">
 
             <div class="descripcion">
 
@@ -190,7 +190,7 @@
 
 </section>
 
-    <section class="slider">
+    <section class="slider hiddenn">
         <span>Productos relacionados</span>
         <div class="swiper">
             <div class="swiper-wrapper">

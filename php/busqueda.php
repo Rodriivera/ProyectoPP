@@ -96,7 +96,7 @@ session_start();
 
     <!-- HTML para la sección de filtros y productos -->
 
-    <section class="filtros-de-busqueda">
+    <section class="filtros-de-busqueda  hidden">
         <form action="busqueda.php" method="GET">
 
                 <div class="dropdown3">
@@ -204,7 +204,7 @@ session_start();
                     ?>
                     
                             <a href="producto.php?id=<?php echo $row['id']; ?>">
-                            <div class="box">
+                            <div class="box hidden">
 
                                 <div class="slide-img">
                                     <img src="./admin_folder/img_productos/<?php echo $image; ?>" alt="<?php echo $name; ?>">

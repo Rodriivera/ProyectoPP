@@ -37,7 +37,7 @@
         <p>Aceptamos varios métodos de pago, incluyendo tarjetas de crédito, débito y opciones de pago online, dependiendo de tu región.</p>
 
         <h2>¿Ofrecen envío gratuito?</h2>
-        <p>Sí, ofrecemos envío gratuito en todas las compras superiores a $10,000. Para compras por debajo de ese monto, el costo de envío dependerá de tu ubicación y será calculado al finalizar la compra.</p>
+        <p>Sí, ofrecemos envío gratuito en todas las compras superiores a $50,000. Para compras por debajo de ese monto, el costo de envío dependerá de tu ubicación y será calculado al finalizar la compra.</p>
 
         <h2>¿Cuánto tarda en llegar mi pedido?</h2>
         <p>Los tiempos de entrega varían según la ubicación. Generalmente, los envíos nacionales tardan entre 3 a 7 días hábiles. Recibirás un número de seguimiento una vez que tu pedido haya sido enviado.</p>

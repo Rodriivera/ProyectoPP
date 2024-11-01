@@ -27,12 +27,12 @@
 
 <section class="info-cuenta">
 
-    <h1>Mi cuenta</h1>
+    <h1 class="hidden">Mi cuenta</h1>
 
     <form action="cuenta.php" method="POST">
 
                 
-                <div class="personal">
+                <div class="personal hidden">
                     <h2>Información personal</h2>
 
                     
@@ -88,7 +88,7 @@
                 </div>
 
                
-                <div class="ubicacion">
+                <div class="ubicacion  hidden">
                     <h2>Ubicación</h2>
 
                     <div class="informacion-ubicacion">
@@ -114,7 +114,7 @@
                 
 
 
-                <div class="botones">
+                <div class="botones  hidden">
                 <?php
                 if (isset($_POST['actualizar'])) {
                     $user_id = $_SESSION['user_id'];

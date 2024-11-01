@@ -31,11 +31,11 @@
 
     <section class="pago_container">
 
-        <h1>Completar la compra</h1>
+        <h1 class="hidden">Completar la compra</h1>
 
         
 
-        <div class="resumen tarjeta">
+        <div class="resumen tarjeta hidden">
 
                 <div class="tarjeta-texto">
                     <h2>Resumen de la compra</h2>
@@ -46,7 +46,7 @@
                     <table class="resumen_tabla">
                         <thead>
                             <tr>
-                                <th class="hidden">Imagen</th>
+                                <th>Imagen</th>
                                 <th>Producto</th>
                                 <th>Cantidad</th>
                                 <th>Precio</th>
@@ -66,7 +66,7 @@
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
                                     ?>
-                                    <td class="hidden"><div class='imagen' style='background-image: url("./admin_folder/img_productos/<?php echo $row['imagen_url']; ?>");'></div></td>
+                                    <td><div class='imagen' style='background-image: url("./admin_folder/img_productos/<?php echo $row['imagen_url']; ?>");'></div></td>
                                     <?php
                                     echo "<td>" . $row['nombre'] . "</td>";
                                     echo "<td>" . $row['cantidad'] . "</td>";
@@ -129,7 +129,7 @@
 
         <form class="tarjetas" action="compra_exitosa.php" method="POST"> 
 
-            <div class="forma_pago tarjeta">
+            <div class="forma_pago tarjeta hidden">
 
                 <div class="tarjeta-texto">
                     <h2>Detalles del pago</h2>
@@ -181,7 +181,7 @@
 
             </div>
 
-            <div class="envio tarjeta">
+            <div class="envio tarjeta hidden">
 
                 <div class="tarjeta-texto">
                     <h2>Detalles del envio</h2>
@@ -253,7 +253,7 @@
 
             <input type="hidden" name="total" value="<?php echo $total; ?>">
             <input type="hidden" name="envio" value="<?php echo $envio; ?>">
-            <div class="botones">
+            <div class="botones hidden">
                 <button type="button" onclick="window.location.href='carrito.php'"><i class="ri-close-circle-line"></i>Cancelar compra</button>
                 <button type="submit"><i class="ri-bank-card-line"></i>Pagar $<?php echo number_format($total, 0); ?></button>
             </div>

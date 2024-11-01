@@ -40,7 +40,7 @@
 
 <main>
 <section class="carrito">
-    <h1>Carrito</h1>
+    <h1 class=" hiddenn">Carrito</h1>
 
 
     
@@ -65,7 +65,7 @@
 
             ?>
             <a href="../php/producto.php?id=<?php echo $row['producto_id']; ?>">
-                <div class="producto">
+                <div class="producto hiddenn">
 
                     <div class="imagen" style="background-image: url('./admin_folder/img_productos/<?php echo $row['imagen_url']; ?>');"></div>
                     <div class="info-producto">
@@ -108,7 +108,7 @@
             <?php } ?>
 
         <?php } else { ?>
-            <div class="no-carrito">
+            <div class="no-carrito hiddenn">
                 <p>No tenés productos en tu carrito.</p>
             </div>
             
@@ -126,7 +126,7 @@
 
     </div>
 
-    <div class="resumen <?php echo ($total == 0) ? 'hidden' : ''; ?>">
+    <div class="hiddenn resumen <?php echo ($total == 0) ? 'hidden' : ''; ?>">
         <span>Total:  $<?php echo number_format($total, 0); ?></span>
         <a href="pago.php">Proceder al pago</a>
     </div>

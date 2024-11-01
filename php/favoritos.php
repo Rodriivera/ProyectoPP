@@ -25,7 +25,7 @@
 
 <main>
 
-<section class="favoritos">
+<section class="favoritos hidden">
     <h1>Favoritos</h1>
 
 
@@ -92,6 +92,9 @@
 
 <?php include 'footer.php'; ?>
 
-<script src="../js/favoritos.js?v=<?php echo time(); ?></script>
 </body>
+
+<script src="../js/favoritos.js"></script>
+
+
 </html>
