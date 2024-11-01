@@ -40,14 +40,14 @@ document.querySelectorAll('.dropdown-list-item').forEach(item => {
 dropdownBtn.onclick = function(){
     
     // rotar icono
-    if(list.classList.contains('show')){
+    if(list.classList.contains('showw')){
     
         icon.style.rotate = '0deg';
     }else{
     icon.style.rotate = '180deg';
     icon.style.transition = '0.3s';
     }      
-    list.classList.toggle('show');
+    list.classList.toggle('showw');
 };
 
 window.onclick = function(e) {
@@ -56,7 +56,7 @@ window.onclick = function(e) {
         e.target.id !== "span" &&
          e.target.id !== "icon"
     ) {
-        list.classList.remove('show');
+        list.classList.remove('showw');
         icon.style.rotate = '0deg';
         icon.style.transition = '0.3s';
     }
