@@ -61,7 +61,7 @@
         $sql = "SELECT producto_id, SUM(cantidad) AS total_cantidad, SUM(precio * cantidad) AS total_ventas 
         FROM ventas
         GROUP BY producto_id
-        ORDER BY total_cantidad DESC
+        ORDER BY total_ventas DESC
         LIMIT 1";
         $result = $conn->query($sql);
         $prodmasvendido = $result->fetch_assoc();
