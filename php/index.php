@@ -1,20 +1,13 @@
 <?php
         include 'db.php';
 
-        
-
         session_start();
 
         // // Obtener información del usuario logeado, si lo hay
         // $user_id = $_SESSION['user_id'];
         // $user_email = $_SESSION['user_email'];
         // $user_is_admin = false;
-
-        
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -231,23 +224,12 @@
 
     </section>
 
-
-
-
-
-
-
-   
-
-
 </main>
 
-
     <?php include 'footer.php'; ?>
-
-
 
     <script src="../js/index.js?v=<?php echo time(); ?>"></script>
     
 </body>
 </html>
+

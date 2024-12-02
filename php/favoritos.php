@@ -81,13 +81,6 @@
 
 </section>
 
-
-
-
-
-
-
-
 </main>
 
 <?php include 'footer.php'; ?>
@@ -95,6 +88,5 @@
 </body>
 
 <script src="../js/favoritos.js"></script>
-
 
 </html>

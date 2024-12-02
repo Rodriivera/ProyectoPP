@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,17 +106,10 @@
                 </div>
             </div>
 
-            
-
-            
-
-
-
             <div class="input_label">   
                 <label>Descripcion</label>
                 <textarea name="descripcion" required></textarea>
             </div>
-
 
             <div>    
                 <label class="file-label">Imagen</label>
@@ -164,10 +154,6 @@
     </div>
     </section>
 
-
-
-
-
-   
 </body>
 </html>
+

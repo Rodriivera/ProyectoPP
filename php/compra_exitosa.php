@@ -82,3 +82,4 @@ $conn->query("DELETE FROM carritos WHERE usuario_id = $userId");
 <script src="../js/compra_exitosa.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>
+

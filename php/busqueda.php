@@ -1,11 +1,6 @@
 <?php
-
 session_start();
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -21,14 +16,9 @@ session_start();
     <title>Aromas</title>
 </head>
 <body>
-
-
-
     <?php include 'header.php'; ?>
 
-
-
-    <main>   
+<main>   
     <?php
 // Detalles de la base de datos
 $host = 'localhost';
@@ -88,10 +78,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 mysqli_close($conn);
 
 ?>
-
-
-
-    <!-- HTML para la sección de filtros y productos -->
+    <!-- sección de filtros y productos -->
 
     <section class="filtros-de-busqueda  hidden">
         <form action="busqueda.php" method="GET">
@@ -137,16 +124,9 @@ mysqli_close($conn);
                                 <a href="busqueda.php?search=<?php echo $search; ?>&category=Accesorios">
                                     <li class="dropdown-list-item3">Accesorios</li>
                                 </a>
-
-
-                            </ul>
-                            
+                            </ul> 
                         </div>
-                        
                     </div>
-
-
-
                 <div class="dropdown2" id="dropdown2">
                     <div id="drop-text2" class="dropdown-text2">
                         <span id="span2">Ordenar por</span>
@@ -161,35 +141,16 @@ mysqli_close($conn);
                         </a>
                     </ul>
                 </div>
-
-
             <input type="hidden" name="search" value="<?php echo $search; ?>">
             <input type="hidden" name="category" value="<?php echo $category; ?>">
-
-
                 <input type="number" id="precio-minimo" name="precio_min" min="0" placeholder="Precio Mínimo" class="rangos-precio"> 
-
-
                 <input type="number" id="precio-maximo" name="precio_max" min="0" placeholder="Precio Máximo" class="rangos-precio">
-
-
             <button type="submit">Filtrar</button>
         </form>
     </section>
 
-            
-
-
-
-
-
-
-
-
             <section id="productos" class="productos">
-                
             <?php
-            
             // mostrar resultados de busqueda
             if (count($results) > 0) {
                 foreach ($results as $row) {
@@ -197,9 +158,7 @@ mysqli_close($conn);
                     $brand = $row['marca'];
                     $price = $row['precio'];
                     $image = $row['imagen_url'];
-
                     ?>
-                    
                             <a href="producto.php?id=<?php echo $row['id']; ?>">
                             <div class="box hidden">
 
@@ -215,30 +174,16 @@ mysqli_close($conn);
                                 </div>
                             </div>
                             </a>
-                
-                        
-
-
-
-
-
                     <?php
                 }
             } else {
                 echo "<h5>No hay resultados para la búsqueda</h5>";
             }
             echo '</section>';
-            
-
             ?>
-
     </main>
-
     <?php include 'footer.php'; ?>
-
-
-
-
     <script src="../js/busqueda.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>
+

@@ -34,8 +34,6 @@
         
     </header>
 
-
-
 <aside>
     <div class="container-admin">
     <a href="../index.php" class="logo"><img src="../../media/Aromas_sf.png" alt="" width="175px"></a>
@@ -126,14 +124,10 @@
                 </div>
             </div>
 
-
-
             <div class="input_label">   
                 <label>Descripcion</label>
                 <textarea name="descripcion"><?php echo htmlspecialchars($descripcion) ?></textarea>
             </div>
-
-
 
             <button id="submit-btn" type="submit">Enviar</button>
 
@@ -142,11 +136,6 @@
     </div>
     </section>
 
-
-
-
-
-
-
 </body>
 </html>
+

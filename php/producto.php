@@ -1,10 +1,6 @@
 <?php
         include 'db.php';
-
         session_start();
-
-        
-
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +27,10 @@
 
 <main>
 
-
 <section class="producto">
 
         
         <?php
-                
-                
                 $id = $_GET['id'];
 
                 $query = "SELECT * FROM productos WHERE id = $id";
@@ -227,16 +220,6 @@
 
 
     </section>
-
-
-    
-
-
-
-
-
-
-
 
 </main>
 
