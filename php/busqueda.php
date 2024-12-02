@@ -30,69 +30,66 @@ session_start();
 
     <main>   
     <?php
-    // bd detalles
-    $host = 'localhost';
-    $dbname = 'aromas2';
-    $username = 'root';
-    $password = '';
+// Detalles de la base de datos
+$host = 'localhost';
+$dbname = 'aromas2';
+$username = 'root';
+$password = '';
 
-    // conectar a la base de datos
-    try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch(PDOException $e) {
-        die("Error connecting to the database: " . $e->getMessage());
-    }
+// Conectar a la base de datos
+$conn = mysqli_connect($host, $username, $password, $dbname);
 
-    // obtener parámetros de búsqueda, categoría, orden y precio
-    $search = isset($_GET['search']) ? trim($_GET['search']) : '';
-    $category = isset($_GET['category']) ? $_GET['category'] : 'Todo';
-    $order = isset($_GET['order']) ? $_GET['order'] : '';
-    $precio_min = isset($_GET['precio_min']) ? (int)$_GET['precio_min'] : 0;
-    $precio_max = isset($_GET['precio_max']) ? (int)$_GET['precio_max'] : 0;
+if (!$conn) {
+    die("Error al conectar a la base de datos: " . mysqli_connect_error());
+}
 
-    // Base de la consulta SQL
-    $sql = "SELECT * FROM productos WHERE (nombre LIKE :search OR marca LIKE :search)";
+// Obtener parámetros de búsqueda, categoría, orden y precio, y limpiar entradas
+$search = isset($_GET['search']) ? mysqli_real_escape_string($conn, trim($_GET['search'])) : '';
+$category = isset($_GET['category']) ? mysqli_real_escape_string($conn, $_GET['category']) : 'Todo';
+$order = isset($_GET['order']) ? mysqli_real_escape_string($conn, $_GET['order']) : '';
+$precio_min = isset($_GET['precio_min']) ? (int)$_GET['precio_min'] : 0;
+$precio_max = isset($_GET['precio_max']) ? (int)$_GET['precio_max'] : 0;
 
-    // Filtra por categoría si se seleccionó alguna
-    if ($category !== 'Todo') {
-        $sql .= " AND categoria = :category";
-    }
+// Construir la consulta SQL
+$sql = "SELECT * FROM productos WHERE (nombre LIKE '%$search%' OR marca LIKE '%$search%')";
 
-    // Aplica el filtro de precio si los valores están presentes
-    if ($precio_min > 0) {
-        $sql .= " AND precio >= :precio_min";
-    }
-    if ($precio_max > 0) {
-        $sql .= " AND precio <= :precio_max";
-    }
+// Filtrar por categoría si se seleccionó alguna
+if ($category !== 'Todo') {
+    $sql .= " AND categoria = '$category'";
+}
 
-    // Ordena si se ha seleccionado un criterio de orden
-    if (!empty($order)) {
-        $sql .= " ORDER BY precio $order";
-    }
+// Filtrar por rango de precios
+if ($precio_min > 0) {
+    $sql .= " AND precio >= $precio_min";
+}
+if ($precio_max > 0) {
+    $sql .= " AND precio <= $precio_max";
+}
 
-    // Preparar la consulta
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':search', "%$search%", PDO::PARAM_STR);
-    if ($category !== 'Todo') {
-        $stmt->bindValue(':category', $category, PDO::PARAM_STR);
-    }
-    if ($precio_min > 0) {
-        $stmt->bindValue(':precio_min', $precio_min, PDO::PARAM_INT);
-    }
-    if ($precio_max > 0) {
-        $stmt->bindValue(':precio_max', $precio_max, PDO::PARAM_INT);
-    }
+// Ordenar si se seleccionó un criterio de orden
+if (!empty($order) && in_array(strtoupper($order), ['ASC', 'DESC'])) {
+    $sql .= " ORDER BY precio $order";
+}
 
-    // Ejecutar la consulta
-    try {
-        $stmt->execute();
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch(PDOException $e) {
-        die("Error executing query: " . $e->getMessage());
-    }
-    ?>
+// Ejecutar la consulta
+$result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    die("Error executing query: " . mysqli_error($conn));
+}
+
+// Obtener resultados
+$results = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $results[] = $row;
+}
+
+// Cerrar conexión
+mysqli_close($conn);
+
+?>
+
+
 
     <!-- HTML para la sección de filtros y productos -->
 

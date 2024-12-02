@@ -126,10 +126,6 @@
                 </div>
             </div>
 
-            
-
-            
-
 
 
             <div class="input_label">   
@@ -138,44 +134,6 @@
             </div>
 
 
-            <!-- <div>    
-                <label class="file-label">Imagen</label>
-                <div id="preview" class="styleimage">
-                    <img src="img_productos/<?php echo $imagen; ?>" style="max-width: 100%;" alt="">
-                </div>
-                <input type="file" id="file" name="imagen" accept="image/*">
-                
-                
-                <script>    
-                    const fileInput = document.getElementById('file');
-                    const previewDiv = document.getElementById('preview');
-
-                    fileInput.addEventListener('change', function(event) {
-                        const file = event.target.files[0];
-                        if (file) {
-                            const reader = new FileReader();
-                            
-                            reader.onload = function(e) {
-                                // Limpiar el div previo
-                                previewDiv.innerHTML = '';
-                                
-                                // Crear una nueva imagen
-                                const img = document.createElement('img');
-                                img.src = e.target.result;
-                                img.alt = 'Previsualización';
-                                img.style.maxWidth = '100%'; // Ajusta el tamaño según sea necesario
-                                
-                                // Añadir la imagen al div de previsualización
-                                previewDiv.appendChild(img);
-                            }
-                            
-                            // Leer el archivo como URL
-                            reader.readAsDataURL(file);
-                        }
-                    });
-                </script> 
-                        
-            </div> -->
 
             <button id="submit-btn" type="submit">Enviar</button>
 

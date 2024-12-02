@@ -1,43 +1,70 @@
 <?php
+// Inicia una sesión para poder usar variables de sesión
 session_start();
+
+// Incluye el archivo de conexión a la base de datos
 include './db.php';
 
-$error_message = $_SESSION['error_message'] ?? '';
+// Obtiene el mensaje de error almacenado en la sesión (si existe)
+$error_message = $_SESSION['error_message'] ?? ''; 
+
+// Elimina el mensaje de error de la sesión para que no se muestre repetidamente
 unset($_SESSION['error_message']);
 
+// Verifica si el método de la solicitud es POST (indica que se envió un formulario)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Obtiene los datos del formulario y los sanitiza para evitar inyecciones SQL
     $usuario = mysqli_real_escape_string($conn, $_POST['usuario'] ?? '');
     $contraseña = mysqli_real_escape_string($conn, $_POST['contraseña'] ?? '');
     $email = mysqli_real_escape_string($conn, $_POST['email'] ?? '');
 
+    // Si se presionó el botón de "registrarse" (sign-up)
     if (isset($_POST['sign-up'])) {
+        // Verifica si ya existe un usuario o correo con los mismos datos en la base de datos
         $exists = mysqli_query($conn, "SELECT 1 FROM usuarios WHERE usuario='$usuario' OR email='$email'");
         if (mysqli_num_rows($exists)) {
+            // Si el usuario o correo ya existe, guarda un mensaje de error en la sesión
             $_SESSION['error_message'] = 'Usuario o correo ya registrado.';
         } else {
+            // Si no existe, encripta la contraseña para almacenarla de forma segura
             $hashed_password = password_hash($contraseña, PASSWORD_DEFAULT);
+
+            // Inserta el nuevo usuario en la base de datos
             $success = mysqli_query($conn, "INSERT INTO usuarios (usuario, email, contraseña) VALUES ('$usuario', '$email', '$hashed_password')");
+
+            // Guarda un mensaje de éxito o error dependiendo del resultado
             $_SESSION['error_message'] = $success ? 'Registro exitoso. Inicia sesión.' : 'Error en el registro.';
         }
     }
 
+    // Si se presionó el botón de "iniciar sesión" (sign-in)
     if (isset($_POST['sign-in'])) {
+        // Busca al usuario en la base de datos por su nombre de usuario
         $result = mysqli_query($conn, "SELECT * FROM usuarios WHERE usuario='$usuario'");
         $row = mysqli_fetch_assoc($result);
+
+        // Si el usuario existe y la contraseña coincide
         if ($row && password_verify($contraseña, $row['contraseña'])) {
+            // Guarda información del usuario en la sesión y redirige al inicio
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['user_usuario'] = $row['usuario'];
             header("Location: index.php");
             exit();
         }
+
+        // Si no coincide la contraseña o el usuario no existe, guarda un mensaje de error
         $_SESSION['error_message'] = $row ? 'Contraseña incorrecta.' : 'Usuario no encontrado.';
     }
+
+    // Redirige al mismo archivo para limpiar los datos del formulario
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }
 
+// Cierra la conexión con la base de datos
 mysqli_close($conn);
 ?>
+
 
 
 
