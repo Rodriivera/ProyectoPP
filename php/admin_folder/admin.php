@@ -164,8 +164,13 @@
             <h2>Configuraciones</h2>
             <form action="admin.php" method="post">
                 <div class="input-label">
-                    <label for="envio">Valor envio</label>
-                    <input min="0" type="number" name="envio" pattern="\d+" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <?php
+                        $sql_envio = "SELECT valor FROM configuraciones WHERE clave = 'valor-envio'";
+                        $result_envio = $conn->query($sql_envio);
+                        $valor_envio = $result_envio->fetch_assoc()['valor'];
+                    ?>
+                    <label for="envio">Valor envio: </label>
+                    <input min="0" type="number" name="envio" pattern="\d+" value="<?php echo $valor_envio; ?>" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                 </div>
 
                 <button type="submit">Guardar</button>
